@@ -1,0 +1,59 @@
+{
+  "short_name": "RCDE Escola",
+  "name": "RCDE Escola Sant Cugat",
+  "description": "RCDE Escola Sant Cugat",
+  "icons": [
+    {
+      "src": "/assets/img/icons/icon-192.webp",
+      "type": "image/webp",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/img/icons/icon-512.webp",
+      "type": "image/webp",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#007cc3",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#007cc3",
+  "shortcuts": [
+    {
+      "name": "RCDE",
+      "short_name": "RCDE",
+      "description": "RCDE",
+      "url": "/rcde",
+      "icons": [{ "src": "/assets/img/icons/icon-192.webp", "sizes": "192x192" }]
+    },
+    {
+      "name": "RCDE Escola",
+      "short_name": "RCDE Escola",
+      "description": "RCDE Escola",
+      "url": "/rcde-escola",
+      "icons": [{ "src": "/assets/img/icons/icon-192.webp", "sizes": "192x192" }]
+    },
+    {
+      "name": "Pericos",
+      "short_name": "Pericos de Sant Cugat",
+      "description": "Pericos de Sant Cugat",
+      "url": "/pericos-de-sant-cugat",
+      "icons": [{ "src": "/assets/img/icons/icon-192.webp", "sizes": "192x192" }]
+    },
+    {
+      "name": "Treballa amb nosaltres",
+      "short_name": "Treballa amb nosaltres",
+      "description": "Treballa amb nosaltres",
+      "url": "/treballa-amb-nosaltres",
+      "icons": [{ "src": "/assets/img/icons/icon-192.webp", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contacte",
+      "short_name": "Contacte",
+      "description": "Contacte",
+      "url": "/contacte",
+      "icons": [{ "src": "/assets/img/icons/icon-192.webp", "sizes": "192x192" }]
+    }
+  ]
+}
