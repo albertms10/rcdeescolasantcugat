@@ -5,20 +5,20 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-function errorHeader(Exception $e = null)
+function error_header(Exception $e = null)
 {
     $message = empty($e) ? 'no_exception_provided' : $e->errorMessage();
     header("Location: https://rcdeescolasantcugat.com/contacte/?res=err&msg=$message");
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    errorHeader();
+    error_header();
     return;
 }
 
-function mailerErrorHeader(PHPMailer $mail, Exception $e = null): string
+function mailer_error(PHPMailer $mail, Exception $e = null): string
 {
-    errorHeader($e ?? new Exception($mail->ErrorInfo));
+    error_header($e ?? new Exception($mail->ErrorInfo));
     return 'Mailer Error' . PHP_EOL . $mail->ErrorInfo;
 }
 
@@ -41,11 +41,11 @@ $_SESSION['nom'] = $_POST['nom'] ?? '';
 $_SESSION['email'] = $_POST['email'] ?? '';
 $_SESSION['missatge'] = $_POST['missatge'] ?? '';
 
-$urlPattern = '/[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&\/=]*)/';
+$url_pattern = '/[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&\/=]*)/';
 
 if (
-    preg_match($urlPattern, $_POST['nom'])
-    || preg_match($urlPattern, $_POST['missatge'])
+    preg_match($url_pattern, $_POST['nom'])
+    || preg_match($url_pattern, $_POST['missatge'])
 ) {
     header('Location: https://rcdeescolasantcugat.com/contacte/?res=invalid&contains-link');
     return;
@@ -92,14 +92,14 @@ $mail->Password = DotEnv::get('MAILER_PASSWORD');
 try {
     $mail->setFrom('webmaster@rcdeescolasantcugat.com', 'RCDE Escola Sant Cugat');
 } catch (Exception $e) {
-    echo mailerErrorHeader($mail, $e);
+    echo mailer_error($mail, $e);
     return;
 }
 
 try {
     $mail->addReplyTo($_POST['email'], $_POST['nom']);
 } catch (Exception $e) {
-    echo mailerErrorHeader($mail, $e);
+    echo mailer_error($mail, $e);
     return;
 }
 
@@ -107,7 +107,7 @@ try {
     $mail->addBCC('fdoming3@xtec.cat', 'Fco. Javier Domínguez');
     $mail->addBCC('albertmasa2@gmail.com', 'Albert Mañosa');
 } catch (Exception $e) {
-    echo mailerErrorHeader($mail, $e);
+    echo mailer_error($mail, $e);
     return;
 }
 
@@ -130,7 +130,7 @@ foreach ($vars as $var => $value) {
 try {
     $mail->msgHTML($body, __DIR__);
 } catch (Exception $e) {
-    echo mailerErrorHeader($mail, $e);
+    echo mailer_error($mail, $e);
     return;
 }
 
@@ -138,11 +138,11 @@ $mail->AltBody = $_POST['missatge'];
 
 try {
     if (!$mail->send()) {
-        echo mailerErrorHeader($mail);
+        echo mailer_error($mail);
         return;
     }
 } catch (Exception $e) {
-    echo mailerErrorHeader($mail, $e);
+    echo mailer_error($mail, $e);
     return;
 }
 

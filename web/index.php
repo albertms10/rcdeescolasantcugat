@@ -49,7 +49,7 @@
             <?php foreach ($noticies as $key => $noticia): ?>
                 <div class="carousel-item carousel<?php echo $key === 0 ? " active" : "" ?>">
                     <?php
-                    $isVideo = false;
+                    $is_video = false;
 
                     if (isset($noticia["nom_imatge"])):
                         $path_img = "/assets/img/noticies/" . $noticia["nom_imatge"] . ".webp";
@@ -62,7 +62,7 @@
                     <?php elseif (isset($noticia["href"])):
                         $matches = [];
                         if (preg_match('/(?<=https:\/\/www\.youtube.com\/watch\?v=).*/', $noticia["href"], $matches)):
-                            $isVideo = true;
+                            $is_video = true;
                             ?>
                             <iframe src="https://www.youtube-nocookie.com/embed/<?php echo $matches[0] ?>?controls=0"
                                     frameborder="0" title="Reproductor YouTube"
@@ -71,7 +71,7 @@
                                     style="width:100%; height:100%"></iframe>
                         <?php endif ?>
                     <?php endif ?>
-                    <?php if (!$isVideo):
+                    <?php if (!$is_video):
                         $href = $noticia["href"] ?? '';
                         $is_hash = !empty($href) && $href[0] !== "#" ?>
                         <a class="carousel-caption js-scroll-trigger"
