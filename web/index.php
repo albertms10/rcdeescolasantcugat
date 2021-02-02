@@ -41,13 +41,13 @@
             <?php if ($noticies = RCDE\Noticia::llistaNoticies()):
                 foreach ($noticies as $key => $noticia): ?>
                     <li data-target="#carouselCaptions"
-                        data-slide-to="<?php echo $key ?>" <?php echo $key === 0 ? "class=\"active\"" : "" ?>></li>
+                        data-slide-to="<?= $key ?>" <?= $key === 0 ? "class=\"active\"" : "" ?>></li>
                 <?php endforeach;
             endif ?>
         </ol>
         <div class="carousel-inner">
             <?php foreach ($noticies as $key => $noticia): ?>
-                <div class="carousel-item carousel<?php echo $key === 0 ? " active" : "" ?>">
+                <div class="carousel-item carousel<?= $key === 0 ? " active" : "" ?>">
                     <?php
                     $is_video = false;
 
@@ -55,16 +55,16 @@
                         $path_img = "/assets/img/noticies/" . $noticia["nom_imatge"] . ".webp";
 
                         if (!file_exists(ROOT . $path_img)) $path_img = "/assets/img/placeholder.webp" ?>
-                        <img src="<?php echo $path_img ?>" class="img-fit transform-center"
-                             width="<?php echo $noticia["img_width"] ?? 500 ?>"
-                             height="<?php echo $noticia["img_height"] ?? 500 ?>"
-                             loading="lazy" alt="<?php echo $noticia["titol_noticia"] ?>">
+                        <img src="<?= $path_img ?>" class="img-fit transform-center"
+                             width="<?= $noticia["img_width"] ?? 500 ?>"
+                             height="<?= $noticia["img_height"] ?? 500 ?>"
+                             loading="lazy" alt="<?= $noticia["titol_noticia"] ?>">
                     <?php elseif (isset($noticia["href"])):
                         $matches = [];
                         if (preg_match('/(?<=https:\/\/www\.youtube.com\/watch\?v=).*/', $noticia["href"], $matches)):
                             $is_video = true;
                             ?>
-                            <iframe src="https://www.youtube-nocookie.com/embed/<?php echo $matches[0] ?>?controls=0"
+                            <iframe src="https://www.youtube-nocookie.com/embed/<?= $matches[0] ?>?controls=0"
                                     frameborder="0" title="Reproductor YouTube"
                                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen loading="lazy"
@@ -75,17 +75,17 @@
                         $href = $noticia["href"] ?? '';
                         $is_hash = !empty($href) && $href[0] !== "#" ?>
                         <a class="carousel-caption js-scroll-trigger"
-                           href="<?php echo $href ?? "#" ?>"
-                            <?php if ($is_hash) echo "rel=\"external noopener nofollow noreferrer\" target=\"_blank\"" ?>
+                           href="<?= $href ?? "#" ?>"
+                            <?= $is_hash ? "rel=\"external noopener nofollow noreferrer\" target=\"_blank\"" : '' ?>
                         >
                             <div class="d-flex align-items-center justify-content-center">
-                                <h2><?php echo $noticia["titol_noticia"] ?></h2>
+                                <h2><?= $noticia["titol_noticia"] ?></h2>
                                 <?php if ($is_hash): ?>
                                     <i class="fas fa-2x fa-external-link-square-alt ml-3"></i>
                                 <?php endif ?>
                             </div>
                             <?php if (isset($noticia["subtitol_noticia"])): ?>
-                                <p class="subtitle"><?php echo $noticia["subtitol_noticia"] ?></p>
+                                <p class="subtitle"><?= $noticia["subtitol_noticia"] ?></p>
                             <?php endif ?>
                         </a>
                     <?php endif ?>
@@ -150,12 +150,12 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <?php if (isset($slogan["icon"])): ?>
-                                <i class="fas fa-4x <?php echo $slogan["icon"] ?> text-primary mb-4"></i>
+                                <i class="fas fa-4x <?= $slogan["icon"] ?> text-primary mb-4"></i>
                             <?php else:
                                 echo file_get_contents($slogan["path"]);
                             endif ?>
-                            <h3 class="h4 mb-2"><?php echo $slogan["title"] ?></h3>
-                            <p class="text-muted mb-0"><?php echo $slogan["description"] ?></p>
+                            <h3 class="h4 mb-2"><?= $slogan["title"] ?></h3>
+                            <p class="text-muted mb-0"><?= $slogan["description"] ?></p>
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -172,14 +172,14 @@
                 foreach ($imatges as $imatge): ?>
                     <div class="col-lg-4 col-sm-6">
                         <a class="portfolio-box"
-                           href="assets/img/galeria/fullsize/<?php echo $imatge["nom_imatge"] ?>.webp">
+                           href="assets/img/galeria/fullsize/<?= $imatge["nom_imatge"] ?>.webp">
                             <img class="img-fluid"
-                                 src="assets/img/galeria/thumbnails/<?php echo $imatge["nom_imatge"] ?>.webp"
+                                 src="assets/img/galeria/thumbnails/<?= $imatge["nom_imatge"] ?>.webp"
                                  width="650" height="434"
-                                 loading="lazy" alt="<?php echo $imatge["titol_imatge"] ?>">
+                                 loading="lazy" alt="<?= $imatge["titol_imatge"] ?>">
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50"><?php echo $imatge["subtitol_imatge"] ?></div>
-                                <div class="project-name"><?php echo $imatge["titol_imatge"] ?></div>
+                                <div class="project-category text-white-50"><?= $imatge["subtitol_imatge"] ?></div>
+                                <div class="project-name"><?= $imatge["titol_imatge"] ?></div>
                             </div>
                         </a>
                     </div>

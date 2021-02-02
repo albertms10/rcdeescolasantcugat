@@ -50,7 +50,7 @@
                     Disculpeu les molèsties.
                     <?php if (isset($_GET['msg'])): ?>
                         <hr>
-                        <pre><?php echo $_GET['msg'] ?></pre>
+                        <pre><?= $_GET['msg'] ?></pre>
                     <?php endif ?>
                     <hr>
                     Torneu-ho a provar o dirigiu-vos a
@@ -62,23 +62,23 @@
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" name="nom" id="nom"
-                           value="<?php echo $_SESSION['nom'] ?? '' ?>"
-                           required <?php if ($res !== 'invalid' && $res !== 'err') echo 'autofocus' ?>
+                           value="<?= $_SESSION['nom'] ?? '' ?>"
+                           required <?= $res !== 'invalid' && $res !== 'err' ? 'autofocus' : '' ?>
                            autocomplete="on">
                     <div class="invalid-feedback">Introduïu un nom de contacte.</div>
                 </div>
                 <div class="form-group">
                     <label for="email">Adreça electrònica</label>
                     <input type="email" class="form-control" name="email" id="email"
-                           value="<?php echo $_SESSION['email'] ?? '' ?>" required autocomplete="on">
+                           value="<?= $_SESSION['email'] ?? '' ?>" required autocomplete="on">
                     <div class="valid-feedback">L’adreça electrònica és vàlida.</div>
                     <div class="invalid-feedback">Introduïu una adreça electrònica de contacte.</div>
                 </div>
                 <div class="form-group">
                     <label for="missatge">Missatge</label>
                     <textarea class="form-control" name="missatge" id="missatge" rows="4" required
-                              <?php if ($res === 'invalid' || $res === 'err') echo 'autofocus' ?>
-                              autocomplete="off"><?php echo $_SESSION['missatge'] ?? '' ?></textarea>
+                              <?= $res === 'invalid' || $res === 'err' ? 'autofocus' : '' ?>
+                              autocomplete="off"><?= $_SESSION['missatge'] ?? '' ?></textarea>
                     <div class="invalid-feedback">Introduïu el missatge.</div>
                 </div>
                 <div class="form-group">

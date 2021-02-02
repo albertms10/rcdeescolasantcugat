@@ -23,7 +23,7 @@
 <link rel="icon" id="favicon" type="image/x-icon" href="/favicon.ico" />
 
 <?php $titol_pagina = RCDE\Navegacio::titolPagina($link_pagina ?? '') ?>
-<title><?php echo $titol_pagina !== "__index__" ? $titol_pagina . " · " : "" ?>RCDE Escola Sant Cugat</title>
+<title><?= $titol_pagina !== "__index__" ? $titol_pagina . " · " : "" ?>RCDE Escola Sant Cugat</title>
 
 <link rel="preload" href="/assets/fonts/CircularStd-Book.otf" as="font" crossorigin>
 <link rel="preload" href="/assets/fonts/CircularStd-Bold.otf" as="font" crossorigin>

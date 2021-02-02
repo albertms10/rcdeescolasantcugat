@@ -5,7 +5,7 @@
          id="mainNav">
         <div class="container" style="min-height:4rem">
             <a class="navbar-brand js-scroll-trigger py-0"
-               href="<?php echo ($link_pagina === "__index__") ? "#page-top" : "/" ?>"
+               href="<?= $link_pagina === "__index__" ? "#page-top" : "/" ?>"
                style="width: 147px; height: 60px;">
                 <div id="navbar-logo"
                      class="translucent position-relative blanc">
@@ -31,9 +31,9 @@
                             if ($is_current)
                                 $titol_pagina = $pagina["titol_pagina"] ?>
                             <li class="nav-item d-flex align-items-center" data-target="#page-top">
-                                <a class="nav-link js-scroll-trigger text-center<?php echo $is_current ? " active" : "" ?>"
-                                   href="<?php echo $is_current ? "#page-top" : "/" . $pagina["link_pagina"] . "/" ?>">
-                                    <?php echo $pagina["titol_pagina"] ?>
+                                <a class="nav-link js-scroll-trigger text-center<?= $is_current ? " active" : "" ?>"
+                                   href="<?= $is_current ? "#page-top" : "/" . $pagina["link_pagina"] . "/" ?>">
+                                    <?= $pagina["titol_pagina"] ?>
                                 </a>
                             </li>
                         <?php endforeach;
@@ -50,14 +50,14 @@
     if (count($pagines_seccions) > 0): ?>
         <div class="nav-scroller position-absolute">
             <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy"
-                 id="subNav" <?php echo $link_pagina !== "__index__" ? "" : "style=\"opacity: 1\"" ?>>
+                 id="subNav" <?= $link_pagina !== "__index__" ? "" : "style=\"opacity: 1\"" ?>>
                 <div class="container">
                     <div class="/*collapse*/ navbar-collapse" id="subNavbarResponsive">
                         <ul class="navbar-nav ml-auto">
                             <?php foreach ($pagines_seccions as $pagina_seccio) : ?>
                                 <li class="nav-item">
                                     <a class="nav-link js-scroll-trigger py-1 px-3"
-                                       href="#<?php echo $pagina_seccio["link_pagina_seccio"] ?>"><?php echo $pagina_seccio["titol_pagina_seccio"] ?></a>
+                                       href="#<?= $pagina_seccio["link_pagina_seccio"] ?>"><?= $pagina_seccio["titol_pagina_seccio"] ?></a>
                                 </li>
                             <?php endforeach ?>
                         </ul>

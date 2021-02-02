@@ -129,17 +129,17 @@
                                 <?php
                                 $nom_entrenador = str_replace(" ", "-", strtolower($entrenador["nom_complet"]));
                                 if (file_exists(ROOT . "/assets/img/entrenadors/" . $nom_entrenador . ".webp")): ?>
-                                    <img src="/assets/img/entrenadors/<?php echo $nom_entrenador ?>.webp"
+                                    <img src="/assets/img/entrenadors/<?= $nom_entrenador ?>.webp"
                                          class="img-fit transform-center rounded-circle"
-                                         width="96" height="96" alt="<?php echo $entrenador["nom_complet"] ?>">
+                                         width="96" height="96" alt="<?= $entrenador["nom_complet"] ?>">
                                 <?php else: ?>
                                     <i class="fas fa-5x fa-user-circle mb-3 mt-2" style="opacity:.5"></i>
                                 <?php endif ?>
                             </div>
-                            <h5><?php echo $entrenador["nom_complet"] ?></h5>
-                            <h6 class="badge badge-pill badge-<?php echo ["warning", "primary", "success"][$entrenador["id_rol_costecnic"] - 1] ?>"><?php echo $entrenador["rol_costecnic"] ?></h6>
+                            <h5><?= $entrenador["nom_complet"] ?></h5>
+                            <h6 class="badge badge-pill badge-<?= ["warning", "primary", "success"][$entrenador["id_rol_costecnic"] - 1] ?>"><?= $entrenador["rol_costecnic"] ?></h6>
                             <p class="text-translucent">
-                                <?php echo ordinal($entrenador["count_temporades"]) ?> temporada
+                                <?= ordinal($entrenador["count_temporades"]) ?> temporada
                             </p>
                         </div>
                     <?php endforeach ?>
@@ -159,30 +159,29 @@
                     <div class="col-lg-6">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h4><?php echo $titular_premsa["text_titular"] ?></h4>
+                                <h4><?= $titular_premsa["text_titular"] ?></h4>
                                 <?php if (isset($titular_premsa["data_titular"])): ?>
-                                    <time datetime="<?php echo $titular_premsa["data_titular"] ?>"><?php echo strftime("%-e %B %Y", strtotime($titular_premsa["data_titular"])) ?></time>
+                                    <time datetime="<?= $titular_premsa["data_titular"] ?>"><?= strftime("%-e %B %Y", strtotime($titular_premsa["data_titular"])) ?></time>
                                 <?php endif ?>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <?php foreach ($urls_titular as $url_titular):
                                     $url_titular = explode(',', $url_titular);
                                     $host_name = str_replace("www.", "", parse_url($url_titular[0], PHP_URL_HOST)) ?>
-                                    <a href="<?php echo $url_titular[0] ?>"
+                                    <a href="<?= $url_titular[0] ?>"
                                        class="list-group-item list-group-item-action d-flex align-items-center"
-                                       title="Visita <?php echo $host_name ?> a una nova finestra o pestanya"
+                                       title="Visita <?= $host_name ?> a una nova finestra o pestanya"
                                        rel="external noopener nofollow noreferrer"
                                        target="_blank">
-                                        <i class="<?php
-                                        echo [
-                                                "youtube.com" => "fab fa-youtube",
-                                                "issuu.com" => "fas fa-book-open",
-                                            ][$host_name] ?? "far fa-newspaper";
-                                        ?> mr-2"></i>
-                                        <?php echo $host_name ?>
+                                        <i class="<?= match ($host_name) {
+                                            "youtube.com" => "fab fa-youtube",
+                                            "issuu.com" => "fas fa-book-open",
+                                            default => "far fa-newspaper",
+                                        } ?> mr-2"></i>
+                                        <?= $host_name ?>
                                         <div class="d-flex align-items-center justify-content-end w-100">
                                             <div class="badge badge-pill badge-secondary small mr-2" style="opacity:.8">
-                                                <?php echo strtoupper($url_titular[1]) ?>
+                                                <?= strtoupper($url_titular[1]) ?>
                                             </div>
                                             <i class="fas fa-external-link-square-alt text-secondary"></i>
                                         </div>

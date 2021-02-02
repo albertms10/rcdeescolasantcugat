@@ -32,11 +32,11 @@
 
             foreach ($socials as $social): ?>
                 <li class="list-group-item">
-                    <a href="https://www.<?php echo $social["link"] ?>"
+                    <a href="https://www.<?= $social["link"] ?>"
                        rel="external noopener nofollow noreferrer" target="_blank">
-                        <i class="<?php echo $social["icon"] ?> fa-2x mb-2"
-                           style="color: <?php echo $social["color"] ?>"></i>
-                        <p class="mb-0"><?php echo $social["title"] ?></p>
+                        <i class="<?= $social["icon"] ?> fa-2x mb-2"
+                           style="color: <?= $social["color"] ?>"></i>
+                        <p class="mb-0"><?= $social["title"] ?></p>
                     </a>
                 </li>
             <?php endforeach ?>
