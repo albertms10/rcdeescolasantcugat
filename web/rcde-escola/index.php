@@ -2,24 +2,24 @@
 <html lang="ca">
 
 <head>
-    <?php define("ROOT", $_SERVER["DOCUMENT_ROOT"]) ?>
-    <?php $link_pagina = "rcde-escola" ?>
+    <?php define('ROOT', $_SERVER['DOCUMENT_ROOT']) ?>
+    <?php $link_pagina = 'rcde-escola' ?>
 
-    <?php include ROOT . "/../src/View/incs-top.php" ?>
+    <?php include ROOT . '/../src/View/incs-top.php' ?>
     <meta name="description" content="RCDE Escola Sant Cugat">
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/rcde-escola/">
 
     <script defer src="/assets/js/nav-headers-list.js"></script>
 
-    <?php require_once ROOT . "/../src/Model/CosTecnic.php" ?>
-    <?php require_once ROOT . "/../src/Model/TitularPremsa.php" ?>
+    <?php require_once ROOT . '/../src/Model/CosTecnic.php' ?>
+    <?php require_once ROOT . '/../src/Model/TitularPremsa.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
-<?php include ROOT . "/../src/View/header.php" ?>
+<?php include ROOT . '/../src/View/header.php' ?>
 
 <main class="text-content">
-    <?php include ROOT . "/../src/View/jumbotron.php" ?>
+    <?php include ROOT . '/../src/View/jumbotron.php' ?>
     <section id="qui-som" class="page-section bg-light">
         <div class="container">
             <h2 class="h1">Qui som</h2>
@@ -121,25 +121,25 @@
             <div class="container mt-4">
                 <div class="row">
                     <?php $entrenadors = array_filter(RCDE\CosTecnic::llistaEntrenadors(), function ($entrenador) {
-                        return !$entrenador["hidden"];
+                        return !$entrenador['hidden'];
                     });
                     foreach ($entrenadors as $key => $entrenador): ?>
                         <div class="col-lg-3 col-md-4 p-3 text-center user-card">
                             <div class="transform-center p-3" style="width:8rem; height:8rem">
                                 <?php
-                                $nom_entrenador = str_replace(" ", "-", strtolower($entrenador["nom_complet"]));
-                                if (file_exists(ROOT . "/assets/img/entrenadors/" . $nom_entrenador . ".webp")): ?>
+                                $nom_entrenador = str_replace(' ', '-', strtolower($entrenador['nom_complet']));
+                                if (file_exists(ROOT . '/assets/img/entrenadors/' . $nom_entrenador . '.webp')): ?>
                                     <img src="/assets/img/entrenadors/<?= $nom_entrenador ?>.webp"
                                          class="img-fit transform-center rounded-circle"
-                                         width="96" height="96" alt="<?= $entrenador["nom_complet"] ?>">
+                                         width="96" height="96" alt="<?= $entrenador['nom_complet'] ?>">
                                 <?php else: ?>
                                     <i class="fas fa-5x fa-user-circle mb-3 mt-2" style="opacity:.5"></i>
                                 <?php endif ?>
                             </div>
-                            <h5><?= $entrenador["nom_complet"] ?></h5>
-                            <h6 class="badge badge-pill badge-<?= ["warning", "primary", "success"][$entrenador["id_rol_costecnic"] - 1] ?>"><?= $entrenador["rol_costecnic"] ?></h6>
+                            <h5><?= $entrenador['nom_complet'] ?></h5>
+                            <h6 class="badge badge-pill badge-<?= ['warning', 'primary', 'success'][$entrenador['id_rol_costecnic'] - 1] ?>"><?= $entrenador['rol_costecnic'] ?></h6>
                             <p class="text-translucent">
-                                <?= ordinal($entrenador["count_temporades"]) ?> temporada
+                                <?= ordinal($entrenador['count_temporades']) ?> temporada
                             </p>
                         </div>
                     <?php endforeach ?>
@@ -155,28 +155,28 @@
                 <?php
                 $titulars_premsa = RCDE\TitularPremsa::llistaTitularsPremsa();
                 foreach ($titulars_premsa as $titular_premsa):
-                    $urls_titular = explode(";", $titular_premsa["urls_titular"]); ?>
+                    $urls_titular = explode(';', $titular_premsa['urls_titular']); ?>
                     <div class="col-lg-6">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <h4><?= $titular_premsa["text_titular"] ?></h4>
-                                <?php if (isset($titular_premsa["data_titular"])): ?>
-                                    <time datetime="<?= $titular_premsa["data_titular"] ?>"><?= strftime("%-e %B %Y", strtotime($titular_premsa["data_titular"])) ?></time>
+                                <h4><?= $titular_premsa['text_titular'] ?></h4>
+                                <?php if (isset($titular_premsa['data_titular'])): ?>
+                                    <time datetime="<?= $titular_premsa['data_titular'] ?>"><?= strftime('%-e %B %Y', strtotime($titular_premsa['data_titular'])) ?></time>
                                 <?php endif ?>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <?php foreach ($urls_titular as $url_titular):
                                     $url_titular = explode(',', $url_titular);
-                                    $host_name = str_replace("www.", "", parse_url($url_titular[0], PHP_URL_HOST)) ?>
+                                    $host_name = str_replace('www.', '', parse_url($url_titular[0], PHP_URL_HOST)) ?>
                                     <a href="<?= $url_titular[0] ?>"
                                        class="list-group-item list-group-item-action d-flex align-items-center"
                                        title="Visita <?= $host_name ?> a una nova finestra o pestanya"
                                        rel="external noopener nofollow noreferrer"
                                        target="_blank">
                                         <i class="<?= match ($host_name) {
-                                            "youtube.com" => "fab fa-youtube",
-                                            "issuu.com" => "fas fa-book-open",
-                                            default => "far fa-newspaper",
+                                            'youtube.com' => 'fab fa-youtube',
+                                            'issuu.com' => 'fas fa-book-open',
+                                            default => 'far fa-newspaper',
                                         } ?> mr-2"></i>
                                         <?= $host_name ?>
                                         <div class="d-flex align-items-center justify-content-end w-100">
@@ -196,7 +196,7 @@
     </section>
 </main>
 
-<?php include ROOT . "/../src/View/footer.php" ?>
+<?php include ROOT . '/../src/View/footer.php' ?>
 
 </body>
 

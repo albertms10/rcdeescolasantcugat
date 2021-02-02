@@ -22,7 +22,7 @@ function mailer_error(PHPMailer $mail, Exception $e = null): string
     return 'Mailer Error' . PHP_EOL . $mail->ErrorInfo;
 }
 
-define("ROOT", $_SERVER["DOCUMENT_ROOT"]);
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 require_once ROOT . '/../vendor/PHPMailer/PHPMailer.php';
 require_once ROOT . '/../vendor/PHPMailer/SMTP.php';
@@ -118,7 +118,7 @@ $body = file_get_contents(ROOT . '/../src/View/email-template.php');
 $vars = [
     'from' => $_POST['nom'],
     'email' => $_POST['email'],
-    'date' => date("Y-m-d H:i"),
+    'date' => date('Y-m-d H:i'),
     'date-format' => strftime('%A, %e %B %Y · %H:%M'),
     'message' => $_POST['missatge']
 ];

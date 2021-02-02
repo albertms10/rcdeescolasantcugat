@@ -4,7 +4,7 @@ namespace RCDE;
 
 use Connexion;
 
-require_once __DIR__ . "/../../config/Connexion.php";
+require_once __DIR__ . '/../../config/Connexion.php';
 
 class Navegacio
 {
@@ -20,13 +20,13 @@ class Navegacio
     public static function llistaPaginesSeccions(string $link_pagina): array
     {
         $connexion = new Connexion();
-        $result = $connexion->prepare("
+        $result = $connexion->prepare('
         SELECT titol_pagina_seccio, link_pagina_seccio, hidden
         FROM pagines_seccions
            INNER JOIN pagines USING(id_pagina)
         WHERE pagines.link_pagina = :l;
-        ");
-        $result->bindParam(":l", $link_pagina);
+        ');
+        $result->bindParam(':l', $link_pagina);
         $result->execute();
         $connexion = null;
         return $result->fetchAll();
@@ -35,8 +35,8 @@ class Navegacio
     public static function titolPagina(string $link_pagina)
     {
         $connexion = new Connexion();
-        $result = $connexion->prepare("SELECT titol_pagina FROM pagines WHERE link_pagina = :l;");
-        $result->bindParam(":l", $link_pagina);
+        $result = $connexion->prepare('SELECT titol_pagina FROM pagines WHERE link_pagina = :l;');
+        $result->bindParam(':l', $link_pagina);
         $result->execute();
         $connexion = null;
         return $result->fetchColumn();

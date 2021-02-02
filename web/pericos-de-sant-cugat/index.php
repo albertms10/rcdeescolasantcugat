@@ -2,10 +2,10 @@
 <html lang="ca">
 
 <head>
-    <?php define("ROOT", $_SERVER["DOCUMENT_ROOT"]) ?>
-    <?php $link_pagina = "pericos-de-sant-cugat" ?>
+    <?php define('ROOT', $_SERVER['DOCUMENT_ROOT']) ?>
+    <?php $link_pagina = 'pericos-de-sant-cugat' ?>
 
-    <?php include ROOT . "/../src/View/incs-top.php" ?>
+    <?php include ROOT . '/../src/View/incs-top.php' ?>
     <meta name="description" content="RCDE Escola Sant Cugat">
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/pericos-de-sant-cugat/">
 
@@ -13,10 +13,10 @@
 </head>
 
 <body id="page-top" data-spy="scroll">
-<?php include ROOT . "/../src/View/header.php" ?>
+<?php include ROOT . '/../src/View/header.php' ?>
 
 <main class="text-content">
-    <?php include ROOT . "/../src/View/jumbotron.php" ?>
+    <?php include ROOT . '/../src/View/jumbotron.php' ?>
     <section id="historia" class="page-section bg-light">
         <div class="container">
             <h2 class="h1">Història</h2>
@@ -70,7 +70,7 @@
     </section>
 </main>
 
-<?php include ROOT . "/../src/View/footer.php" ?>
+<?php include ROOT . '/../src/View/footer.php' ?>
 </body>
 
 </html>

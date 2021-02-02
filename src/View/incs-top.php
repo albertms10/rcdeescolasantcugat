@@ -1,5 +1,5 @@
-<?php require_once ROOT . "/../src/Model/Navegacio.php" ?>
-<?php require_once ROOT . "/../src/Utils/ordinal.php" ?>
+<?php require_once ROOT . '/../src/Model/Navegacio.php' ?>
+<?php require_once ROOT . '/../src/Utils/ordinal.php' ?>
 
 <?php setlocale(LC_TIME, 'ca_ES', 'Catalan_Spain', 'Catalan') ?>
 <?php date_default_timezone_set('Europe/Madrid') ?>
@@ -23,7 +23,7 @@
 <link rel="icon" id="favicon" type="image/x-icon" href="/favicon.ico" />
 
 <?php $titol_pagina = RCDE\Navegacio::titolPagina($link_pagina ?? '') ?>
-<title><?= $titol_pagina !== "__index__" ? $titol_pagina . " · " : "" ?>RCDE Escola Sant Cugat</title>
+<title><?= $titol_pagina !== '__index__' ? $titol_pagina . ' · ' : '' ?>RCDE Escola Sant Cugat</title>
 
 <link rel="preload" href="/assets/fonts/CircularStd-Book.otf" as="font" crossorigin>
 <link rel="preload" href="/assets/fonts/CircularStd-Bold.otf" as="font" crossorigin>

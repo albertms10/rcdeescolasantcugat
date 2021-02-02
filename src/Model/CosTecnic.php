@@ -4,14 +4,14 @@ namespace RCDE;
 
 use Connexion;
 
-require_once __DIR__ . "/../../config/Connexion.php";
+require_once __DIR__ . '/../../config/Connexion.php';
 
 class CosTecnic
 {
     public static function llistaEntrenadors(): array
     {
         $connexion = new Connexion();
-        $result = $connexion->prepare("
+        $result = $connexion->prepare('
         SELECT nom_complet,
                id_rol_costecnic,
                rol_costecnic,
@@ -23,7 +23,7 @@ class CosTecnic
         GROUP BY c.id_costecnic, rc.id_rol_costecnic, cognoms, nom, hidden
         HAVING NOT (MAX(id_temporada) <> (SELECT MAX(id_temporada) FROM temporades) OR hidden)
         ORDER BY rc.id_rol_costecnic DESC, count_temporades DESC, cognoms, nom;
-        ");
+        ');
         $result->execute();
         $connexion = null;
         return $result->fetchAll();
@@ -32,7 +32,7 @@ class CosTecnic
     public static function llistaCompletaEntrenadors(): array
     {
         $connexion = new Connexion();
-        $result = $connexion->prepare("
+        $result = $connexion->prepare('
         SELECT id_costecnic,
                nom_complet,
                rol_costecnic,
@@ -50,7 +50,7 @@ class CosTecnic
                  INNER JOIN rols_costecnic rc USING (id_rol_costecnic)
         GROUP BY c.id_costecnic, rc.id_rol_costecnic, cognoms, nom
         ORDER BY rc.id_rol_costecnic DESC, count_temporades DESC, cognoms, nom;
-        ");
+        ');
         $result->execute();
         $connexion = null;
         return $result->fetchAll();

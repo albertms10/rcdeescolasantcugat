@@ -2,16 +2,16 @@
 <html lang="ca">
 
 <head>
-    <?php define("ROOT", $_SERVER["DOCUMENT_ROOT"]) ?>
-    <?php $link_pagina = "publicitat-i-empresa" ?>
+    <?php define('ROOT', $_SERVER['DOCUMENT_ROOT']) ?>
+    <?php $link_pagina = 'publicitat-i-empresa' ?>
 
-    <?php include ROOT . "/../src/View/incs-top.php" ?>
+    <?php include ROOT . '/../src/View/incs-top.php' ?>
     <meta name="description" content="RCDE Escola Sant Cugat">
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/publicitat-i-empresa/">
 </head>
 
 <body id="page-top" data-spy="scroll">
-<?php include ROOT . "/../src/View/header.php" ?>
+<?php include ROOT . '/../src/View/header.php' ?>
 
 <main>
     <section
@@ -34,7 +34,7 @@
     </section>
 </main>
 
-<?php include ROOT . "/../src/View/footer.php" ?>
+<?php include ROOT . '/../src/View/footer.php' ?>
 </body>
 
 </html>

@@ -11,32 +11,32 @@
             <?php
             $socials = [
                 [
-                    "icon" => "fab fa-facebook",
-                    "title" => "Facebook",
-                    "link" => "facebook.com/RCDEscolaSTC",
-                    "color" => "#3b5998"
+                    'icon' => 'fab fa-facebook',
+                    'title' => 'Facebook',
+                    'link' => 'facebook.com/RCDEscolaSTC',
+                    'color' => '#3b5998'
                 ],
                 [
-                    "icon" => "fab fa-instagram",
-                    "title" => "Instagram",
-                    "link" => "instagram.com/rcdescola_santcugat",
-                    "color" => "#3f729b"
+                    'icon' => 'fab fa-instagram',
+                    'title' => 'Instagram',
+                    'link' => 'instagram.com/rcdescola_santcugat',
+                    'color' => '#3f729b'
                 ],
                 [
-                    "icon" => "fab fa-youtube",
-                    "title" => "YouTube",
-                    "link" => "youtube.com/channel/UCyBL6WE136kShyBpVldvyOg",
-                    "color" => "#c4302b"
+                    'icon' => 'fab fa-youtube',
+                    'title' => 'YouTube',
+                    'link' => 'youtube.com/channel/UCyBL6WE136kShyBpVldvyOg',
+                    'color' => '#c4302b'
                 ],
             ];
 
             foreach ($socials as $social): ?>
                 <li class="list-group-item">
-                    <a href="https://www.<?= $social["link"] ?>"
+                    <a href="https://www.<?= $social['link'] ?>"
                        rel="external noopener nofollow noreferrer" target="_blank">
-                        <i class="<?= $social["icon"] ?> fa-2x mb-2"
-                           style="color: <?= $social["color"] ?>"></i>
-                        <p class="mb-0"><?= $social["title"] ?></p>
+                        <i class="<?= $social['icon'] ?> fa-2x mb-2"
+                           style="color: <?= $social['color'] ?>"></i>
+                        <p class="mb-0"><?= $social['title'] ?></p>
                     </a>
                 </li>
             <?php endforeach ?>
@@ -47,4 +47,4 @@
     </div>
 </footer>
 
-<?php include ROOT . "/../src/View/incs-bottom.php" ?>
+<?php include ROOT . '/../src/View/incs-bottom.php' ?>
