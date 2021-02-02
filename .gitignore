@@ -1,5 +1,6 @@
 /.idea/
 **/vendor/
+**/webfonts/
 
 .env.php
 
