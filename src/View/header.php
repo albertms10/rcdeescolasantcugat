@@ -5,7 +5,7 @@
          id="mainNav">
         <div class="container" style="min-height:4rem">
             <a class="navbar-brand js-scroll-trigger py-0"
-               href="<?= $link_pagina === '__index__' ? '#page-top' : '/' ?>"
+               href="<?= ($link_pagina === '__index__') ? '#page-top' : '/' ?>"
                style="width: 147px; height: 60px;">
                 <div id="navbar-logo"
                      class="translucent position-relative blanc">
@@ -32,7 +32,7 @@
                                 $titol_pagina = $pagina['titol_pagina'] ?>
                             <li class="nav-item d-flex align-items-center" data-target="#page-top">
                                 <a class="nav-link js-scroll-trigger text-center<?= $is_current ? ' active' : '' ?>"
-                                   href="<?= $is_current ? '#page-top' : '/' . $pagina['link_pagina'] . '/' ?>">
+                                   href="<?= $is_current ? '#page-top' : ('/' . $pagina['link_pagina'] . '/') ?>">
                                     <?= $pagina['titol_pagina'] ?>
                                 </a>
                             </li>
@@ -51,7 +51,7 @@
     if (count($pagines_seccions) > 0): ?>
         <div class="nav-scroller position-absolute">
             <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy"
-                 id="subNav" <?= $link_pagina !== '__index__' ? '' : "style=\"opacity: 1\"" ?>>
+                 id="subNav" <?= ($link_pagina !== '__index__') ? '' : 'style="opacity: 1"' ?>>
                 <div class="container">
                     <div class="/*collapse*/ navbar-collapse" id="subNavbarResponsive">
                         <ul class="navbar-nav ml-auto">

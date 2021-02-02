@@ -63,7 +63,7 @@
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" name="nom" id="nom"
                            value="<?= $_SESSION['nom'] ?? '' ?>"
-                           required <?= $res !== 'invalid' && $res !== 'err' ? 'autofocus' : '' ?>
+                           required <?= (($res !== 'invalid') && ($res !== 'err')) ? 'autofocus' : '' ?>
                            autocomplete="on">
                     <div class="invalid-feedback">Introduïu un nom de contacte.</div>
                 </div>
@@ -77,7 +77,7 @@
                 <div class="form-group">
                     <label for="missatge">Missatge</label>
                     <textarea class="form-control" name="missatge" id="missatge" rows="4" required
-                              <?= $res === 'invalid' || $res === 'err' ? 'autofocus' : '' ?>
+                              <?= (($res === 'invalid') || ($res === 'err')) ? 'autofocus' : '' ?>
                               autocomplete="off"><?= $_SESSION['missatge'] ?? '' ?></textarea>
                     <div class="invalid-feedback">Introduïu el missatge.</div>
                 </div>
