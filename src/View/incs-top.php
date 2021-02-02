@@ -33,7 +33,6 @@
 <link rel="preload" href="/assets/css/styles.min.css" as="style">
 <link rel="preload" href="/assets/css/override.min.css" as="style">
 
-<link rel="preload" href="https://kit.fontawesome.com/2e3838eb04.js" crossorigin="anonymous" as="script">
 <link rel="preload" href="/assets/vendor/jquery/jquery.min.js" as="script">
 <link rel="preload" href="/assets/vendor/bootstrap/js/bootstrap-native.min.js" as="script">
 <link rel="preload" href="/assets/vendor/jquery-easing/jquery.easing.min.js" as="script">
@@ -47,7 +46,7 @@
 <link href="/assets/css/override.min.css" rel="stylesheet">
 
 <!-- Font Awesome Icons -->
-<script defer src="https://kit.fontawesome.com/2e3838eb04.js" crossorigin="anonymous"></script>
+<link href="/assets/css/all.min.css" rel="stylesheet">
 
 <!-- Bootstrap core JavaScript -->
 <script defer src="/assets/vendor/jquery/jquery.min.js"></script>
