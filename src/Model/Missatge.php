@@ -4,7 +4,7 @@ namespace RCDE;
 
 use Connexion;
 
-require_once dirname(__FILE__) . "/../../config/Connexion.php";
+require_once __DIR__ . "/../../config/Connexion.php";
 
 class Missatge
 {

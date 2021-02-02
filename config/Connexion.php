@@ -5,7 +5,7 @@ use Arrilot\DotEnv\DotEnv;
 require_once ROOT . '/../vendor/DotEnv/DotEnv.php';
 require_once ROOT . '/../vendor/DotEnv/Exceptions/MissingVariableException.php';
 
-DotEnv::load(dirname(__FILE__) . '/../.env.php');
+DotEnv::load(__DIR__ . '/../.env.php');
 DotEnv::setRequired(['DB_NAME', 'DB_USERNAME', 'DB_PASSWORD']);
 
 class Connexion extends PDO
