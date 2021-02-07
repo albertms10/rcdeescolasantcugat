@@ -1,4 +1,4 @@
-$("#galeria").magnificPopup({
+$("#portfolio").magnificPopup({
     delegate: "a",
     type: "image",
     tLoading: "S’està carregant la imatge #%curr%...",
