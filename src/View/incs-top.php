@@ -38,8 +38,6 @@ if ($filtre_pagines === 1) $titol_pagina = $filtre_pagines[0]; ?>
 <link rel="preload" href="/assets/fonts/CircularStd-Bold.otf" as="font" crossorigin>
 <link rel="preload" href="/assets/fonts/CircularStd-Black.otf" as="font" crossorigin>
 
-<link rel="preload" href="/assets/vendor/magnific-popup/magnific-popup.css" as="style">
-<link rel="preload" href="/assets/css/styles.min.css" as="style">
 <link rel="preload" href="/assets/css/override.min.css" as="style">
 
 <link rel="preload" href="/assets/vendor/jquery/jquery.min.js" as="script">
@@ -47,8 +45,6 @@ if ($filtre_pagines === 1) $titol_pagina = $filtre_pagines[0]; ?>
 <link rel="preload" href="/assets/vendor/jquery-easing/jquery.easing.min.js" as="script">
 <link rel="preload" href="/assets/vendor/magnific-popup/jquery.magnific-popup.min.js" as="script">
 
-<!-- Plugin CSS -->
-<link href="/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
 <!-- Theme CSS - Includes Bootstrap -->
 <link href="/assets/css/styles.min.css" rel="stylesheet">
