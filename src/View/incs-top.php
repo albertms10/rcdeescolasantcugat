@@ -51,23 +51,6 @@ if ($filtre_pagines === 1) $titol_pagina = $filtre_pagines[0]; ?>
 <link href="/assets/css/override.min.css" rel="stylesheet">
 
 <script>
-    if ("loading" in HTMLIFrameElement.prototype) {
-        const iframes = document.querySelectorAll("iframe[loading=\"lazy\"]");
-
-        iframes.forEach((iframe) => {
-            iframe.src = iframe.dataset.src;
-        });
-
-    } else {
-        // Dynamically import the LazySizes library
-        const script = document.createElement("script");
-        script.src =
-            "https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js";
-        document.body.appendChild(script);
-    }
-</script>
-
-<script>
     function deferCSS(href) {
         const deferredLink = document.createElement("link");
         deferredLink.rel = "stylesheet";

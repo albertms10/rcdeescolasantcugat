@@ -37,7 +37,7 @@ send_mail(
     $subject = 'Nou missatge de contacte',
     $message = $_POST['missatge'],
     $bccs = [
-        // ['address' => 'fdoming3@xtec.cat', 'name' => 'Fco. Javier Domínguez'],
+        ['address' => 'fdoming3@xtec.cat', 'name' => 'Fco. Javier Domínguez'],
         ['address' => 'albertmasa2@gmail.com', 'name' => 'Albert Mañosa'],
     ],
     $template = 'contact',
