@@ -2,24 +2,16 @@
 
 namespace RCDE;
 
-use Connexion;
-
-require_once __DIR__ . '/../../config/Connexion.php';
-
 class Noticia
 {
-    public static function llistaNoticies(): array
-    {
-        $connexion = new Connexion();
-        $result = $connexion->prepare('
-        SELECT *
-        FROM noticies
-        WHERE IFNULL(data_inici, NOW()) <= NOW()
-        AND IFNULL(data_final, NOW()) >= NOW()
-        ORDER BY ordre;
-        ');
-        $result->execute();
-        $connexion = null;
-        return $result->fetchAll();
-    }
+    public int $id_noticia;
+    public string $titol_noticia;
+    public ?string $subtitol_noticia;
+    public ?string $nom_imatge;
+    public ?int $img_width;
+    public ?int $img_height;
+    public ?string $data_inici;
+    public ?string $data_final;
+    public ?string $href;
+    public int $ordre;
 }

@@ -2,29 +2,18 @@
 
 namespace RCDE;
 
-use Connexion;
-
-require_once __DIR__ . '/../../config/Connexion.php';
+use JetBrains\PhpStorm\Pure;
 
 class TitularPremsa
 {
-    public static function llistaTitularsPremsa(): array
+    public int $id_titular;
+    public string $text_titular;
+    public string $data_titular;
+
+    private string $urls_titular;
+
+    #[Pure] public function getUrls(): false|array
     {
-        $connexion = new Connexion();
-        $result = $connexion->prepare("
-        SELECT text_titular,
-               data_titular,
-               GROUP_CONCAT(
-                       DISTINCT CONCAT(url_titular, ',', id_idioma)
-                       SEPARATOR ';'
-                   ) AS urls_titular
-        FROM titulars_premsa AS tp
-                 INNER JOIN url_titulars_premsa USING (id_titular)
-        GROUP BY tp.id_titular, data_titular
-        ORDER BY data_titular DESC;
-        ");
-        $result->execute();
-        $connexion = null;
-        return $result->fetchAll();
+        return explode(';', $this->urls_titular);
     }
 }

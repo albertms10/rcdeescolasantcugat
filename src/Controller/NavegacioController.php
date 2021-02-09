@@ -3,10 +3,13 @@
 namespace RCDE;
 
 use Connexion;
+use PDO;
 
 require_once __DIR__ . '/../../config/Connexion.php';
+require_once __DIR__ . '/../Model/Pagina.php';
+require_once __DIR__ . '/../Model/PaginaSeccio.php';
 
-class Navegacio
+class NavegacioController
 {
     public static function llistaPagines(): array
     {
@@ -14,7 +17,7 @@ class Navegacio
         $result = $connexion->prepare("SELECT * FROM pagines WHERE titol_pagina <> '__index__';");
         $result->execute();
         $connexion = null;
-        return $result->fetchAll();
+        return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\Pagina');
     }
 
     public static function llistaPaginesSeccions(string $link_pagina): array
@@ -29,16 +32,6 @@ class Navegacio
         $result->bindParam(':l', $link_pagina);
         $result->execute();
         $connexion = null;
-        return $result->fetchAll();
-    }
-
-    public static function titolPagina(string $link_pagina)
-    {
-        $connexion = new Connexion();
-        $result = $connexion->prepare('SELECT titol_pagina FROM pagines WHERE link_pagina = :l;');
-        $result->bindParam(':l', $link_pagina);
-        $result->execute();
-        $connexion = null;
-        return $result->fetchColumn();
+        return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\PaginaSeccio');
     }
 }
