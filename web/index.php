@@ -27,9 +27,9 @@
     <script defer src="/assets/js/home.js"></script>
     <script defer src="/assets/js/make-navbar-translucent.js"></script>
 
-    <?php require_once ROOT . '/../src/Model/Navegacio.php' ?>
-    <?php require_once ROOT . '/../src/Model/Noticia.php' ?>
-    <?php require_once ROOT . '/../src/Model/Galeria.php' ?>
+    <?php require_once ROOT . '/../src/Controller/NavegacioController.php' ?>
+    <?php require_once ROOT . '/../src/Controller/NoticiaController.php' ?>
+    <?php require_once ROOT . '/../src/Controller/ImatgeGaleriaController.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -38,7 +38,7 @@
 <main class="mt-0">
     <div id="carouselCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <?php if ($noticies = RCDE\Noticia::llistaNoticies()):
+            <?php if ($noticies = RCDE\NoticiaController::llistaNoticies()):
                 foreach ($noticies as $key => $noticia): ?>
                     <li data-target="#carouselCaptions"
                         data-slide-to="<?= $key ?>" <?= ($key === 0) ? 'class="active"' : '' ?>></li>
@@ -51,17 +51,17 @@
                     <?php
                     $is_video = false;
 
-                    if (isset($noticia['nom_imatge'])):
-                        $path_img = '/assets/img/noticies/' . $noticia['nom_imatge'] . '.webp';
+                    if (isset($noticia->nom_imatge)):
+                        $path_img = "/assets/img/noticies/$noticia->nom_imatge.webp";
 
                         if (!file_exists(ROOT . $path_img)) $path_img = '/assets/img/placeholder.webp' ?>
                         <img src="<?= $path_img ?>" class="img-fit transform-center"
-                             width="<?= $noticia['img_width'] ?? 500 ?>"
-                             height="<?= $noticia['img_height'] ?? 500 ?>"
-                             loading="lazy" alt="<?= $noticia['titol_noticia'] ?>">
-                    <?php elseif (isset($noticia['href'])):
+                             width="<?= $noticia->img_width ?? 500 ?>"
+                             height="<?= $noticia->img_height ?? 500 ?>"
+                             loading="lazy" alt="<?= $noticia->titol_noticia ?>">
+                    <?php elseif (isset($noticia->href)):
                         $matches = [];
-                        if (preg_match('/(?<=https:\/\/www\.youtube.com\/watch\?v=).*/', $noticia['href'], $matches)):
+                        if (preg_match('/(?<=https:\/\/www\.youtube.com\/watch\?v=).*/', $noticia->href, $matches)):
                             $is_video = true;
                             ?>
                             <iframe src="https://www.youtube-nocookie.com/embed/<?= $matches[0] ?>?controls=0"
@@ -72,20 +72,20 @@
                         <?php endif ?>
                     <?php endif ?>
                     <?php if (!$is_video):
-                        $href = $noticia['href'] ?? '';
+                        $href = $noticia->href ?? '';
                         $is_hash = !empty($href) && ($href[0] !== '#') ?>
                         <a class="carousel-caption js-scroll-trigger"
                            href="<?= $href ?? '#' ?>"
                             <?= $is_hash ? 'rel="external noopener nofollow noreferrer" target="_blank"' : '' ?>
                         >
                             <div class="d-flex align-items-center justify-content-center">
-                                <h2><?= $noticia['titol_noticia'] ?></h2>
+                                <h2><?= $noticia->titol_noticia ?></h2>
                                 <?php if ($is_hash): ?>
                                     <i class="fas fa-2x fa-external-link-square-alt ml-3"></i>
                                 <?php endif ?>
                             </div>
-                            <?php if (isset($noticia['subtitol_noticia'])): ?>
-                                <p class="subtitle"><?= $noticia['subtitol_noticia'] ?></p>
+                            <?php if (isset($noticia->subtitol_noticia)): ?>
+                                <p class="subtitle"><?= $noticia->subtitol_noticia ?></p>
                             <?php endif ?>
                         </a>
                     <?php endif ?>
@@ -168,18 +168,18 @@
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <?php
-                $imatges = RCDE\Galeria::llistaImatgesVisibles();
+                $imatges = RCDE\ImatgeGaleriaController::llistaImatgesVisibles();
                 foreach ($imatges as $imatge): ?>
                     <div class="col-lg-4 col-sm-6">
                         <a class="portfolio-box"
-                           href="assets/img/galeria/fullsize/<?= $imatge['nom_imatge'] ?>.webp">
+                           href="assets/img/galeria/fullsize/<?= $imatge->nom_imatge ?>.webp">
                             <img class="img-fluid"
-                                 src="assets/img/galeria/thumbnails/<?= $imatge['nom_imatge'] ?>.webp"
+                                 src="assets/img/galeria/thumbnails/<?= $imatge->nom_imatge ?>.webp"
                                  width="650" height="434"
-                                 loading="lazy" alt="<?= $imatge['titol_imatge'] ?>">
+                                 loading="lazy" alt="<?= $imatge->titol_imatge ?>">
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50"><?= $imatge['subtitol_imatge'] ?></div>
-                                <div class="project-name"><?= $imatge['titol_imatge'] ?></div>
+                                <div class="project-category text-white-50"><?= $imatge->subtitol_imatge ?></div>
+                                <div class="project-name"><?= $imatge->titol_imatge ?></div>
                             </div>
                         </a>
                     </div>

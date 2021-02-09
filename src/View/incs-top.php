@@ -1,4 +1,4 @@
-<?php require_once ROOT . '/../src/Model/Navegacio.php' ?>
+<?php require_once ROOT . '/../src/Controller/NavegacioController.php' ?>
 <?php require_once ROOT . '/../src/Utils/ordinal.php' ?>
 
 <?php setlocale(LC_TIME, 'ca_ES', 'Catalan_Spain', 'Catalan') ?>
@@ -24,7 +24,14 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" id="favicon" type="image/x-icon" href="/favicon.ico" />
 
-<?php $titol_pagina = RCDE\Navegacio::titolPagina($link_pagina ?? '') ?>
+<?php
+$link_pagina ??= '';
+
+$pagines = RCDE\NavegacioController::llistaPagines();
+$filtre_pagines = array_filter($pagines, fn($pagina) => ($pagina->link_pagina === $link_pagina));
+
+$titol_pagina = '__index__';
+if ($filtre_pagines === 1) $titol_pagina = $filtre_pagines[0]; ?>
 <title><?= ($titol_pagina !== '__index__') ? ($titol_pagina . ' · ') : '' ?>RCDE Escola Sant Cugat</title>
 
 <link rel="preload" href="/assets/fonts/CircularStd-Book.otf" as="font" crossorigin>
