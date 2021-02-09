@@ -64,10 +64,10 @@
                         if (preg_match('/(?<=https:\/\/www\.youtube.com\/watch\?v=).*/', $noticia->href, $matches)):
                             $is_video = true;
                             ?>
-                            <iframe src="https://www.youtube-nocookie.com/embed/<?= $matches[0] ?>?controls=0"
+                            <iframe data-src="https://www.youtube-nocookie.com/embed/<?= $matches[0] ?>?controls=0"
                                     frameborder="0" title="Reproductor YouTube"
                                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen loading="lazy"
+                                    allowfullscreen class="lazyload" loading="lazy"
                                     style="width:100%; height:100%"></iframe>
                         <?php endif ?>
                     <?php endif ?>
@@ -212,7 +212,7 @@
                         'city' => 'Sant Cugat del Vallès',
                         'province' => 'Barcelona',
                         'url' => 'https://goo.gl/maps/pJQAbmjXpnCA5FCJ9',
-                        'gmaps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5977.797475239936!2d2.059193!3d41.484795!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2696dc691250f0e!2sZEM%20La%20Guinardera!5e0!3m2!1sca!2ses!4v1582883697066!5m2!1sca!2ses" width="100%" height="300" frameborder="0" title="Reproductor YouTube" style="border:0;"></iframe>'
+                        'gmaps' => '<iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5977.797475239936!2d2.059193!3d41.484795!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2696dc691250f0e!2sZEM%20La%20Guinardera!5e0!3m2!1sca!2ses!4v1582883697066!5m2!1sca!2ses" width="100%" height="300" frameborder="0" class="lazyload" loading="lazy" style="border:0;"></iframe>'
                     ];
                     include ROOT . '/../src/View/location-card.php' ?>
                     <div class="text-center mt-4">
@@ -236,7 +236,7 @@
                         'city' => 'Sant Cugat del Vallès',
                         'province' => 'Barcelona',
                         'url' => 'https://goo.gl/maps/LFTwyNjQUMwb6ENY9',
-                        'gmaps' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.4110262637205!2d2.0778853152734262!3d41.47368797925629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496c4bf966d91%3A0x2da9607bcad9d9da!2sCarrer%20de%20Sant%20Dom%C3%A8nec%2C%2034%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1582883468656!5m2!1sca!2ses" width="100%" height="300" frameborder="0" title="Reproductor YouTube" style="border:0;"></iframe>'
+                        'gmaps' => '<iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.4110262637205!2d2.0778853152734262!3d41.47368797925629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496c4bf966d91%3A0x2da9607bcad9d9da!2sCarrer%20de%20Sant%20Dom%C3%A8nec%2C%2034%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1582883468656!5m2!1sca!2ses" width="100%" height="300" frameborder="0" class="lazyload" loading="lazy" style="border:0;"></iframe>'
                     ];
                     include ROOT . '/../src/View/location-card.php' ?>
                     <div class="text-center mt-4">

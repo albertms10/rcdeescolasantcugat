@@ -42,10 +42,10 @@
                        activitats que el Club posava a l’abast.</p>
 
                     <div class="rounded mt-2 mb-2 overflow-hidden" style="height:32rem">
-                        <iframe src="https://www.youtube-nocookie.com/embed/ZaP-lZgY1UQ?controls=0"
+                        <iframe data-src="https://www.youtube-nocookie.com/embed/ZaP-lZgY1UQ?controls=0"
                                 frameborder="0" title="Reproductor YouTube"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen loading="lazy"
+                                allowfullscreen class="lazyload" loading="lazy"
                                 style="width:100%; height:100%"></iframe>
                     </div>
 
