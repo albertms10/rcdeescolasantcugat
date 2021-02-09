@@ -13,14 +13,11 @@ class NoticiaController
     public static function llistaNoticies(): array
     {
         $connexion = new Connexion();
-        $result = $connexion->prepare('
-        SELECT *
-        FROM noticies
-        WHERE IFNULL(data_inici, NOW()) <= NOW()
-        AND IFNULL(data_final, NOW()) >= NOW()
-        ORDER BY ordre;
-        ');
+
+        $query = file_get_contents(__DIR__ . '/../Queries/select__noticies.sql');
+        $result = $connexion->prepare($query);
         $result->execute();
+
         $connexion = null;
         return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\Noticia');
     }

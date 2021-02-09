@@ -14,8 +14,11 @@ class NavegacioController
     public static function llistaPagines(): array
     {
         $connexion = new Connexion();
-        $result = $connexion->prepare("SELECT * FROM pagines WHERE titol_pagina <> '__index__';");
+
+        $query = file_get_contents(__DIR__ . '/../Queries/select__pagines.sql');
+        $result = $connexion->prepare($query);
         $result->execute();
+
         $connexion = null;
         return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\Pagina');
     }
@@ -23,14 +26,12 @@ class NavegacioController
     public static function llistaPaginesSeccions(string $link_pagina): array
     {
         $connexion = new Connexion();
-        $result = $connexion->prepare('
-        SELECT titol_pagina_seccio, link_pagina_seccio, hidden
-        FROM pagines_seccions
-           INNER JOIN pagines USING(id_pagina)
-        WHERE pagines.link_pagina = :l;
-        ');
+
+        $query = file_get_contents(__DIR__ . '/../Queries/select__pagines_seccions.sql');
+        $result = $connexion->prepare($query);
         $result->bindParam(':l', $link_pagina);
         $result->execute();
+
         $connexion = null;
         return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\PaginaSeccio');
     }

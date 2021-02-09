@@ -13,8 +13,11 @@ class ImatgeGaleriaController
     public static function llistaImatgesVisibles(): array
     {
         $connexion = new Connexion();
-        $result = $connexion->prepare('SELECT * FROM imatges_galeria WHERE NOT hidden;');
+
+        $query = file_get_contents(__DIR__ . '/../Queries/select__imatges_visibles.sql');
+        $result = $connexion->prepare($query);
         $result->execute();
+
         $connexion = null;
         return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\ImatgeGaleria');
     }
