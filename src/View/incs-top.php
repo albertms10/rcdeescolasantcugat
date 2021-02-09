@@ -7,8 +7,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
 
+<meta property="description" content="El millor complement per a la formació dels teus fills. Vols fer una prova?" />
+
 <meta property="og:title" content="RCDE Escola Sant Cugat" />
-<meta property="og:description" content="RCDE Escola Sant Cugat" />
+<meta property="og:description" content="El millor complement per a la formació dels teus fills. Vols fer una prova?" />
 <meta property="og:url" content="https://www.rcdeescolasantcugat.com/" />
 <meta property="og:locale" content="ca_ES" />
 <meta property="og:image" content="" />
