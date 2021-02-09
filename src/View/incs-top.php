@@ -47,8 +47,42 @@
 <link href="/assets/css/styles.min.css" rel="stylesheet">
 <link href="/assets/css/override.min.css" rel="stylesheet">
 
-<!-- Font Awesome Icons -->
-<link href="/assets/css/all.min.css" rel="stylesheet">
+<script>
+    if ("loading" in HTMLIFrameElement.prototype) {
+        const iframes = document.querySelectorAll("iframe[loading=\"lazy\"]");
+
+        iframes.forEach((iframe) => {
+            iframe.src = iframe.dataset.src;
+        });
+
+    } else {
+        // Dynamically import the LazySizes library
+        const script = document.createElement("script");
+        script.src =
+            "https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes.min.js";
+        document.body.appendChild(script);
+    }
+</script>
+
+<script>
+    function deferCSS(href) {
+        const deferredLink = document.createElement("link");
+        deferredLink.rel = "stylesheet";
+        deferredLink.href = href;
+        deferredLink.type = "text/css";
+
+        const firstLink = document.getElementsByTagName("link")[0];
+        firstLink.parentNode.insertBefore(deferredLink, firstLink);
+    }
+
+    deferCSS("/assets/css/all.min.css");
+    deferCSS("/assets/vendor/magnific-popup/magnific-popup.css");
+</script>
+
+<noscript>
+    <link href="/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/css/all.min.css" rel="stylesheet">
+</noscript>
 
 <!-- Bootstrap core JavaScript -->
 <script defer src="/assets/vendor/jquery/jquery.min.js"></script>
