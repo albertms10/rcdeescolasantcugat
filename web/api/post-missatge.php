@@ -19,12 +19,7 @@ $_SESSION['nom'] = $_POST['nom'] ?? '';
 $_SESSION['email'] = $_POST['email'] ?? '';
 $_SESSION['missatge'] = $_POST['missatge'] ?? '';
 
-$url_pattern = '/[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&\/=]*)/';
-
-if (
-    preg_match($url_pattern, $_POST['nom'])
-    || preg_match($url_pattern, $_POST['missatge'])
-) {
+if (check_if_email([$_POST['nom'], $_POST['missatge']])) {
     header("Location: $location?res=invalid&contains-link");
     return;
 }
