@@ -30,6 +30,9 @@
     <?php require_once ROOT . '/../src/Controller/NavegacioController.php' ?>
     <?php require_once ROOT . '/../src/Controller/NoticiaController.php' ?>
     <?php require_once ROOT . '/../src/Controller/ImatgeGaleriaController.php' ?>
+    <?php require_once ROOT . '/../src/Model/Slogan.php' ?>
+    <?php require_once ROOT . '/../src/Model/Location.php' ?>
+    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -124,38 +127,38 @@
             <div class="row">
                 <?php
                 $slogans = [
-                    [
-                        'icon' => 'fa-gem',
-                        'title' => 'Personalització i experiència',
-                        'description' => 'Deu anys de bona feina a Sant Cugat'
-                    ],
-                    [
-                        'icon' => 'fa-heart',
-                        'title' => 'Ambient familiar',
-                        'description' => 'El context ideal per als infants'
-                    ],
-                    [
-                        'path' => ROOT . '/assets/img/logo/perico-rcde.svg',
-                        'title' => 'ADN Perico',
-                        'description' => 'Esperit de lluita i orgull blanc-i-blau'
-                    ],
-                    [
-                        'icon' => 'fa-globe-europe',
-                        'title' => 'Connexió RCDE',
-                        'description' => 'Jornades i trobades amb les RCDE Academy i RCDE escoles'
-                    ]
+                    new RCDE\Slogan(
+                        title: 'Personalització i experiència',
+                        description: 'Deu anys de bona feina a Sant Cugat',
+                        fa_icon: 'fa-gem',
+                    ),
+                    new RCDE\Slogan(
+                        title: 'Ambient familiar',
+                        description: 'El context ideal per als infants',
+                        fa_icon: 'fa-heart',
+                    ),
+                    new RCDE\Slogan(
+                        title: 'ADN Perico',
+                        description: 'Esperit de lluita i orgull blanc-i-blau',
+                        icon_filename: ROOT . '/assets/img/logo/perico-rcde.svg',
+                    ),
+                    new RCDE\Slogan(
+                        title: 'Connexió RCDE',
+                        description: 'Jornades i trobades amb les RCDE Academy i RCDE escoles',
+                        fa_icon: 'fa-globe-europe',
+                    )
                 ];
 
                 foreach ($slogans as $slogan): ?>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <?php if (isset($slogan['icon'])): ?>
-                                <i class="fas fa-4x <?= $slogan['icon'] ?> text-primary mb-4"></i>
-                            <?php else:
-                                echo file_get_contents($slogan['path']);
+                            <?php if (isset($slogan->fa_icon)): ?>
+                                <i class="fas fa-4x <?= $slogan->fa_icon ?> text-primary mb-4"></i>
+                            <?php elseif (isset($slogan->icon_filename)):
+                                echo file_get_contents($slogan->icon_filename);
                             endif ?>
-                            <h3 class="h4 mb-2"><?= $slogan['title'] ?></h3>
-                            <p class="text-muted mb-0"><?= $slogan['description'] ?></p>
+                            <h3 class="h4 mb-2"><?= $slogan->title ?></h3>
+                            <p class="text-muted mb-0"><?= $slogan->description ?></p>
                         </div>
                     </div>
                 <?php endforeach ?>
@@ -206,20 +209,20 @@
                         </p>
                     </div>
                     <?php
-                    $location = [
-                        'address' => 'Avinguda de la Guinardera',
-                        'zip' => '08174',
-                        'city' => 'Sant Cugat del Vallès',
-                        'province' => 'Barcelona',
-                        'url' => 'https://goo.gl/maps/pJQAbmjXpnCA5FCJ9',
-                        'gmaps' => '<iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5977.797475239936!2d2.059193!3d41.484795!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2696dc691250f0e!2sZEM%20La%20Guinardera!5e0!3m2!1sca!2ses!4v1582883697066!5m2!1sca!2ses" width="100%" height="300" frameborder="0" class="lazyload" loading="lazy" style="border:0;"></iframe>'
-                    ];
+                    $location = new RCDE\Location(
+                        address: 'Avinguda de la Guinardera',
+                        zip: '08174',
+                        city: 'Sant Cugat del Vallès',
+                        province: 'Barcelona',
+                        url: 'https://goo.gl/maps/pJQAbmjXpnCA5FCJ9',
+                        gmaps: '<iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5977.797475239936!2d2.059193!3d41.484795!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2696dc691250f0e!2sZEM%20La%20Guinardera!5e0!3m2!1sca!2ses!4v1582883697066!5m2!1sca!2ses" width="100%" height="300" frameborder="0" class="lazyload" loading="lazy" style="border:0;"></iframe>',
+                    );
                     include ROOT . '/../src/View/location-card.php' ?>
                     <div class="text-center mt-4">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <?php $address = ['user' => 'administracio', 'domain' => 'rcdeescolasantcugat.com'];
+                        <?php $address = new RCDE\EmailAddress(user: 'administracio', domain: 'rcdeescolasantcugat.com');
                         include ROOT . '/../src/View/email-address.php' ?>
-                        <?php $address = ['user' => 'direcciotecnica', 'domain' => 'rcdeescolasantcugat.com'];
+                        <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica', domain: 'rcdeescolasantcugat.com');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
                 </div>
@@ -229,19 +232,19 @@
                         <hr class="divider my-4">
                     </div>
                     <?php
-                    $location = [
-                        'address' => 'Carrer de Sant Domènech',
-                        'number' => '34, baixos dreta',
-                        'zip' => '08172',
-                        'city' => 'Sant Cugat del Vallès',
-                        'province' => 'Barcelona',
-                        'url' => 'https://goo.gl/maps/LFTwyNjQUMwb6ENY9',
-                        'gmaps' => '<iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.4110262637205!2d2.0778853152734262!3d41.47368797925629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496c4bf966d91%3A0x2da9607bcad9d9da!2sCarrer%20de%20Sant%20Dom%C3%A8nec%2C%2034%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1582883468656!5m2!1sca!2ses" width="100%" height="300" frameborder="0" class="lazyload" loading="lazy" style="border:0;"></iframe>'
-                    ];
+                    $location = new RCDE\Location(
+                        address: 'Carrer de Sant Domènech',
+                        zip: '08172',
+                        city: 'Sant Cugat del Vallès',
+                        province: 'Barcelona',
+                        url: 'https://goo.gl/maps/LFTwyNjQUMwb6ENY9',
+                        gmaps: '<iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.4110262637205!2d2.0778853152734262!3d41.47368797925629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a496c4bf966d91%3A0x2da9607bcad9d9da!2sCarrer%20de%20Sant%20Dom%C3%A8nec%2C%2034%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s%2C%20Barcelona!5e0!3m2!1sca!2ses!4v1582883468656!5m2!1sca!2ses" width="100%" height="300" frameborder="0" class="lazyload" loading="lazy" style="border:0;"></iframe>',
+                        number: '34, baixos dreta',
+                    );
                     include ROOT . '/../src/View/location-card.php' ?>
                     <div class="text-center mt-4">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <?php $address = ['user' => 'penyapericos', 'domain' => 'rcdeescolasantcugat.com'];
+                        <?php $address = new RCDE\EmailAddress(user: 'penyapericos', domain: 'rcdeescolasantcugat.com');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
                 </div>
