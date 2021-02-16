@@ -105,7 +105,14 @@ hr {
 hr.divider {
   max-width: 3.25rem;
   border-width: .2rem;
+}
+
+hr.divider-primary {
   border-color: #007cc3;
+}
+
+hr.divider-danger {
+  border-color: #dc3545;
 }
 
 .mb-4, .my-4 {
@@ -208,6 +215,34 @@ hr.divider {
   background-color: #023c8b;
 }
 
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  border-color: #023c8b;
+  background-color: #023c8b;
+  box-shadow: 0 0 0 0.2rem rgba(0, 124, 195, 0.8);
+}
+
+.btn-danger {
+  color: #fff;
+  border-color: #dc3545;
+  background-color: #dc3545;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  border-color: #bd2130;
+  background-color: #c82333;
+}
+
+.btn-danger:focus,
+.btn-danger.focus {
+  color: #fff;
+  border-color: #bd2130;
+  background-color: #c82333;
+  box-shadow: 0 0 0 0.2rem rgba(225, 83, 97, 0.5);
+}
+
 .btn-xl {
   font-weight: 700;
   padding: 1rem 2rem;
@@ -230,4 +265,8 @@ a.btn svg {
 
 p {
   white-space: pre-line;
+}
+
+.border-danger {
+  border-color: #dc3545 !important;
 }
