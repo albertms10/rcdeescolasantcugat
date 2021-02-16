@@ -19,6 +19,6 @@ class NoticiaController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\Noticia');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\Noticia');
     }
 }

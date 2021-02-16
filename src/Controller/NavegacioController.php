@@ -20,7 +20,7 @@ class NavegacioController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\Pagina');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\Pagina');
     }
 
     public static function llistaPaginesSeccions(string $link_pagina): array
@@ -33,6 +33,6 @@ class NavegacioController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\PaginaSeccio');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\PaginaSeccio');
     }
 }

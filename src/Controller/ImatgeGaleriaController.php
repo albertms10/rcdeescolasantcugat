@@ -19,6 +19,6 @@ class ImatgeGaleriaController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS, 'RCDE\ImatgeGaleria');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\ImatgeGaleria');
     }
 }
