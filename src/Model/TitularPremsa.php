@@ -6,11 +6,14 @@ use JetBrains\PhpStorm\Pure;
 
 class TitularPremsa
 {
-    public int $id_titular;
-    public string $text_titular;
-    public string $data_titular;
-
-    private string $urls_titular;
+    public function __construct(
+        public ?int $id_titular = null,
+        public ?string $text_titular = null,
+        public ?string $data_titular = null,
+        private ?string $urls_titular = null,
+    )
+    {
+    }
 
     #[Pure] public function getUrls(): false|array
     {

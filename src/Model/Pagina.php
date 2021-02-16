@@ -4,7 +4,11 @@ namespace RCDE;
 
 class Pagina
 {
-    public int $id_pagina;
-    public string $titol_pagina;
-    public string $link_pagina;
+    public function __construct(
+        public ?int $id_pagina = null,
+        public ?string $titol_pagina = null,
+        public ?string $link_pagina = null,
+    )
+    {
+    }
 }

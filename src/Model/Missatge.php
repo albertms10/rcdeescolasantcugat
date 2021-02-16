@@ -4,9 +4,13 @@ namespace RCDE;
 
 class Missatge
 {
-    public int $id_missatge;
-    public string $nom;
-    public string $email;
-    public string $missatge;
-    public string $data;
+    public function __construct(
+        public ?int $id_missatge = null,
+        public ?string $nom = null,
+        public ?string $email = null,
+        public ?string $missatge = null,
+        public ?string $data = null,
+    )
+    {
+    }
 }

@@ -4,14 +4,18 @@ namespace RCDE;
 
 class Noticia
 {
-    public int $id_noticia;
-    public string $titol_noticia;
-    public ?string $subtitol_noticia;
-    public ?string $nom_imatge;
-    public ?int $img_width;
-    public ?int $img_height;
-    public ?string $data_inici;
-    public ?string $data_final;
-    public ?string $href;
-    public int $ordre;
+    public function __construct(
+        public ?int $id_noticia = null,
+        public ?string $titol_noticia = null,
+        public ?string $subtitol_noticia = null,
+        public ?string $nom_imatge = null,
+        public ?int $img_width = null,
+        public ?int $img_height = null,
+        public ?string $data_inici = null,
+        public ?string $data_final = null,
+        public ?string $href = null,
+        public ?int $ordre = null,
+    )
+    {
+    }
 }
