@@ -220,9 +220,9 @@
                     include ROOT . '/../src/View/location-card.php' ?>
                     <div class="text-center mt-4">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <?php $address = new RCDE\EmailAddress(user: 'administracio', domain: 'rcdeescolasantcugat.com');
+                        <?php $address = new RCDE\EmailAddress(user: 'administracio');
                         include ROOT . '/../src/View/email-address.php' ?>
-                        <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica', domain: 'rcdeescolasantcugat.com');
+                        <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
                 </div>
@@ -244,7 +244,7 @@
                     include ROOT . '/../src/View/location-card.php' ?>
                     <div class="text-center mt-4">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                        <?php $address = new RCDE\EmailAddress(user: 'penyapericos', domain: 'rcdeescolasantcugat.com');
+                        <?php $address = new RCDE\EmailAddress(user: 'penyapericos');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
                 </div>

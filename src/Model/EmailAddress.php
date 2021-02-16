@@ -6,7 +6,7 @@ class EmailAddress
 {
     public function __construct(
         public string $user,
-        public string $domain,
+        public string $domain = 'rcdeescolasantcugat.com',
     )
     {
     }
