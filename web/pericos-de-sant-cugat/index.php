@@ -1,10 +1,13 @@
+<?php
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+include ROOT . '/../src/Utils/lang-init.php';
+?>
+
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="<?= $_SESSION['lang'] ?>">
 
 <head>
-    <?php define('ROOT', $_SERVER['DOCUMENT_ROOT']) ?>
     <?php $link_pagina = 'pericos-de-sant-cugat' ?>
-
     <?php include ROOT . '/../src/View/incs-top.php' ?>
     <meta name="description" content="RCDE Escola Sant Cugat">
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/pericos-de-sant-cugat/">
