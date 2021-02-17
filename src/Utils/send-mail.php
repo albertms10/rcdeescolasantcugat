@@ -118,7 +118,7 @@ function send_mail(
 
     try {
         if (!$mail->send()) {
-            echo mailer_error($error_location, $mail);
+            echo mailer_error($error_location, $mail, new Exception('Mail not sent'));
             return;
         }
     } catch (Exception $e) {
@@ -139,8 +139,10 @@ function email_template_body(string $body, array $vars): string
 function contact_email_template(string $email, string $name, string $message): string
 {
     $body = file_get_contents(ROOT . '/../src/View/contact-email-template.php');
+    $css = file_get_contents(ROOT . '/assets/css/email.min.css');
 
     $vars = [
+        'css' => $css,
         'email' => $email,
         'from' => $name,
         'date' => date('Y-m-d H:i'),
