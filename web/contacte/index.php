@@ -41,7 +41,7 @@
                     El cos del missatge no és vàlid.
                     <ul class="mb-0">
                         <?php if (isset($_GET['contains-link'])): ?>
-                            <li>No inclogueu enllaços ni adreces electròniques en el cos del document.</li>
+                            <li>No inclogueu enllaços ni adreces electròniques en el nom ni en el cos del missatge.</li>
                         <?php endif ?>
                     </ul>
                 </div>
@@ -54,17 +54,30 @@
                         <hr>
                         <pre><?= $_GET['msg'] ?></pre>
                     <?php endif ?>
-                    <hr>
-                    Torneu-ho a provar o dirigiu-vos a
-                    <a class="alert-link"
-                       href="mailto:webmaster@rcdeescolasantcugat.com">webmaster@rcdeescolasantcugat.com</a>.
+                    <div class="mb-1" style="height: 32px">
+                        <form class="needs-validation" action="/api/send-error-message.php" method="post" novalidate>
+                            <input type="hidden" name="nom" value="<?= urlencode($_SESSION['nom']) ?>">
+                            <input type="hidden" name="email" value="<?= urlencode($_SESSION['email']) ?>">
+                            <input type="hidden" name="err" value="<?= urlencode($_GET['msg']) ?>">
+                            <button type="submit" class="btn btn-danger btn-xl float-right"
+                                    style="padding: .4rem .8rem; font-size: .8rem">
+                                Informa de l’error
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <?php elseif ($res === 'err_sent'): ?>
+                <div class="alert alert-info" role="alert">
+                    S’ha notificat el missatge d’error a l’administració.
+                    <br>
+                    Gràcies per la col·laboració i disculpeu les molèsties.
                 </div>
             <?php endif ?>
             <form class="needs-validation" action="/api/post-missatge.php" method="post" novalidate>
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" name="nom" id="nom"
-                           value="<?= $_SESSION['nom'] ?? '' ?>"
+                           value="<?= urldecode($_SESSION['nom'] ?? '') ?>"
                            required <?= (($res !== 'invalid') && ($res !== 'err')) ? 'autofocus' : '' ?>
                            autocomplete="on">
                     <div class="invalid-feedback">Introduïu un nom de contacte.</div>
@@ -72,7 +85,7 @@
                 <div class="form-group">
                     <label for="email">Adreça electrònica</label>
                     <input type="email" class="form-control" name="email" id="email"
-                           value="<?= $_SESSION['email'] ?? '' ?>" required autocomplete="on">
+                           value="<?= urldecode($_SESSION['email'] ?? '') ?>" required autocomplete="on">
                     <div class="valid-feedback">L’adreça electrònica és vàlida.</div>
                     <div class="invalid-feedback">Introduïu una adreça electrònica de contacte.</div>
                 </div>
@@ -80,7 +93,7 @@
                     <label for="missatge">Missatge</label>
                     <textarea class="form-control" name="missatge" id="missatge" rows="4" required
                               <?= (($res === 'invalid') || ($res === 'err')) ? 'autofocus' : '' ?>
-                              autocomplete="off"><?= $_SESSION['missatge'] ?? '' ?></textarea>
+                              autocomplete="off"><?= urldecode($_SESSION['missatge'] ?? '') ?></textarea>
                     <div class="invalid-feedback">Introduïu el missatge.</div>
                 </div>
                 <div class="form-group">
