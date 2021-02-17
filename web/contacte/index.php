@@ -57,9 +57,9 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?php endif ?>
                     <div class="mb-1" style="height: 32px">
                         <form class="needs-validation" action="/api/send-error-message.php" method="post" novalidate>
-                            <input type="hidden" name="nom" value="<?= urlencode($_SESSION['nom']) ?>">
-                            <input type="hidden" name="email" value="<?= urlencode($_SESSION['email']) ?>">
-                            <input type="hidden" name="err" value="<?= urlencode($_GET['msg']) ?>">
+                            <input type="hidden" name="nom" value="<?= urlencode($_SESSION['nom'] ?? '') ?>">
+                            <input type="hidden" name="email" value="<?= urlencode($_SESSION['email'] ?? '') ?>">
+                            <input type="hidden" name="err" value="<?= urlencode($_GET['msg'] ?? '') ?>">
                             <button type="submit" class="btn btn-danger btn-xl float-right"
                                     style="padding: .4rem .8rem; font-size: .8rem">
                                 Informa de l’error
