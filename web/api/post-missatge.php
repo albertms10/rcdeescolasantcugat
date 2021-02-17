@@ -7,7 +7,7 @@ require_once ROOT . '/../src/Utils/send-mail.php';
 $location = 'https://rcdeescolasantcugat.com/contacte/';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    error_header($location);
+    error_header($location, new Exception('Request method must be POST'));
     return;
 }
 
