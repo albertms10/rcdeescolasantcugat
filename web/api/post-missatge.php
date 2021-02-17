@@ -45,5 +45,9 @@ try {
     restore_error_handler();
 }
 
-session_destroy();
+unset($_SESSION['nom']);
+unset($_SESSION['email']);
+unset($_SESSION['missatge']);
+unset($_SESSION['err']);
+
 header("Location: $location?res=ok");
