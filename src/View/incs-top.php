@@ -58,7 +58,11 @@ if ($filtre_pagines === 1) $titol_pagina = $filtre_pagines[0]; ?>
         deferredLink.type = "text/css";
 
         const firstLink = document.getElementsByTagName("link")[0];
-        firstLink.parentNode.insertBefore(deferredLink, firstLink);
+        if (firstLink) {
+            firstLink.parentNode.insertBefore(deferredLink, firstLink);
+        } else {
+            document.getElementsByTagName("head")[0].insertAdjacentElement("beforeend", deferredLink);
+        }
     }
 
     deferCSS("/assets/css/all.min.css");
