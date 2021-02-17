@@ -85,11 +85,13 @@ function send_mail(
         return;
     }
 
-    try {
-        $mail->addReplyTo($email, $name);
-    } catch (Exception $e) {
-        echo mailer_error($error_location, $mail, $e);
-        return;
+    if (isset($email)) {
+        try {
+            $mail->addReplyTo($email, $name);
+        } catch (Exception $e) {
+            echo mailer_error($error_location, $mail, $e);
+            return;
+        }
     }
 
     try {
@@ -105,6 +107,7 @@ function send_mail(
 
     $body = match ($template) {
         'contact' => contact_email_template($email, $name, $message),
+        'error' => error_email_template($email, $name, $error_message),
     };
 
     try {
@@ -153,5 +156,19 @@ function contact_email_template(string $email, string $name, string $message): s
     return email_template_body($body, $vars);
 }
 
-    return $body;
+function error_email_template(string $email, string $name, string $err): string
+{
+    $body = file_get_contents(ROOT . '/../src/View/error-email-template.php');
+    $css = file_get_contents(ROOT . '/assets/css/email.min.css');
+
+    $vars = [
+        'css' => $css,
+        'email' => $email,
+        'from' => $name,
+        'date' => date('Y-m-d H:i'),
+        'date-format' => strftime('%A, %e %B %Y · %H:%M'),
+        'err' => $err,
+    ];
+
+    return email_template_body($body, $vars);
 }
