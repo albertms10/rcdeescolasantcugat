@@ -2,8 +2,6 @@
 
 namespace RCDE;
 
-use JetBrains\PhpStorm\Pure;
-
 class TitularPremsa
 {
     public function __construct(
@@ -15,7 +13,7 @@ class TitularPremsa
     {
     }
 
-    #[Pure] public function getUrls(): false|array
+    public function getUrls(): false|array
     {
         return explode(';', $this->urls_titular);
     }
