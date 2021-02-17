@@ -30,17 +30,17 @@ require_once ROOT . '/../vendor/DotEnv/Exceptions/MissingVariableException.php';
 require_once ROOT . '/../src/Controller/MissatgeController.php';
 
 function send_mail(
-    string $email,
-    string $name,
-    string $subject = '',
-    string $message = '',
-    array $bccs = [],
+    string $error_location,
+    ?string $email = null,
+    ?string $name = null,
+    ?string $subject = '',
+    ?string $message = '',
     string $template = 'contact',
-    string $error_location = '',
+    ?string $error_message = null,
 )
 {
     DotEnv::load(ROOT . '/../.env.php');
-    DotEnv::setRequired(['MAILER_HOST', 'MAILER_USERNAME', 'MAILER_PASSWORD']);
+    DotEnv::setRequired(['MAILER_HOST', 'MAILER_USERNAME', 'MAILER_PASSWORD', 'BCCS']);
 
     setlocale(LC_TIME, 'ca_ES', 'Catalan_Spain', 'Catalan');
     date_default_timezone_set('Europe/Madrid');
@@ -93,7 +93,7 @@ function send_mail(
     }
 
     try {
-        foreach ($bccs as $bcc) {
+        foreach (DotEnv::get('BCCS') as $bcc) {
             $mail->addBCC($bcc['address'], $bcc['name']);
         }
     } catch (Exception $e) {

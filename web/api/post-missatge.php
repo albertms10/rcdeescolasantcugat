@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 require_once ROOT . '/../src/Controller/MissatgeController.php';
+require_once ROOT . '/../src/Utils/check-if-email.php';
+require_once ROOT . '/../src/Utils/set-strict-error-handler.php';
 
 session_start();
 
@@ -26,18 +28,22 @@ if (check_if_email($_POST['nom'], $_POST['missatge'])) {
 
 RCDE\MissatgeController::postMissatge($_POST['nom'], $_POST['email'], $_POST['missatge']);
 
-send_mail(
-    $_POST['email'],
-    $_POST['nom'],
-    $subject = 'Nou missatge de contacte',
-    $message = $_POST['missatge'],
-    $bccs = [
-        ['address' => 'fdoming3@xtec.cat', 'name' => 'Fco. Javier Domínguez'],
-        ['address' => 'albertmasa2@gmail.com', 'name' => 'Albert Mañosa'],
-    ],
-    $template = 'contact',
-    $error_location = $location,
-);
+try {
+    set_strict_error_handler();
+
+    send_mail(
+        error_location: $location,
+        email: $_POST['email'],
+        name: $_POST['nom'],
+        subject: 'Nou missatge de contacte',
+        message: $_POST['missatge'],
+    );
+} catch (Exception $e) {
+    error_header($location, $e);
+    return;
+} finally {
+    restore_error_handler();
+}
 
 session_destroy();
 header("Location: $location?res=ok");
