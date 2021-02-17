@@ -8,6 +8,8 @@
             <?php endif ?>
             <p class="text-muted"><?= $location->getFullAddress() ?></p>
         </address>
-        <?= $location->gmaps ?>
+        <div class="rounded overflow-hidden">
+            <?= $location->gmaps ?>
+        </div>
     </div>
 <?php endif ?>
