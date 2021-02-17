@@ -12,6 +12,8 @@
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/contacte/">
 
     <script defer src="/assets/js/contact-form-validation.js"></script>
+
+    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -88,12 +90,8 @@
         </div>
         <div class="text-center py-5">
             <p class="lead">O bé envia’ns un correu electrònic a</p>
-            <a class="btn btn-light btn-xl"
-               href="mailto:direcciotecnica@rcdeescolasantcugat.com">
-                direcciotecnica
-                <br>
-                <span class="text-secondary">@rcdeescolasantcugat.com</span>
-            </a>
+            <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
+            include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </div>
 </main>

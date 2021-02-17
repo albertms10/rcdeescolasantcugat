@@ -8,6 +8,7 @@
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/treballa-amb-nosaltres/">
 
     <?php include ROOT . '/../src/View/incs-top.php' ?>
+    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -26,12 +27,8 @@
                     Envia’ns el teu currículum i concretarem una entrevista!
                 </p>
             </div>
-            <a class="btn btn-light btn-xl"
-               href="mailto:direcciotecnica@rcdeescolasantcugat.com">
-                direcciotecnica
-                <br>
-                <span class="text-secondary">@rcdeescolasantcugat.com</span>
-            </a>
+            <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
+            include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </section>
 </main>

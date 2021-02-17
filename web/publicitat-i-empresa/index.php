@@ -8,6 +8,8 @@
     <?php include ROOT . '/../src/View/incs-top.php' ?>
     <meta name="description" content="RCDE Escola Sant Cugat">
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/publicitat-i-empresa/">
+
+    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -24,12 +26,8 @@
                                 Contacta amb nosaltres i veurem quines són les millors possibilitats per ser el <br>
                                 patrocinador d’un o més equips o de la RCDE Escola Sant Cugat.</p>
             </div>
-            <a class="btn btn-light btn-xl"
-               href="mailto:direcciotecnica@rcdeescolasantcugat.com">
-                direcciotecnica
-                <br>
-                <span class="text-secondary">@rcdeescolasantcugat.com</span>
-            </a>
+            <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
+            include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </section>
 </main>
