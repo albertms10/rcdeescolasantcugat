@@ -5,15 +5,15 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-function error_header(string $location, Exception $e = null)
+function error_header(string $location, \Exception $e = null)
 {
-    $message = empty($e) ? 'no_exception_provided' : $e->errorMessage();
+    $message = empty($e) ? 'no_exception_provided' : $e->getMessage();
     header("Location: $location?res=err&msg=$message");
 }
 
-function mailer_error(string $location, PHPMailer $mail, Exception $e = null): string
+function mailer_error(string $location, PHPMailer $mail, \Exception $e = null): string
 {
-    error_header($location, $e ?? new Exception($mail->ErrorInfo));
+    error_header($location, $e ?? new \Exception($mail->ErrorInfo));
     return 'Mailer Error' . PHP_EOL . $mail->ErrorInfo;
 }
 
