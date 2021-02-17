@@ -19,7 +19,7 @@ $_SESSION['nom'] = $_POST['nom'] ?? '';
 $_SESSION['email'] = $_POST['email'] ?? '';
 $_SESSION['missatge'] = $_POST['missatge'] ?? '';
 
-if (check_if_email([$_POST['nom'], $_POST['missatge']])) {
+if (check_if_email($_POST['nom'], $_POST['missatge'])) {
     header("Location: $location?res=invalid&contains-link");
     return;
 }
