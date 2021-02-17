@@ -15,6 +15,14 @@ class TitularPremsa
 
     public function getUrls(): false|array
     {
-        return explode(';', $this->urls_titular);
+        $urls = [];
+
+        $lang_urls = explode(';', $this->urls_titular);
+        foreach ($lang_urls as $lang_url) {
+            [$url, $lang] = explode(',', $lang_url);
+            array_push($urls, ['url' => $url, 'lang' => $lang]);
+        }
+
+        return $urls;
     }
 }

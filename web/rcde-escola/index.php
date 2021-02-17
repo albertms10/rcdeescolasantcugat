@@ -169,9 +169,8 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <?php foreach ($titular_premsa->getUrls() as $url_titular):
-                                    $url_titular = explode(',', $url_titular);
-                                    $host_name = str_replace('www.', '', parse_url($url_titular[0], PHP_URL_HOST)) ?>
-                                    <a href="<?= $url_titular[0] ?>"
+                                    $host_name = str_replace('www.', '', parse_url($url_titular['url'], PHP_URL_HOST)) ?>
+                                    <a href="<?= $url_titular['url'] ?>"
                                        class="list-group-item list-group-item-action d-flex align-items-center"
                                        title="Visita <?= $host_name ?> a una nova finestra o pestanya"
                                        rel="external noopener nofollow noreferrer"
@@ -184,7 +183,7 @@
                                         <?= $host_name ?>
                                         <div class="d-flex align-items-center justify-content-end w-100">
                                             <div class="badge badge-pill badge-secondary small mr-2" style="opacity:.8">
-                                                <?= strtoupper($url_titular[1]) ?>
+                                                <?= strtoupper($url_titular['lang']) ?>
                                             </div>
                                             <i class="fas fa-external-link-square-alt text-secondary"></i>
                                         </div>
