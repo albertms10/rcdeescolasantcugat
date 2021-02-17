@@ -127,6 +127,15 @@ function send_mail(
     }
 }
 
+function email_template_body(string $body, array $vars): string
+{
+    foreach ($vars as $var => $value) {
+        $body = str_replace("{{$var}}", $value, $body);
+    }
+
+    return $body;
+}
+
 function contact_email_template(string $email, string $name, string $message): string
 {
     $body = file_get_contents(ROOT . '/../src/View/contact-email-template.php');
@@ -139,9 +148,8 @@ function contact_email_template(string $email, string $name, string $message): s
         'message' => $message,
     ];
 
-    foreach ($vars as $var => $value) {
-        $body = str_replace("{{$var}}", $value, $body);
-    }
+    return email_template_body($body, $vars);
+}
 
     return $body;
 }

@@ -9,4 +9,7 @@ return [
     'MAILER_PORT' => 'mailer_port',
     'MAILER_USERNAME' => 'mailer_username',
     'MAILER_PASSWORD' => 'mailer_password',
+    'BCCS' => [
+        ['address' => 'address', 'name' => 'name'],
+    ],
 ];
