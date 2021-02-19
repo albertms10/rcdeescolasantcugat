@@ -45,10 +45,6 @@ function send_mail(
     setlocale(LC_TIME, 'ca_ES', 'Catalan_Spain', 'Catalan');
     date_default_timezone_set('Europe/Madrid');
 
-    // SMTP needs accurate times, and the PHP time zone MUST be set
-    // This should be done in your php.ini, but this is how to do it if you don't have access to that
-    date_default_timezone_set('Europe/Madrid');
-
     $mail = new PHPMailer(true);
 
     $mail->CharSet = 'UTF-8';
@@ -63,10 +59,6 @@ function send_mail(
         ]
     ];
 
-    // Enable SMTP debugging:
-    //   SMTP::DEBUG_OFF = off (for production use)
-    //   SMTP::DEBUG_CLIENT = client messages
-    //   SMTP::DEBUG_SERVER = client and server messages
     $mail->SMTPDebug = SMTP::DEBUG_OFF;
 
     $mail->Host = DotEnv::get('MAILER_HOST');
