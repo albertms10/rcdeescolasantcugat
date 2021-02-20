@@ -18,6 +18,6 @@ class Location
 
     public function getFullAddress(): string
     {
-        return $this->zip . ' ' . $this->city . ' (' . $this->province . ')';
+        return "{$this->zip} {$this->city} ({$this->province})";
     }
 }

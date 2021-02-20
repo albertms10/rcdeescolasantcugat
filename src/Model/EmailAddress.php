@@ -13,6 +13,6 @@ class EmailAddress
 
     public function getAddress(): string
     {
-        return $this->user . '@' . $this->domain;
+        return "{$this->user}@{$this->domain}";
     }
 }
