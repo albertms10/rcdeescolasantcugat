@@ -222,7 +222,6 @@ include ROOT . '/../src/Utils/lang-init.php';
                     );
                     include ROOT . '/../src/View/location-card.php' ?>
                     <div class="text-center mt-4">
-                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                         <?php $address = new RCDE\EmailAddress(user: 'administracio');
                         include ROOT . '/../src/View/email-address.php' ?>
                         <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
@@ -246,7 +245,6 @@ include ROOT . '/../src/Utils/lang-init.php';
                     );
                     include ROOT . '/../src/View/location-card.php' ?>
                     <div class="text-center mt-4">
-                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                         <?php $address = new RCDE\EmailAddress(user: 'penyapericos');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
