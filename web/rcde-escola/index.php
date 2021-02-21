@@ -44,12 +44,11 @@ include ROOT . '/../src/Utils/lang-init.php';
                        Cugat era part activa d’aquesta fita, organitzant una de les Trobades i participant a totes les
                        activitats que el Club posava a l’abast.</p>
 
-                    <div class="rounded mt-2 mb-2 overflow-hidden" style="height:32rem">
-                        <iframe data-src="https://www.youtube-nocookie.com/embed/ZaP-lZgY1UQ?controls=0"
+                    <div class="container-ratio ratio--16-9 rounded mt-2 mb-2 w-100 overflow-hidden">
+                        <iframe data-src="https://www.youtube-nocookie.com/embed/ZaP-lZgY1UQ"
                                 frameborder="0" title="Reproductor YouTube"
                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen class="lazyload" loading="lazy"
-                                style="width:100%; height:100%"></iframe>
+                                allowfullscreen class="lazyload" loading="lazy"></iframe>
                     </div>
 
                     <h3 id="escola" class="mt-5">L’Escola</h3>

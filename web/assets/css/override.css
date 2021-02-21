@@ -145,6 +145,11 @@ a.carousel-caption:hover {
   font-family: var(--font-family-sans-serif);
 }
 
+.btn.focus,
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem var(--blau-clar);
+}
+
 .btn-primary {
   border-color: var(--blau);
   background-color: var(--blau);
@@ -730,4 +735,25 @@ hr.divider {
 img {
   width: 100%;
   height: auto;
+}
+
+.dropdown-menu {
+  min-width: initial;
+}
+
+.container-ratio.ratio--16-9 {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: calc(100% / 16 * 9);
+}
+
+.container-ratio.ratio--16-9 iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
