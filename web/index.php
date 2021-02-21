@@ -236,7 +236,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     </div>
                     <?php
                     $location = new RCDE\Location(
-                        address: 'Carrer de Sant Domènech',
+                        address: 'Carrer de Sant Domènec',
                         zip: '08172',
                         city: 'Sant Cugat del Vallès',
                         province: 'Barcelona',
