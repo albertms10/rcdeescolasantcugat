@@ -8,7 +8,7 @@ require_once __DIR__ . '/../../config/Connexion.php';
 
 class MissatgeController
 {
-    public static function postMissatge(string $nom, string $email, string $missatge)
+    public static function postMissatge(string $nom, string $email, string $missatge): int
     {
         $connexion = new Connexion();
 
@@ -20,5 +20,6 @@ class MissatgeController
         $result->execute();
 
         $connexion = null;
+        return $result->rowCount();
     }
 }
