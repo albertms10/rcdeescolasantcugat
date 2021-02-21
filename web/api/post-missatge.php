@@ -26,7 +26,12 @@ if (check_if_email($_POST['nom'], $_POST['missatge'])) {
     return;
 }
 
-RCDE\MissatgeController::postMissatge($_POST['nom'], $_POST['email'], $_POST['missatge']);
+$rows_affected = RCDE\MissatgeController::postMissatge($_POST['nom'], $_POST['email'], $_POST['missatge']);
+
+if ($rows_affected === 0) {
+    error_header($location, new Exception('An error occurred while posting the message'));
+    return;
+}
 
 try {
     set_strict_error_handler();
