@@ -43,10 +43,7 @@
         </div>
     </nav>
     <?php
-    $pagines_seccions = array_filter(
-        RCDE\NavegacioController::llistaPaginesSeccions($link_pagina),
-        fn($seccio) => !$seccio->hidden,
-    );
+    $pagines_seccions = RCDE\NavegacioController::llistaPaginesSeccions($link_pagina);
 
     if (count($pagines_seccions) > 0): ?>
         <div class="nav-scroller position-absolute">
