@@ -757,3 +757,20 @@ img {
   width: 100%;
   height: 100%;
 }
+
+.badge-primary {
+  color: #fff;
+  background-color: var(--blau);
+}
+
+a.badge-primary:hover,
+a.badge-primary:focus {
+  color: #fff;
+  background-color: var(--blau-fosc);
+}
+
+a.badge-primary:focus,
+a.badge-primary.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem var(--blau-80);
+}

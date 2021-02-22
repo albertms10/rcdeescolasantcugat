@@ -127,6 +127,11 @@ hr.divider-danger {
   margin-left: 0 !important;
 }
 
+.ml-2,
+.mx-2 {
+  margin-left: 0.5rem !important;
+}
+
 .mr-2, .mx-2 {
   margin-right: .5rem !important;
 }
@@ -263,10 +268,47 @@ a.btn svg {
   fill: currentColor;
 }
 
+.text-danger {
+  color: #dc3545 !important;
+}
+
+a.text-danger:hover,
+a.text-danger:focus {
+  color: #a71d2a !important;
+}
+
 p {
   white-space: pre-line;
 }
 
 .border-danger {
   border-color: #dc3545 !important;
+}
+
+.badge {
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+}
+
+.badge:empty {
+  display: none;
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: #007cc3;
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: #dc3545;
 }
