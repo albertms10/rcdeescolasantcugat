@@ -125,7 +125,7 @@ function send_mail(
 function email_template_body(string $body, array $vars): string
 {
     foreach ($vars as $var => $value) {
-        $body = str_replace("{{$var}}", $value, $body);
+        $body = str_replace("{{{$var}}}", $value, $body);
     }
 
     return $body;
@@ -133,11 +133,11 @@ function email_template_body(string $body, array $vars): string
 
 function contact_email_template(string $email, string $name, string $message): string
 {
-    $body = file_get_contents(ROOT . '/../src/View/contact-email-template.php');
+    $body = file_get_contents(ROOT . '/../src/View/contact-email-template.html');
     $css = file_get_contents(ROOT . '/assets/css/email.min.css');
 
     $vars = [
-        'css' => $css,
+        'css' => "<style>$css</style>",
         'email' => $email,
         'from' => $name,
         'date' => date('Y-m-d H:i'),
@@ -150,11 +150,11 @@ function contact_email_template(string $email, string $name, string $message): s
 
 function error_email_template(string $email, string $name, string $err): string
 {
-    $body = file_get_contents(ROOT . '/../src/View/error-email-template.php');
+    $body = file_get_contents(ROOT . '/../src/View/error-email-template.html');
     $css = file_get_contents(ROOT . '/assets/css/email.min.css');
 
     $vars = [
-        'css' => $css,
+        'css' => "<style>$css</style>",
         'email' => $email,
         'from' => $name,
         'date' => date('Y-m-d H:i'),
