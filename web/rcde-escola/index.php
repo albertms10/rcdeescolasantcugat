@@ -127,7 +127,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                         <div class="col-lg-3 col-md-4 p-3 text-center user-card">
                             <div class="transform-center p-3" style="width:8rem; height:8rem">
                                 <?php
-                                $nom_entrenador = str_replace(' ', '-', strtolower($entrenador->nom_complet));
+                                $nom_entrenador = str_replace(' ', '-', mb_strtolower($entrenador->nom_complet));
                                 if (file_exists(ROOT . "/assets/img/entrenadors/$nom_entrenador.webp")): ?>
                                     <img src="/assets/img/entrenadors/<?= $nom_entrenador ?>.webp"
                                          class="img-fit transform-center rounded-circle"
