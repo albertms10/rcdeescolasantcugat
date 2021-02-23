@@ -3,3 +3,11 @@ RewriteEngine On
 RewriteCond %{HTTPS} !on
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 </IfModule>
+
+<filesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|svg|swf|otf|woff2)$">
+        Header set Cache-Control "max-age=63072000, public"
+</filesMatch>
+
+<filesMatch "\.(js|css)$">
+        Header set Cache-Control "max-age=604800, public"
+</filesMatch>
