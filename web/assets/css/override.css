@@ -646,10 +646,14 @@ hr.divider {
   transform: translateX(-50%);
 }
 
-.svg-icon {
+.svg-icon-container.small svg {
   height: 100px;
   margin-top: -1rem;
   margin-bottom: .25rem;
+}
+
+.svg-icon-container.blue svg {
+  fill: var(--blau);
 }
 
 .social-media li {
