@@ -1,0 +1,17 @@
+{
+    "name": "rcde/rcdeescolasantcugat",
+    "description": "RCDE Escola Sant Cugat",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "albertms10",
+            "email": "albertmasa2@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "arrilot/dotenv-php": "^2.0",
+        "phpmailer/phpmailer": "^6.3"
+    }
+}
