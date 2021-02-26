@@ -2,8 +2,7 @@
 
 use Arrilot\DotEnv\DotEnv;
 
-require_once ROOT . '/../vendor/DotEnv/DotEnv.php';
-require_once ROOT . '/../vendor/DotEnv/Exceptions/MissingVariableException.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
 DotEnv::load(__DIR__ . '/../.env.php');
 DotEnv::setRequired(['DB_NAME', 'DB_USERNAME', 'DB_PASSWORD']);
