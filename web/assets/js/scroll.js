@@ -1,4 +1,4 @@
-const scrollTriggers = document.querySelectorAll("a.js-scroll-trigger[href*=\"#\"]:not([href=\"#\"])");
+const scrollTriggers = document.querySelectorAll(`a.js-scroll-trigger[href*="#"]:not([href="#"])`);
 
 Array.prototype.forEach.call(scrollTriggers, (scrollTrigger) => {
         scrollTrigger.addEventListener("click", function () {
