@@ -778,3 +778,7 @@ a.badge-primary.focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem var(--blau-80);
 }
+
+pre {
+  overflow-wrap: break-word;
+}
