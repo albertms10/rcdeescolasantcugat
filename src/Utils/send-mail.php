@@ -108,7 +108,7 @@ function email_template_body(string $body, array $vars): string
 
 function contact_email_template(string $email, string $name, string $message): string
 {
-    $body = file_get_contents(ROOT . '/../src/View/contact-email-template.html');
+    $body = file_get_contents(ROOT . '/../src/View/templates/contact-email-template.html');
     $css = file_get_contents(ROOT . '/assets/css/email.min.css');
 
     $vars = [
@@ -125,7 +125,7 @@ function contact_email_template(string $email, string $name, string $message): s
 
 function error_email_template(string $email, string $name, string $err): string
 {
-    $body = file_get_contents(ROOT . '/../src/View/error-email-template.html');
+    $body = file_get_contents(ROOT . '/../src/View/templates/error-email-template.html');
     $css = file_get_contents(ROOT . '/assets/css/email.min.css');
 
     $vars = [
