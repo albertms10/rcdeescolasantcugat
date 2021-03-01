@@ -3,11 +3,13 @@
 use Arrilot\DotEnv\DotEnv;
 use PHPMailer\PHPMailer;
 
-require $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
+defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require ROOT . '/../vendor/autoload.php';
 
 function error_header(string $location, Exception $e = null)
 {
-    $message = empty($e) ? 'no_exception_provided' : $e->getMessage();
+    $message = empty($e) ? 'No exception provided' : $e->getMessage();
     header("Location: $location?res=err&msg=$message");
 }
 
@@ -17,15 +19,12 @@ function mailer_error(string $location, PHPMailer\PHPMailer $mail, Exception $e 
     return 'Mailer Error' . PHP_EOL . $mail->ErrorInfo;
 }
 
-if (empty(ROOT)) {
-    define('ROOT', $_SERVER['DOCUMENT_ROOT']);
-}
-
 require_once ROOT . '/../vendor/PHPMailer/phpmailer/src/PHPMailer.php';
 require_once ROOT . '/../vendor/PHPMailer/phpmailer/src/SMTP.php';
 require_once ROOT . '/../vendor/PHPMailer/phpmailer/src/Exception.php';
 
 require_once ROOT . '/../src/Controller/MissatgeController.php';
+require_once ROOT . '/../src/Utils/replace-mustache-vars.php';
 
 function send_mail(
     string $error_location,
@@ -97,15 +96,6 @@ function send_mail(
     }
 }
 
-function email_template_body(string $body, array $vars): string
-{
-    foreach ($vars as $var => $value) {
-        $body = str_replace("{{{$var}}}", $value, $body);
-    }
-
-    return $body;
-}
-
 function contact_email_template(string $email, string $name, string $message): string
 {
     $body = file_get_contents(ROOT . '/../src/View/templates/contact-email-template.html');
@@ -120,7 +110,7 @@ function contact_email_template(string $email, string $name, string $message): s
         'message' => $message,
     ];
 
-    return email_template_body($body, $vars);
+    return replace_mustache_vars($body, $vars);
 }
 
 function error_email_template(string $email, string $name, string $err): string
@@ -137,5 +127,5 @@ function error_email_template(string $email, string $name, string $err): string
         'err' => $err,
     ];
 
-    return email_template_body($body, $vars);
+    return replace_mustache_vars($body, $vars);
 }
