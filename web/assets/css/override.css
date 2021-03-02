@@ -736,6 +736,12 @@ hr.divider {
   background-color: var(--blau-fosc);
 }
 
+.sticky-toc .main-header {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
 img {
   width: 100%;
   height: auto;
