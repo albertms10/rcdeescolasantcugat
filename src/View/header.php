@@ -42,23 +42,14 @@
             </div>
         </div>
     </nav>
-    <?php
-    $pagines_seccions = RCDE\NavegacioController::llistaPaginesSeccions($link_pagina);
 
-    if (count($pagines_seccions) > 0): ?>
+    <?php if ($current_has_subnav): ?>
         <div class="nav-scroller position-absolute">
             <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy"
                  id="subNav" <?= ($link_pagina !== '__index__') ? '' : 'style="opacity: 1"' ?>>
                 <div class="container">
                     <div class="navbar-collapse" id="subNavbarResponsive">
-                        <ul class="navbar-nav ml-auto">
-                            <?php foreach ($pagines_seccions as $pagina_seccio) : ?>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger py-1 px-3"
-                                       href="#<?= $pagina_seccio->link_pagina_seccio ?>"><?= $pagina_seccio->titol_pagina_seccio ?></a>
-                                </li>
-                            <?php endforeach ?>
-                        </ul>
+                        <ul class="navbar-nav ml-auto"></ul>
                     </div>
                 </div>
             </nav>

@@ -12,7 +12,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     <meta name="description" content="RCDE Escola Sant Cugat">
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/rcde-escola/">
 
-    <script defer src="/assets/js/nav-headers-list.js"></script>
+    <script defer src="/assets/js/nav-headers.js"></script>
 
     <?php require_once ROOT . '/../src/Controller/CosTecnicController.php' ?>
     <?php require_once ROOT . '/../src/Controller/TitularPremsaController.php' ?>

@@ -12,7 +12,8 @@ include ROOT . '/../src/Utils/lang-init.php';
     <meta name="description" content="RCDE Escola Sant Cugat">
     <link rel="canonical" href="https://www.rcdeescolasantcugat.com/pericos-de-sant-cugat/">
 
-    <script defer src="/assets/js/nav-headers-list.js"></script>
+
+    <script defer src="/assets/js/nav-headers.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll">
