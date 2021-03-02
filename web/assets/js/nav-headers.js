@@ -1,10 +1,13 @@
 document.querySelectorAll("[data-heading]")
         .forEach((heading) => {
+            const blockTags = ["section", "div"];
+
             document.querySelector("#subNav ul").insertAdjacentHTML(
                 "beforeend",
                 `<li class="nav-item">
-                    <a class="nav-link js-scroll-trigger py-1 px-3" href="#${heading.id}" data-offset="170">
-                        ${heading.innerText}
+                    <a class="nav-link js-scroll-trigger py-1 px-3" href="#${heading.id}"
+                        ${blockTags.includes(heading.tagName.toLowerCase()) ? "" : `data-offset="170"`}>
+                        ${heading.dataset.heading || heading.innerText}
                     </a>
                 </li>`
             );
