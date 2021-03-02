@@ -30,7 +30,6 @@ include ROOT . '/../src/Utils/lang-init.php';
     <script defer src="/assets/js/home.js"></script>
     <script defer src="/assets/js/make-navbar-translucent.js"></script>
 
-    <?php require_once ROOT . '/../src/Controller/NavegacioController.php' ?>
     <?php require_once ROOT . '/../src/Controller/NoticiaController.php' ?>
     <?php require_once ROOT . '/../src/Controller/ImatgeGaleriaController.php' ?>
     <?php require_once ROOT . '/../src/Model/Slogan.php' ?>
