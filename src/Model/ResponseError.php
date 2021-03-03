@@ -9,6 +9,7 @@ class ResponseError
         public ?int $code = null,
         public ?string $reason = null,
         public ?string $description = null,
+        public bool $known = false,
     )
     {
     }
