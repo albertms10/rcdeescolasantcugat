@@ -201,21 +201,34 @@ include ROOT . '/../src/Utils/lang-init.php';
 
     <section class="page-section bg-light" id="on-som">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
                     <div class="text-center">
                         <h2 class="mt-0">RCDE Escola Sant Cugat</h2>
                         <hr class="divider my-4">
-                        <p class="text-muted mb-3">
-                            Els entrenaments i els partits com a locals<br>
-                            es juguen a la <abbr id="zem-tooltip" data-toggle="tooltip"
-                                                 title="Zona Esportiva Municipal">ZEM</abbr> La Guinardera.
-                        </p>
-                        <p class="text-muted mb-3">
-                            El nostre horari d’atenció presencial és<br>
-                            dilluns i dimecres de 18:00 a 19:30&nbsp;h.
-                        </p>
+
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <p class="text-muted mb-3">
+                                    Els entrenaments i els partits com a locals
+                                    es juguen a la <abbr id="zem-tooltip" data-toggle="tooltip"
+                                                         title="Zona Esportiva Municipal">ZEM</abbr> La Guinardera.
+                                </p>
+                                <p class="text-muted mb-3">
+                                    El nostre horari d’atenció presencial és dilluns i dimecres de 18:00 a 19:30.
+                                </p>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="text-center mt-4">
+                        <?php $address = new RCDE\EmailAddress(user: 'administracio');
+                        include ROOT . '/../src/View/email-address.php' ?>
+                        <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
+                        include ROOT . '/../src/View/email-address.php' ?>
+                    </div>
+                </div>
+                <div class="col-lg-6">
                     <?php
                     $location = new RCDE\Location(
                         address: 'Avinguda de la Guinardera',
@@ -226,18 +239,23 @@ include ROOT . '/../src/Utils/lang-init.php';
                         gmaps: '<iframe data-src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5977.797475239936!2d2.059193!3d41.484795!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2696dc691250f0e!2sZEM%20La%20Guinardera!5e0!3m2!1sca!2ses!4v1582883697066!5m2!1sca!2ses" width="100%" height="300" frameborder="0" class="lazyload" loading="lazy" style="border:0;"></iframe>',
                     );
                     include ROOT . '/../src/View/location-card.php' ?>
-                    <div class="text-center mt-4">
-                        <?php $address = new RCDE\EmailAddress(user: 'administracio');
-                        include ROOT . '/../src/View/email-address.php' ?>
-                        <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
-                        include ROOT . '/../src/View/email-address.php' ?>
-                    </div>
                 </div>
-                <div class="col-md-6 mt-md-0 mt-5">
+            </div>
+        </div>
+        <div class="container mt-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
                     <div class="text-center">
                         <h2 class="mt-0">Penya Pericos de Sant Cugat</h2>
                         <hr class="divider my-4">
                     </div>
+
+                    <div class="text-center mt-4">
+                        <?php $address = new RCDE\EmailAddress(user: 'penyapericos');
+                        include ROOT . '/../src/View/email-address.php' ?>
+                    </div>
+                </div>
+                <div class="col-lg-6">
                     <?php
                     $location = new RCDE\Location(
                         address: 'Carrer de Sant Domènec',
@@ -249,10 +267,6 @@ include ROOT . '/../src/Utils/lang-init.php';
                         number: '34, baixos dreta',
                     );
                     include ROOT . '/../src/View/location-card.php' ?>
-                    <div class="text-center mt-4">
-                        <?php $address = new RCDE\EmailAddress(user: 'penyapericos');
-                        include ROOT . '/../src/View/email-address.php' ?>
-                    </div>
                 </div>
             </div>
         </div>
