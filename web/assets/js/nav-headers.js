@@ -37,13 +37,12 @@ const prepareSideNavContainer = (heading, sideNavContainer, subHeadings) => {
         "rounded",
         "shadow-sm",
         "sticky-toc",
-        "pt-2",
         "scrollspy"
     );
 
     sideNavContainer.insertAdjacentHTML(
         "afterbegin",
-        `<div class="main-header text-secondary small mx-3 mt-2 mb-1 pb-2 font-weight-bold">
+        `<div class="main-header text-secondary font-weight-bold small mx-3 mt-2 mb-1 pt-3 pb-2 d-none d-lg-block">
             ${heading.innerText}
         </div>`
     );
