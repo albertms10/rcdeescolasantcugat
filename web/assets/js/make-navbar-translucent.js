@@ -18,4 +18,4 @@ const makeNavbarTranslucent = () => {
 
 makeNavbarTranslucent();
 
-window.onscroll = makeNavbarTranslucent;
+window.addEventListener("scroll", makeNavbarTranslucent, false);

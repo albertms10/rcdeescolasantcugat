@@ -6,12 +6,13 @@ $("#portfolio").magnificPopup({
     gallery: {
         enabled: true,
         navigateByImgClick: true,
-        preload: [0, 1]
+        preload: [0, 1],
     },
     image: {
-        tError: `La <a href="%url%">imatge #%curr%</a> no s’ha pogut carregar.`
-    }
+        tError: `La <a href="%url%">imatge #%curr%</a> no s’ha pogut carregar.`,
+    },
 });
 
-if (typeof BSN !== "undefined")
+if (typeof BSN !== "undefined") {
     new BSN.Tooltip("#zem-tooltip");
+}

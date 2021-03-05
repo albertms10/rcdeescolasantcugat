@@ -1,5 +1,7 @@
 const toggleNavbarButton = () => {
-    const navbarToggler = document.querySelector("#mainNav button.navbar-toggler");
+    const navbarToggler = document.querySelector(
+        "#mainNav button.navbar-toggler"
+    );
 
     if (navbarToggler.classList.contains("collapsed")) {
         navbarToggler.firstElementChild.classList.add("fa-chevron-down");
@@ -10,17 +12,10 @@ const toggleNavbarButton = () => {
     }
 };
 
-document.querySelector("#mainNav button.navbar-toggler")
-        .addEventListener("click", toggleNavbarButton);
+document
+    .querySelector("#mainNav button.navbar-toggler")
+    .addEventListener("click", toggleNavbarButton);
 
-document.querySelector(".navbar-collapse")
-        .addEventListener("hide.bs.collapse", toggleNavbarButton);
-
-window.onscroll = () => {
-    const navItem = document.querySelector("#subNav a.active");
-
-    if (navItem) navItem.scrollIntoView({
-        inline: "nearest",
-        behavior: "smooth"
-    });
-};
+document
+    .querySelector(".navbar-collapse")
+    .addEventListener("hide.bs.collapse", toggleNavbarButton);
