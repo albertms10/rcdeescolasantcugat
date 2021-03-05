@@ -50,24 +50,7 @@ if ($filtre_pagines === 1) $titol_pagina = $filtre_pagines[0]; ?>
 <link href="/assets/css/styles.min.css" rel="stylesheet">
 <link href="/assets/css/override.min.css" rel="stylesheet">
 
-<script>
-    function deferCSS(href) {
-        const deferredLink = document.createElement("link");
-        deferredLink.rel = "stylesheet";
-        deferredLink.href = href;
-        deferredLink.type = "text/css";
-
-        const firstLink = document.getElementsByTagName("link")[0];
-        if (firstLink) {
-            firstLink.parentNode.insertBefore(deferredLink, firstLink);
-        } else {
-            document.getElementsByTagName("head")[0].insertAdjacentElement("beforeend", deferredLink);
-        }
-    }
-
-    deferCSS("/assets/css/all.min.css");
-    deferCSS("/assets/vendor/magnific-popup/magnific-popup.css");
-</script>
+<script src="/assets/js/defer-css.js"></script>
 
 <noscript>
     <link href="/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
