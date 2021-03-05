@@ -81,7 +81,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                         $is_hash = !empty($href) && ($href[0] !== '#') ?>
                         <a class="carousel-caption js-scroll-trigger"
                            href="<?= $href ?? '#' ?>"
-                            <?= $is_hash ? 'rel="external noopener nofollow noreferrer" target="_blank"' : '' ?>
+                            <?= $is_hash ? 'rel="external noopener" target="_blank"' : '' ?>
                         >
                             <div class="d-flex align-items-center justify-content-center">
                                 <h2><?= $noticia->titol_noticia ?></h2>

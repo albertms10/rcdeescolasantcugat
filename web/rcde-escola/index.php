@@ -173,7 +173,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                                     <a href="<?= $url_titular['url'] ?>"
                                        class="list-group-item list-group-item-action d-flex align-items-center"
                                        title="Visita <?= $host_name ?> a una nova finestra o pestanya"
-                                       rel="external noopener nofollow noreferrer"
+                                       rel="external noopener"
                                        target="_blank">
                                         <i class="<?= match ($host_name) {
                                             'youtube.com' => 'fab fa-youtube',
