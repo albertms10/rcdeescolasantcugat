@@ -1,4 +1,4 @@
-function deferCSS(href) {
+const deferCSS = (href) => {
     const deferredLink = document.createElement("link");
     deferredLink.rel = "stylesheet";
     deferredLink.href = href;
@@ -12,9 +12,4 @@ function deferCSS(href) {
             .getElementsByTagName("head")[0]
             .insertAdjacentElement("beforeend", deferredLink);
     }
-}
-
-[
-    "/assets/css/all.min.css",
-    "/assets/vendor/magnific-popup/magnific-popup.css",
-].forEach(deferCSS);
+};

@@ -27,8 +27,12 @@ include ROOT . '/../src/Utils/lang-init.php';
         ]
     </script>
 
+    <script>
+        deferCSS("/assets/vendor/magnific-popup/magnific-popup.css");
+    </script>
     <script defer src="/assets/js/home.js"></script>
     <script defer src="/assets/js/make-navbar-translucent.js"></script>
+    <script defer src="/assets/js/nav-headers.js"></script>
 
     <?php require_once ROOT . '/../src/Controller/NoticiaController.php' ?>
     <?php require_once ROOT . '/../src/Controller/ImatgeGaleriaController.php' ?>

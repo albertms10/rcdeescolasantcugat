@@ -51,6 +51,9 @@ if ($filtre_pagines === 1) $titol_pagina = $filtre_pagines[0]; ?>
 <link href="/assets/css/override.min.css" rel="stylesheet">
 
 <script src="/assets/js/defer-css.js"></script>
+<script>
+    deferCSS("/assets/css/all.min.css");
+</script>
 
 <noscript>
     <link href="/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
