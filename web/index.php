@@ -70,7 +70,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                              loading="lazy" alt="<?= $noticia->titol_noticia ?>">
                     <?php elseif (isset($noticia->href)):
                         $matches = [];
-                        if (preg_match('/(?<=https:\/\/www\.youtube.com\/watch\?v=).*/', $noticia->href, $matches)):
+                        if (preg_match('/(?<=https:\/\/www\.youtube\.com\/watch\?v=).*/', $noticia->href, $matches)):
                             $is_video = true;
                             ?>
                             <iframe data-src="https://www.youtube-nocookie.com/embed/<?= $matches[0] ?>?controls=0"
