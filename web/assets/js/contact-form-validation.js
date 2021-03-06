@@ -1,4 +1,4 @@
-const onLoadListener = () => {
+const prepareFormValidation = () => {
     document.querySelectorAll("form.needs-validation").forEach((form) => {
         form.addEventListener(
             "submit",
@@ -21,4 +21,4 @@ const onLoadListener = () => {
     });
 };
 
-window.addEventListener("load", onLoadListener, false);
+window.addEventListener("load", prepareFormValidation, false);

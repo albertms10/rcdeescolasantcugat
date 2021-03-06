@@ -1,4 +1,4 @@
-const makeNavbarTranslucent = () => {
+const handleNavbarTranslucency = () => {
     const mainNav = document.getElementById("mainNav");
     const subNav = document.getElementById("subNav");
     const navbarLogo = document.getElementById("navbar-logo");
@@ -16,6 +16,6 @@ const makeNavbarTranslucent = () => {
     }
 };
 
-makeNavbarTranslucent();
+handleNavbarTranslucency();
 
-window.addEventListener("scroll", makeNavbarTranslucent, false);
+window.addEventListener("scroll", handleNavbarTranslucency, false);
