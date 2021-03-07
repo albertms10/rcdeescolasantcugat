@@ -1,16 +1,23 @@
 <?php
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 include ROOT . '/../src/Utils/lang-init.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= $_SESSION['lang'] ?>">
+<html lang="<?= $_SESSION['LOCALE'] ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
     <?php $link_pagina = 'contacte' ?>
-    <?php include ROOT . '/../src/View/incs-top.php' ?>
-    <meta name="description" content="RCDE Escola Sant Cugat">
-    <link rel="canonical" href="https://www.rcdeescolasantcugat.com/contacte/">
+    <?php
+    include ROOT . '/../src/View/incs-top.php';
+    /**
+     * @var RCDE\Translation\Main $m
+     */
+
+    require_once ROOT . '/../translations/Contact.php';
+    $c = new RCDE\Translation\Contact();
+    ?>
+    <meta name="description" property="og:description" content="<?= $c->t('description') ?>" />
 
     <script defer src="/assets/js/contact-form-validation.js"></script>
 
@@ -25,8 +32,8 @@ include ROOT . '/../src/Utils/lang-init.php';
             class="jumbotron jumbotron-fluid d-flex align-items-center bg-image publicitat-i-empresa blue filter text-white"
             style="margin-bottom: 0; text-shadow: 0 0 2rem black">
         <div class="container text-center">
-            <h1 class="display-4">Contacte</h1>
-            <p class="lead">Escriu-nos un missatge.</p>
+            <h1 class="display-4"><?= $m->t('contact') ?></h1>
+            <p class="lead"><?= $c->t('contact-us') ?></p>
         </div>
     </section>
     <div class="bg-light pt-5">
@@ -35,22 +42,20 @@ include ROOT . '/../src/Utils/lang-init.php';
             $res = $_GET['res'] ?? '';
             if ($res === 'ok'): ?>
                 <div class="alert alert-success" role="alert">
-                    El missatge s’ha enviat satisfactòriament.
+                    <?= $c->t('res-ok') ?>
                 </div>
             <?php elseif ($res === 'invalid'): ?>
                 <div class="alert alert-warning" role="alert">
-                    El cos del missatge no és vàlid.
+                    <?= $c->t('res-invalid') ?>
                     <ul class="mb-0">
                         <?php if (isset($_GET['contains-link'])): ?>
-                            <li>No inclogueu enllaços ni adreces electròniques en el nom ni en el cos del missatge.</li>
+                            <li><?= $c->t('contains-link') ?></li>
                         <?php endif ?>
                     </ul>
                 </div>
             <?php elseif ($res === 'err'): ?>
                 <div class="alert alert-danger" role="alert">
-                    Hi ha hagut un error en enviar el missatge.
-                    <br>
-                    Disculpeu les molèsties.
+                    <?= $c->t('res-err') ?>
                     <?php if (isset($_GET['msg'])): ?>
                         <hr>
                         <pre><?= $_GET['msg'] ?></pre>
@@ -62,48 +67,46 @@ include ROOT . '/../src/Utils/lang-init.php';
                             <input type="hidden" name="err" value="<?= urlencode($_GET['msg'] ?? '') ?>">
                             <button type="submit" class="btn btn-danger btn-xl float-right"
                                     style="padding: .4rem .8rem; font-size: .8rem">
-                                Informa de l’error
+                                <?= $c->t('report-error') ?>
                             </button>
                         </form>
                     </div>
                 </div>
             <?php elseif ($res === 'err_sent'): ?>
                 <div class="alert alert-info" role="alert">
-                    S’ha notificat el missatge d’error a l’administració.
-                    <br>
-                    Gràcies per la col·laboració i disculpeu les molèsties.
+                    <?= $c->t('res-err-sent') ?>
                 </div>
             <?php endif ?>
             <form class="needs-validation" action="/api/post-missatge.php" method="post" novalidate>
                 <div class="form-group">
-                    <label for="nom">Nom</label>
+                    <label for="nom"><?= $c->t('name') ?></label>
                     <input type="text" class="form-control" name="nom" id="nom"
                            value="<?= urldecode($_SESSION['nom'] ?? '') ?>"
-                           required <?= (($res !== 'invalid') && ($res !== 'err')) ? 'autofocus' : '' ?>
+                           required <?= (($res !== 'invalid') and ($res !== 'err')) ? 'autofocus' : '' ?>
                            autocomplete="on">
-                    <div class="invalid-feedback">Introduïu un nom de contacte.</div>
+                    <div class="invalid-feedback"><?= $c->t('enter-name') ?></div>
                 </div>
                 <div class="form-group">
-                    <label for="email">Adreça electrònica</label>
+                    <label for="email"><?= $c->t('email') ?></label>
                     <input type="email" class="form-control" name="email" id="email"
                            value="<?= urldecode($_SESSION['email'] ?? '') ?>" required autocomplete="on">
-                    <div class="valid-feedback">L’adreça electrònica és vàlida.</div>
-                    <div class="invalid-feedback">Introduïu una adreça electrònica de contacte.</div>
+                    <div class="valid-feedback"><?= $c->t('valid-email') ?></div>
+                    <div class="invalid-feedback"><?= $c->t('enter-email') ?></div>
                 </div>
                 <div class="form-group">
-                    <label for="missatge">Missatge</label>
+                    <label for="missatge"><?= $c->t('message') ?></label>
                     <textarea class="form-control" name="missatge" id="missatge" rows="4" required
-                              <?= (($res === 'invalid') || ($res === 'err')) ? 'autofocus' : '' ?>
+                              <?= (($res === 'invalid') or ($res === 'err')) ? 'autofocus' : '' ?>
                               autocomplete="off"><?= urldecode($_SESSION['missatge'] ?? '') ?></textarea>
-                    <div class="invalid-feedback">Introduïu el missatge.</div>
+                    <div class="invalid-feedback"><?= $c->t('enter-message') ?></div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary btn-xl" type="submit">Enviar</button>
+                    <button class="btn btn-primary btn-xl" type="submit"><?= $c->t('send') ?></button>
                 </div>
             </form>
         </div>
         <div class="text-center py-5">
-            <p class="lead">O bé envia’ns un correu electrònic a</p>
+            <p class="lead"><?= $c->t('or-send-email-to') ?></p>
             <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
             include ROOT . '/../src/View/email-address.php' ?>
         </div>
