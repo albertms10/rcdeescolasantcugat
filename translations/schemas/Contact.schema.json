@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Contact Translations",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "contact-us": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "enter-name": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "email": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "enter-email": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "valid-email": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "message": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "enter-message": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "send": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "sending": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "or-send-email-to": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "report-error": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "res-ok": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "res-invalid": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "contains-link": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "res-err": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "res-err-sent": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    }
+  }
+}

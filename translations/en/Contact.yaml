@@ -1,0 +1,12 @@
+description: We’ll get you the help you need.
+contact-us: We’ll get you the help you need
+enter-name: Enter your name.
+enter-email: Enter your email.
+valid-email: Email is valid.
+enter-message: Enter your message.
+or-send-email-to: Or send us an email to
+res-ok: Your message has been sent successfully.
+res-invalid: The message body is not valid.
+contains-link: Do not include links or email addresses in the name or message.
+res-err: There was an error sending your message. Sorry for the inconvenience.
+res-err-sent: The error message has been reported to the admin. Thank you for your collaboration and sorry for the inconvenience.

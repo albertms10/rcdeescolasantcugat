@@ -1,0 +1,21 @@
+go-back-home: Torna a l’inici
+
+# 400
+bad-request-reason: Error en la sol·licitud
+bad-request-description: No s’ha pogut processar la sol·licitud
+
+# 401
+unauthorized-reason: Sense autenticació
+unauthorized-description: L’autenticació ha fallat o no s’ha proporcionat
+
+# 403
+forbidden-reason: Sense permís
+forbidden-description: No es té permís per accedir al contingut
+
+# 404
+not-found-reason: Pàgina no trobada
+not-found-description: No hem sabut trobar la pàgina que buscaves
+
+# 500
+server-error-reason: Hi ha hagut un error
+server-error-description: Disculpeu les molèsties

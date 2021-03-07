@@ -1,0 +1,18 @@
+description: Contacta amb nosaltres.
+contact-us: Escriu-nos un missatge
+name: Nom
+enter-name: Introduïu un nom de contacte.
+email: Adreça electrònica
+enter-email: Introduïu una adreça electrònica de contacte.
+valid-email: L’adreça electrònica és vàlida.
+message: Missatge
+enter-message: Introduïu el missatge.
+send: Enviar
+sending: Enviant
+or-send-email-to: O bé envia’ns un correu electrònic a
+report-error: Informa de l’error
+res-ok: El missatge s’ha enviat satisfactòriament.
+res-invalid: El cos del missatge no és vàlid.
+contains-link: No inclogueu enllaços ni adreces electròniques en el nom ni en el cos del missatge.
+res-err: Hi ha hagut un error en enviar el missatge. Disculpeu les molèsties.
+res-err-sent: S’ha notificat el missatge d’error a l’administració. Gràcies per la col·laboració i disculpeu les molèsties.

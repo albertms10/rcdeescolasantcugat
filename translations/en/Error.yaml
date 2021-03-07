@@ -1,0 +1,21 @@
+go-back-home: Go back home
+
+# 400
+bad-request-reason: Bad request
+bad-request-description: The server could not process the request
+
+# 401
+unauthorized-reason: Unauthenticated
+unauthorized-description: Authentication failed or not provided
+
+# 403
+forbidden-reason: Forbidden
+forbidden-description: You don’t have permission to access the requested directory
+
+# 404
+not-found-reason: Page not found
+not-found-description: We couldn’t find the page you were looking for
+
+# 500
+server-error-reason: An error occurred
+server-error-description: Sorry for the inconvenience

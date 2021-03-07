@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Advertising Translations",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string",
+      "pattern": "^[¿¡A-Z].*[!?.]$"
+    },
+    "advertising-body": {
+      "type": "string",
+      "pattern": "^[¿¡A-Z].*[!?.]$"
+    }
+  }
+}
