@@ -1,3 +1,3 @@
 SELECT *
 FROM pagines
-WHERE titol_pagina <> '__index__';
+WHERE titol_pagina <> '/';
