@@ -1,3 +1,9 @@
+ErrorDocument 400 /errors/badrequest.php
+ErrorDocument 401 /errors/unauthd.php
+ErrorDocument 403 /errors/forbid.php
+ErrorDocument 404 /errors/notfound.php
+ErrorDocument 500 /errors/serverr.php
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{HTTPS} !on
