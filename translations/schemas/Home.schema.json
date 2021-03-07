@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Home Translations",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    ".+-id": {
+      "pattern": "^[\\w-]+$"
+    }
+  },
+  "properties": {
+    "description": {
+      "type": "string",
+      "pattern": "^[¿¡A-Z].*[!?.]$"
+    },
+    "previous": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "next": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "about-us": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "how-we-are": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "gallery": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "find-us": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "traning-sessions-matches": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
+    "contact-hours": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    }
+  }
+}

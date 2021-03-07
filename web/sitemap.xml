@@ -1,46 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="assets/addons/yrewrite/xsl-stylesheets/xml-sitemap.xsl"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-<url>
-  <loc>https://rcdeescolasantcugat.com/</loc>
-  <lastmod>2020-11-10T23:25:43+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://rcdeescolasantcugat.com/rcde/</loc>
-  <lastmod>2020-11-10T21:52:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://rcdeescolasantcugat.com/rcde-escola/</loc>
-  <lastmod>2020-11-10T21:52:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://rcdeescolasantcugat.com/pericos-de-sant-cugat/</loc>
-  <lastmod>2020-11-10T21:52:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://rcdeescolasantcugat.com/publicitat-i-empresa/</loc>
-  <lastmod>2020-11-10T21:52:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://rcdeescolasantcugat.com/treballa-amb-nosaltres/</loc>
-  <lastmod>2020-11-10T21:52:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://rcdeescolasantcugat.com/contacte/</loc>
-  <lastmod>2020-11-10T21:52:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.w3.org/1999/xhtml
+        http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd">
+    <url>
+        <loc>https://rcdeescolasantcugat.com/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/es/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/en/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/rcde/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://rcdeescolasantcugat.com/zh/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/rcde/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/es/rcde/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://rcdeescolasantcugat.com/zh/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/rcde/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/en/rcde/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://rcdeescolasantcugat.com/zh/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/rcde/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/zh/rcde/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://rcdeescolasantcugat.com/zh/rcde/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/rcde/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/rcde-escola/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/rcde-escola/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/es/rcde-escola/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/rcde-escola/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/en/rcde-escola/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/rcde-escola/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/rcde-escola/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/pericos-de-sant-cugat/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/pericos-de-sant-cugat/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/es/pericos-de-sant-cugat/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/pericos-de-sant-cugat/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/en/pericos-de-sant-cugat/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/pericos-de-sant-cugat/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/pericos-de-sant-cugat/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/publicitat-i-empresa/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/publicitat-i-empresa/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/publicidad-y-empresa/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/advertising-and-business/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/publicitat-i-empresa/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/es/publicidad-y-empresa/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/publicitat-i-empresa/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/publicidad-y-empresa/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/advertising-and-business/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/publicitat-i-empresa/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/en/advertising-and-business/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/publicitat-i-empresa/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/publicidad-y-empresa/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/advertising-and-business/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/publicitat-i-empresa/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/treballa-amb-nosaltres/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/treballa-amb-nosaltres/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/trabaja-con-nosotros/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/work-with-us/"/>
+        <xhtml:link rel="alternate" hreflang="x-default"
+                    href="https://rcdeescolasantcugat.com/treballa-amb-nosaltres/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/es/trabaja-con-nosotros/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/treballa-amb-nosaltres/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/trabaja-con-nosotros/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/work-with-us/"/>
+        <xhtml:link rel="alternate" hreflang="x-default"
+                    href="https://rcdeescolasantcugat.com/treballa-amb-nosaltres/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/en/work-with-us/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/treballa-amb-nosaltres/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/trabaja-con-nosotros/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/work-with-us/"/>
+        <xhtml:link rel="alternate" hreflang="x-default"
+                    href="https://rcdeescolasantcugat.com/treballa-amb-nosaltres/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/contacte/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/contacte/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/contacto/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/contact/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/contacte/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/es/contacto/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/contacte/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/contacto/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/contact/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/contacte/"/>
+    </url>
+    <url>
+        <loc>https://rcdeescolasantcugat.com/en/contact/</loc>
+        <lastmod>2021-03-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ca" href="https://rcdeescolasantcugat.com/contacte/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://rcdeescolasantcugat.com/es/contacto/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://rcdeescolasantcugat.com/en/contact/"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://rcdeescolasantcugat.com/contacte/"/>
+    </url>
 </urlset>

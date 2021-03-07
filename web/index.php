@@ -1,16 +1,25 @@
 <?php
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 include ROOT . '/../src/Utils/lang-init.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= $_SESSION['lang'] ?>">
+<html lang="<?= $_SESSION['LOCALE'] ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <?php $link_pagina = '__index__' ?>
-    <?php include ROOT . '/../src/View/incs-top.php' ?>
-    <meta name="description" content="RCDE Escola Sant Cugat">
-    <link rel="canonical" href="https://www.rcdeescolasantcugat.com/">
+    <?php $link_pagina = '/' ?>
+    <?php
+    include ROOT . '/../src/View/incs-top.php';
+    /**
+     * @var RCDE\Translation\Main $m
+     * @var RCDE\Translation\Structure $s
+     */
+
+    require_once ROOT . '/../translations/Home.php';
+    $h = new RCDE\Translation\Home();
+    ?>
+    <meta name="description" property="og:description" content="<?= $m->t('description') ?>" />
+
     <script type="application/ld+json">
         [
             {
@@ -39,6 +48,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php require_once ROOT . '/../src/Model/Slogan.php' ?>
     <?php require_once ROOT . '/../src/Model/Location.php' ?>
     <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
+    <?php require_once ROOT . '/../src/Model/TimetableDay.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -55,7 +65,9 @@ include ROOT . '/../src/Utils/lang-init.php';
             endif ?>
         </ol>
         <div class="carousel-inner">
-            <?php foreach ($noticies as $key => $noticia): ?>
+            <?php foreach ($noticies as $key => $noticia):
+                /** @var \RCDE\Noticia $noticia */
+                ?>
                 <div class="carousel-item carousel<?= ($key === 0) ? ' active' : '' ?>">
                     <?php
                     $is_video = false;
@@ -81,15 +93,21 @@ include ROOT . '/../src/Utils/lang-init.php';
                         <?php endif ?>
                     <?php endif ?>
                     <?php if (!$is_video):
-                        $href = $noticia->href ?? '';
-                        $is_hash = !empty($href) && ($href[0] !== '#') ?>
+                        $is_hash = false;
+                        $is_link = false;
+                        if (!empty($noticia->href)) {
+                            $is_hash = ($noticia->href[0] === '#');
+                            $is_link = !$is_hash;
+                        } ?>
                         <a class="carousel-caption js-scroll-trigger"
-                           href="<?= $href ?? '#' ?>"
-                            <?= $is_hash ? 'rel="external noopener" target="_blank"' : '' ?>
+                           href="<?= $is_hash
+                               ? '#' . $h->t(substr($noticia->href, 1))
+                               : ($noticia->href ?? '#') ?>"
+                            <?= $is_link ? 'rel="external noopener" target="_blank"' : '' ?>
                         >
                             <div class="d-flex align-items-center justify-content-center">
                                 <h2><?= $noticia->titol_noticia ?></h2>
-                                <?php if ($is_hash): ?>
+                                <?php if ($is_link): ?>
                                     <i class="fas fa-2x fa-external-link-square-alt ml-3"></i>
                                 <?php endif ?>
                             </div>
@@ -103,103 +121,67 @@ include ROOT . '/../src/Utils/lang-init.php';
         </div>
         <a class="carousel-control-prev" href="#carouselCaptions" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
+            <span class="sr-only"><?= $h->t('previous') ?></span>
         </a>
         <a class="carousel-control-next" href="#carouselCaptions" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Següent</span>
+            <span class="sr-only"><?= $h->t('next') ?></span>
         </a>
     </div>
 
-    <!-- About Section -->
-    <section class="page-section bg-primary" id="sobre-nosaltres">
+    <section class="page-section bg-primary" id="<?= $h->t('about-us-id') ?>" data-heading="<?= $h->t('about-us') ?>">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="text-white mt-0">El millor complement per a <br /> la formació dels teus fills</h2>
-                    <hr class="divider light my-4">
-                    <p class="text-white-75 mb-4">Vols fer una prova?</p>
-                    <a class="btn btn-light btn-xl js-scroll-trigger" href="#com-som">Coneix-nos</a>
+                <div class="col-lg-6 text-center">
+                    <?php include ROOT . $s->resolvedUrl(
+                            pathname: $link_pagina,
+                            filename: '__about-us.php',
+                            explicit: true,
+                            include_filename: true,
+                        )['url'] ?>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="page-section" id="com-som">
+    <section class="page-section" id="<?= $h->t('how-we-are-id') ?>" data-heading="<?= $h->t('how-we-are') ?>">
         <div class="container">
-            <h2 class="text-center mt-0">Compta amb nosaltres</h2>
-            <hr class="divider my-4">
-            <div class="row">
-                <?php
-                $slogans = [
-                    new RCDE\Slogan(
-                        title: 'Personalització i experiència',
-                        description: 'Deu anys de bona feina a Sant Cugat',
-                        fa_icon: 'fa-gem',
-                    ),
-                    new RCDE\Slogan(
-                        title: 'Ambient familiar',
-                        description: 'El context ideal per als infants',
-                        fa_icon: 'fa-heart',
-                    ),
-                    new RCDE\Slogan(
-                        title: 'ADN Perico',
-                        description: 'Esperit de lluita i orgull blanc-i-blau',
-                        icon_filename: ROOT . '/assets/img/logo/perico-rcde.svg',
-                    ),
-                    new RCDE\Slogan(
-                        title: 'Connexió RCDE',
-                        description: 'Jornades i trobades amb les RCDE Academy i RCDE escoles',
-                        fa_icon: 'fa-globe-europe',
-                    )
-                ];
+            <?php include ROOT . $s->resolvedUrl(
+                    pathname: $link_pagina,
+                    filename: '__how-we-are.php',
+                    explicit: true,
+                    include_filename: true,
+                )['url'] ?>
+        </div>
+    </section>
 
-                foreach ($slogans as $slogan): ?>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <?php if (isset($slogan->fa_icon)): ?>
-                                <i class="fas fa-4x <?= $slogan->fa_icon ?> text-primary mb-4"></i>
-                            <?php elseif (isset($slogan->icon_filename)): ?>
-                                <div class="svg-icon-container small blue">
-                                    <?= file_get_contents($slogan->icon_filename) ?>
+    <section id="<?= $h->t('gallery-id') ?>" data-heading="<?= $h->t('gallery') ?>">
+        <div id="portfolio">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters">
+                    <?php
+                    $imatges = RCDE\ImatgeGaleriaController::llistaImatgesVisibles();
+                    foreach ($imatges as $imatge): ?>
+                        <div class="col-lg-4 col-sm-6">
+                            <a class="portfolio-box"
+                               href="/assets/img/galeria/fullsize/<?= $imatge->nom_imatge ?>.webp">
+                                <img class="img-fluid"
+                                     src="/assets/img/galeria/thumbnails/<?= $imatge->nom_imatge ?>.webp"
+                                     width="650" height="434"
+                                     loading="lazy" alt="<?= $imatge->titol_imatge ?>">
+                                <div class="portfolio-box-caption">
+                                    <div class="project-category text-white-50"><?= $imatge->subtitol_imatge ?></div>
+                                    <div class="project-name"><?= $imatge->titol_imatge ?></div>
                                 </div>
-                            <?php endif ?>
-                            <h3 class="h4 mb-2"><?= $slogan->title ?></h3>
-                            <p class="text-muted mb-0"><?= $slogan->description ?></p>
+                            </a>
                         </div>
-                    </div>
-                <?php endforeach ?>
+                    <?php endforeach ?>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <div class="container-fluid p-0">
-            <div class="row no-gutters">
-                <?php
-                $imatges = RCDE\ImatgeGaleriaController::llistaImatgesVisibles();
-                foreach ($imatges as $imatge): ?>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box"
-                           href="assets/img/galeria/fullsize/<?= $imatge->nom_imatge ?>.webp">
-                            <img class="img-fluid"
-                                 src="assets/img/galeria/thumbnails/<?= $imatge->nom_imatge ?>.webp"
-                                 width="650" height="434"
-                                 loading="lazy" alt="<?= $imatge->titol_imatge ?>">
-                            <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50"><?= $imatge->subtitol_imatge ?></div>
-                                <div class="project-name"><?= $imatge->titol_imatge ?></div>
-                            </div>
-                        </a>
-                    </div>
-                <?php endforeach ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="page-section bg-light" id="on-som">
+    <section class="page-section bg-light" id="<?= $h->t('find-us-id') ?>" data-heading="<?= $h->t('find-us') ?>">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -210,13 +192,32 @@ include ROOT . '/../src/Utils/lang-init.php';
                         <div class="row justify-content-center">
                             <div class="col-lg-8">
                                 <p class="text-muted mb-3">
-                                    Els entrenaments i els partits com a locals
-                                    es juguen a la <abbr id="zem-tooltip" data-toggle="tooltip"
-                                                         title="Zona Esportiva Municipal">ZEM</abbr> La Guinardera.
+                                    <?= preg_replace(
+                                        '/(ZEM)/',
+                                        '<abbr id="zem-tooltip" data-toggle="tooltip" title="Zona Esportiva Municipal">${1}</abbr>',
+                                        $h->t('traning-sessions-matches')
+                                    ) ?>
                                 </p>
-                                <p class="text-muted mb-3">
-                                    El nostre horari d’atenció presencial és dilluns i dimecres de 18:00 a 19:30.
-                                </p>
+
+                                <h5 class="mt-4 text-muted"><?= $h->t('contact-hours') ?></h5>
+                                <table class="table table-sm table-hover table-rounded table-borderless text-left m-auto"
+                                       style="width: fit-content">
+                                    <tbody>
+                                    <?php
+                                    $timetable = [
+                                        new \RCDE\TimetableDay(0, '18:00', '19:30'),
+                                        new \RCDE\TimetableDay(2, '18:00', '19:30'),
+                                    ];
+                                    foreach ($timetable as $day): ?>
+                                        <tr>
+                                            <td>
+                                                <b class="text-muted"><?= $day->getTextualWeekday() ?></b>
+                                            </td>
+                                            <td><?= $day->getTimeRange() ?></td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

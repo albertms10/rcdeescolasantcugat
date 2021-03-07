@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Error Translations",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "go-back-home": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "bad-request-reason": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "bad-request-description": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "unauthorized-reason": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "unauthorized-description": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "forbidden-reason": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "forbidden-description": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "not-found-reason": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "not-found-description": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "server-error-reason": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "server-error-description": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
+    }
+  }
+}

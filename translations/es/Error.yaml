@@ -1,0 +1,21 @@
+go-back-home: Volver al inicio
+
+# 400
+bad-request-reason: Error en la solicitud
+bad-request-description: No se ha podido procesar la solicitud
+
+# 401
+unauthorized-reason: Sin autenticación
+unauthorized-description: La autenticación ha fallado o no se ha proporcionado
+
+# 403
+forbidden-reason: Sin permiso
+forbidden-description: No se tiene permiso para acceder al contenido
+
+# 404
+not-found-reason: Página no encontrada
+not-found-description: No pudimos encontrar la página que buscaba
+
+# 500
+server-error-reason: Ha ocurrido un error
+server-error-description: Disculpe las molestias

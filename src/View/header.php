@@ -1,11 +1,30 @@
-<?php $link_pagina ??= '' ?>
+<?php
+/**
+ * @var RCDE\Translation\Main $m
+ * @var RCDE\Translation\Structure $s
+ * @var string $pathname
+ */
 
+$link_pagina ??= '';
+?>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light main-nav fixed-top py-3"
          id="mainNav">
         <div class="container" style="min-height:4rem">
+            <?php
+            $index_url = '';
+            $resolved_index_url = null;
+
+            if ($link_pagina === '/') {
+                $index_url = '#page-top';
+            } else {
+                $resolved_index_url = $s->resolvedUrl('/');
+                $index_url = $resolved_index_url['url'];
+            }
+            ?>
             <a class="navbar-brand js-scroll-trigger py-0"
-               href="<?= ($link_pagina === '__index__') ? '#page-top' : '/' ?>"
+               href="<?= $index_url ?>"
+                <?= isset($resolved_index_url) ? "hreflang=\"{$resolved_index_url['locale']}\"" : '' ?>
                style="width: 147px; height: 60px;">
                 <div id="navbar-logo"
                      class="translucent position-relative blanc">
@@ -25,28 +44,69 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <?php
+                    $current_has_subnav = true;
                     if (!empty($pagines)):
                         foreach ($pagines as $pagina):
                             $is_current = $pagina->link_pagina === $link_pagina;
-                            if ($is_current)
-                                $titol_pagina = $pagina->titol_pagina ?>
+                            $pagina_url = '';
+                            $resolved_pagina_url = null;
+
+                            if ($is_current) {
+                                $current_has_subnav = $pagina->has_subnav;
+                                $pagina_url = '#page-top';
+                                $titol_pagina = $m->t($pagina->titol_pagina);
+                            } else {
+                                $resolved_pagina_url = $s->resolvedUrl($pagina->link_pagina);
+                                $pagina_url = $resolved_pagina_url['url'];
+                            } ?>
                             <li class="nav-item d-flex align-items-center" data-target="#page-top">
                                 <a class="nav-link js-scroll-trigger text-center<?= $is_current ? ' active' : '' ?>"
-                                   href="<?= $is_current ? '#page-top' : ('/' . $pagina->link_pagina . '/') ?>">
-                                    <?= $pagina->titol_pagina ?>
+                                   href="<?= $pagina_url ?>"
+                                    <?= isset($resolved_pagina_url) ? "hreflang=\"{$resolved_pagina_url['locale']}\"" : '' ?>
+                                >
+                                    <?= $m->t($pagina->titol_pagina) ?>
                                 </a>
                             </li>
                         <?php endforeach;
                     endif ?>
                 </ul>
             </div>
+            <?php
+            $resolved_locales = array_map(
+                fn($locale) => $s->resolvedUrl($pathname, locale: $locale),
+                $_SESSION['LOCALES'],
+            );
+            $filtered_locales = array_filter(
+                $resolved_locales,
+                fn($resolved_locale) => $resolved_locale['exists'],
+            );
+            if (count($filtered_locales) > 1): ?>
+                <div class="btn-group">
+                    <button class="btn btn-sm text-white text-uppercase font-weight-bold dropdown-toggle" type="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?= $_SESSION['LOCALE'] ?>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" style="font-size: small">
+                        <?php foreach ($filtered_locales as $resolved_locale): ?>
+                            <a class="dropdown-item<?= ($resolved_locale['locale'] === $_SESSION['LOCALE']) ? ' active' : '' ?>"
+                               href="<?= $resolved_locale['url'] ?>"
+                               hreflang="<?= $resolved_locale['locale'] ?>"><?= match ($resolved_locale['locale']) {
+                                    'ca' => 'Català',
+                                    'en' => 'English',
+                                    'es' => 'Español',
+                                    'zh' => '中文',
+                                } ?></a>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+            <?php endif ?>
         </div>
     </nav>
 
     <?php if ($current_has_subnav): ?>
         <div class="nav-scroller position-absolute">
             <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy"
-                 id="subNav" <?= ($link_pagina !== '__index__') ? '' : 'style="opacity: 1"' ?>>
+                 id="subNav" <?= ($link_pagina !== '/') ? '' : 'style="opacity: 1"' ?>>
                 <div class="container">
                     <div class="navbar-collapse" id="subNavbarResponsive">
                         <ul class="navbar-nav ml-auto"></ul>

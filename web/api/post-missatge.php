@@ -3,8 +3,11 @@
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 require_once ROOT . '/../src/Utils/send-mail.php';
+require_once ROOT . '/../translations/Structure.php';
+$s = new RCDE\Translation\Structure();
 
-$location = 'https://rcdeescolasantcugat.com/contacte/';
+session_start();
+$location = $s->resolvedUrl('contact')['url'];
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     error_header($location, new Exception('Request method must be POST'));
@@ -14,8 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 require_once ROOT . '/../src/Controller/MissatgeController.php';
 require_once ROOT . '/../src/Utils/check-if-email.php';
 require_once ROOT . '/../src/Utils/set-strict-error-handler.php';
-
-session_start();
 
 $_SESSION['nom'] = $_POST['nom'] ?? '';
 $_SESSION['email'] = $_POST['email'] ?? '';
