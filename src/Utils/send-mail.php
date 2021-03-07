@@ -106,7 +106,7 @@ function contact_email_template(string $email, string $name, string $message): s
         'email' => $email,
         'from' => $name,
         'date' => date('Y-m-d H:i'),
-        'date-format' => strftime('%A, %e %B %Y · %H:%M'),
+        'date-format' => utf8_encode(strftime('%A, %e %B %Y · %H:%M')),
         'message' => $message,
     ];
 
@@ -123,7 +123,7 @@ function error_email_template(string $email, string $name, string $err): string
         'email' => $email,
         'from' => $name,
         'date' => date('Y-m-d H:i'),
-        'date-format' => strftime('%A, %e %B %Y · %H:%M'),
+        'date-format' => utf8_encode(strftime('%A, %e %B %Y · %H:%M')),
         'err' => $err,
     ];
 
