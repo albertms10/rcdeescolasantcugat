@@ -788,3 +788,15 @@ a.badge-primary.focus {
 pre {
   overflow-wrap: break-word;
 }
+
+table.table-rounded tr td:first-child {
+  border-top-left-radius: .25rem !important;
+  border-bottom-left-radius: .25rem !important;
+  padding-left: .5rem;
+}
+
+table.table-rounded tr td:last-child {
+  border-top-right-radius: .25rem !important;
+  border-bottom-right-radius: .25rem !important;
+  padding-right: .5rem;
+}
