@@ -134,7 +134,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <?php include ROOT . $s->resolvedUrl(
-                            pathname: '/',
+                            pathname: $link_pagina,
                             filename: '__about-us.php',
                             explicit: true,
                             include_filename: true,
@@ -147,7 +147,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     <section class="page-section" id="<?= $h->t('how-we-are-id') ?>" data-heading="<?= $h->t('how-we-are') ?>">
         <div class="container">
             <?php include ROOT . $s->resolvedUrl(
-                    pathname: '/',
+                    pathname: $link_pagina,
                     filename: '__how-we-are.php',
                     explicit: true,
                     include_filename: true,
