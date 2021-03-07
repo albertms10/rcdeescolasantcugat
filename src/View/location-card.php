@@ -9,7 +9,9 @@
             <p class="text-muted"><?= $location->getFullAddress() ?></p>
         </address>
         <div class="rounded overflow-hidden">
-            <?= $location->gmaps ?>
+            <iframe data-src="<?= $location->gmaps ?>&language=<?= $_SESSION['LOCALE'] ?>"
+                    width="100%" height="300" frameborder="0" class="lazyload" loading="lazy"
+                    style="border:0;"></iframe>
         </div>
     </div>
 <?php endif ?>

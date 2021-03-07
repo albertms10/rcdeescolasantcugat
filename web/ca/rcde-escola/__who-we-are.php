@@ -35,7 +35,7 @@ require_once ROOT . '/../src/Model/Picture.php';
 
         <?php
         $iframe = new Iframe(
-            src: 'https://www.youtube-nocookie.com/embed/ZaP-lZgY1UQ',
+            src: "https://www.youtube-nocookie.com/embed/ZaP-lZgY1UQ?hl={$_SESSION['LOCALE']}",
             title: 'Reproductor YouTube'
         );
         include ROOT . '/../src/View/responsive-iframe.php' ?>
