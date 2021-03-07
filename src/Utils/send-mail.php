@@ -39,7 +39,7 @@ function send_mail(
     DotEnv::load(ROOT . '/../.env.php');
     DotEnv::setRequired(['MAILER_HOST', 'MAILER_USERNAME', 'MAILER_PASSWORD', 'BCCS']);
 
-    setlocale(LC_TIME, 'ca_ES', 'Catalan_Spain', 'Catalan');
+    setlocale(LC_ALL, ...$_SESSION['DEFAULT_LOCALE_CODE']);
     date_default_timezone_set('Europe/Madrid');
 
     $mail = new PHPMailer\PHPMailer(true);
@@ -48,6 +48,8 @@ function send_mail(
         $mail->CharSet = 'UTF-8';
         $mail->Encoding = 'base64';
         $mail->isSMTP();
+
+        $mail->setLanguage($_SESSION['LOCALE']);
 
         $mail->SMTPOptions = [
             'ssl' => [
@@ -108,6 +110,7 @@ function contact_email_template(string $email, string $name, string $message): s
         'date' => date('Y-m-d H:i'),
         'date-format' => utf8_encode(strftime('%A, %e %B %Y · %H:%M')),
         'message' => $message,
+        'locale' => strtoupper($_SESSION['LOCALE']),
     ];
 
     return replace_mustache_vars($body, $vars);
@@ -125,6 +128,7 @@ function error_email_template(string $email, string $name, string $err): string
         'date' => date('Y-m-d H:i'),
         'date-format' => utf8_encode(strftime('%A, %e %B %Y · %H:%M')),
         'err' => $err,
+        'locale' => strtoupper($_SESSION['LOCALE']),
     ];
 
     return replace_mustache_vars($body, $vars);
