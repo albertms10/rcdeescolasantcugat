@@ -16,13 +16,13 @@ include ROOT . '/../src/Utils/lang-init.php';
             {
                 "@context": "https://schema.org",
                 "@type": "Organization",
-                "url": "https://www.rcdeescolasantcugat.com",
-                "logo": "https://www.rcdeescolasantcugat.com/assets/img/icons/icon-512.webp"
+                "url": "https://rcdeescolasantcugat.com",
+                "logo": "https://rcdeescolasantcugat.com/assets/img/icons/icon-512.webp"
             },
             {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                "url": "https://www.rcdeescolasantcugat.com/"
+                "url": "https://rcdeescolasantcugat.com/"
             }
         ]
     </script>
