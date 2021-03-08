@@ -107,7 +107,7 @@ include ROOT . '/../src/Utils/lang-init.php';
         </div>
         <div class="text-center py-5">
             <p class="lead"><?= $c->t('or-send-email-to') ?></p>
-            <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
+            <?php $address = new RCDE\Model\EmailAddress(user: 'direcciotecnica');
             include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </div>

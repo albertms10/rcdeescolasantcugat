@@ -12,19 +12,19 @@
         <ul class="list-group list-group-horizontal text-center social-media justify-content-center flex-wrap">
             <?php
             $socials = [
-                new RCDE\Social(
+                new RCDE\Model\Social(
                     icon: 'fab fa-facebook',
                     title: 'Facebook',
                     link: 'facebook.com/RCDEscolaSTC',
                     color: '#3b5998',
                 ),
-                new RCDE\Social(
+                new RCDE\Model\Social(
                     icon: 'fab fa-instagram',
                     title: 'Instagram',
                     link: 'instagram.com/rcdescola_santcugat',
                     color: '#3f729b',
                 ),
-                new RCDE\Social(
+                new RCDE\Model\Social(
                     icon: 'fab fa-youtube',
                     title: 'YouTube',
                     link: 'youtube.com/channel/UCyBL6WE136kShyBpVldvyOg',

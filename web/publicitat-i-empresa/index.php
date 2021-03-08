@@ -34,7 +34,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                 <h1 class="display-4 mb-3"><?= $m->t('advertising-and-business') ?></h1>
                 <p class="lead mb-4"><?= $a->t('advertising-body') ?></p>
             </div>
-            <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
+            <?php $address = new RCDE\Model\EmailAddress(user: 'direcciotecnica');
             include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </section>

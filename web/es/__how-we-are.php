@@ -3,22 +3,22 @@
 <div class="row">
     <?php
     $slogans = [
-        new RCDE\Slogan(
+        new RCDE\Model\Slogan(
             title: 'Personalización y experiencia',
             description: 'Diez años de buen trabajo en Sant Cugat',
             fa_icon: 'fa-gem',
         ),
-        new RCDE\Slogan(
+        new RCDE\Model\Slogan(
             title: 'Ambiente familiar',
             description: 'El contexto ideal para los niños',
             fa_icon: 'fa-heart',
         ),
-        new RCDE\Slogan(
+        new RCDE\Model\Slogan(
             title: 'ADN Perico',
             description: 'Espíritu de lucha y orgullo blanquiazul',
             icon_filename: ROOT . '/assets/img/logo/perico-rcde.svg',
         ),
-        new RCDE\Slogan(
+        new RCDE\Model\Slogan(
             title: 'Conexión RCDE',
             description: 'Jornadas y encuentros con las RCDE Academy y RCDE Escoles',
             fa_icon: 'fa-globe-europe',

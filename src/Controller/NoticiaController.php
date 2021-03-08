@@ -1,6 +1,6 @@
 <?php
 
-namespace RCDE;
+namespace RCDE\Controller;
 
 use Connexion;
 use PDO;
@@ -19,6 +19,6 @@ class NoticiaController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\Noticia');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\Model\Noticia');
     }
 }

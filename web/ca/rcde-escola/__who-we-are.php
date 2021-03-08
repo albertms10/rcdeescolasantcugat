@@ -1,7 +1,7 @@
 <?php
 
-use RCDE\Iframe;
-use RCDE\Picture;
+use RCDE\Model\Iframe;
+use RCDE\Model\Picture;
 
 require_once ROOT . '/../src/Model/Iframe.php';
 require_once ROOT . '/../src/Model/Picture.php';

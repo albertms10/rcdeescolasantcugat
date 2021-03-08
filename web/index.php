@@ -57,7 +57,7 @@ include ROOT . '/../src/Utils/lang-init.php';
 <main class="mt-0">
     <div id="carouselCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <?php if ($noticies = RCDE\NoticiaController::llistaNoticies()):
+            <?php if ($noticies = RCDE\Controller\NoticiaController::llistaNoticies()):
                 foreach ($noticies as $key => $noticia): ?>
                     <li data-target="#carouselCaptions"
                         data-slide-to="<?= $key ?>" <?= ($key === 0) ? 'class="active"' : '' ?>></li>
@@ -66,7 +66,7 @@ include ROOT . '/../src/Utils/lang-init.php';
         </ol>
         <div class="carousel-inner">
             <?php foreach ($noticies as $key => $noticia):
-                /** @var \RCDE\Noticia $noticia */
+                /** @var \RCDE\Model\Noticia $noticia */
                 ?>
                 <div class="carousel-item carousel<?= ($key === 0) ? ' active' : '' ?>">
                     <?php
@@ -160,7 +160,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <div class="container-fluid p-0">
                 <div class="row no-gutters">
                     <?php
-                    $imatges = RCDE\ImatgeGaleriaController::llistaImatgesVisibles();
+                    $imatges = RCDE\Controller\ImatgeGaleriaController::llistaImatgesVisibles();
                     foreach ($imatges as $imatge): ?>
                         <div class="col-lg-4 col-sm-6">
                             <a class="portfolio-box"
@@ -205,8 +205,8 @@ include ROOT . '/../src/Utils/lang-init.php';
                                     <tbody>
                                     <?php
                                     $timetable = [
-                                        new \RCDE\TimetableDay(0, '18:00', '19:30'),
-                                        new \RCDE\TimetableDay(2, '18:00', '19:30'),
+                                        new \RCDE\Model\TimetableDay(0, '18:00', '19:30'),
+                                        new \RCDE\Model\TimetableDay(2, '18:00', '19:30'),
                                     ];
                                     foreach ($timetable as $day): ?>
                                         <tr>
@@ -223,15 +223,15 @@ include ROOT . '/../src/Utils/lang-init.php';
                     </div>
 
                     <div class="text-center mt-4">
-                        <?php $address = new RCDE\EmailAddress(user: 'administracio');
+                        <?php $address = new RCDE\Model\EmailAddress(user: 'administracio');
                         include ROOT . '/../src/View/email-address.php' ?>
-                        <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
+                        <?php $address = new RCDE\Model\EmailAddress(user: 'direcciotecnica');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <?php
-                    $location = new RCDE\Location(
+                    $location = new RCDE\Model\Location(
                         address: 'Avinguda de la Guinardera',
                         zip: '08174',
                         city: 'Sant Cugat del Vallès',
@@ -252,13 +252,13 @@ include ROOT . '/../src/Utils/lang-init.php';
                     </div>
 
                     <div class="text-center mt-4">
-                        <?php $address = new RCDE\EmailAddress(user: 'penyapericos');
+                        <?php $address = new RCDE\Model\EmailAddress(user: 'penyapericos');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <?php
-                    $location = new RCDE\Location(
+                    $location = new RCDE\Model\Location(
                         address: 'Carrer de Sant Domènec',
                         zip: '08172',
                         city: 'Sant Cugat del Vallès',

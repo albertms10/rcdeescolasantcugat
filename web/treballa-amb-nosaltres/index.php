@@ -38,7 +38,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?= $w->t('send-resume') ?>
                 </p>
             </div>
-            <?php $address = new RCDE\EmailAddress(user: 'direcciotecnica');
+            <?php $address = new RCDE\Model\EmailAddress(user: 'direcciotecnica');
             include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </section>

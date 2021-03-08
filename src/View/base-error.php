@@ -1,7 +1,7 @@
 <?php
 
-use RCDE\ResponseError;
-use RCDE\ResponseErrorController;
+use RCDE\Model\ResponseError;
+use RCDE\Controller\ResponseErrorController;
 use RCDE\Translation;
 
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);

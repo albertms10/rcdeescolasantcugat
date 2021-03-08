@@ -58,7 +58,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <h2 class="h1" id="cos-tecnic" data-heading><?= $e->t('staff') ?></h2>
             <div class="container mt-4">
                 <div class="row">
-                    <?php $entrenadors = RCDE\CosTecnicController::llistaEntrenadors();
+                    <?php $entrenadors = RCDE\Controller\CosTecnicController::llistaEntrenadors();
                     foreach ($entrenadors as $key => $entrenador): ?>
                         <div class="col-lg-3 col-md-4 p-3 text-center user-card">
                             <div class="transform-center p-3" style="width:8rem; height:8rem">
@@ -93,7 +93,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <hr class="divider my-4 ml-0">
             <div class="row">
                 <?php
-                $titulars_premsa = RCDE\TitularPremsaController::llistaTitularsPremsa();
+                $titulars_premsa = RCDE\Controller\TitularPremsaController::llistaTitularsPremsa();
                 foreach ($titulars_premsa as $titular_premsa): ?>
                     <div class="col-lg-6">
                         <div class="card mb-4">

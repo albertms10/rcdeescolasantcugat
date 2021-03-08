@@ -1,6 +1,6 @@
 <?php
 
-namespace RCDE;
+namespace RCDE\Controller;
 
 use Connexion;
 

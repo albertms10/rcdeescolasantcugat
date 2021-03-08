@@ -41,7 +41,7 @@ endforeach ?>
 <?php
 $link_pagina ??= '';
 
-$pagines = RCDE\PaginaController::llistaPagines();
+$pagines = RCDE\Controller\PaginaController::llistaPagines();
 $filtre_pagines = array_filter($pagines, fn($pagina) => ($pagina->link_pagina === $link_pagina));
 
 $titol_pagina = '';
