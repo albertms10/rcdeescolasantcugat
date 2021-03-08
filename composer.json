@@ -16,6 +16,11 @@
         }
     ],
     "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "RCDE\\": "src/"
+        }
+    },
     "require": {
         "arrilot/dotenv-php": "^2.0",
         "phpmailer/phpmailer": "^6.3"

@@ -1,5 +1,12 @@
 <?php
+
+use RCDE\Model\EmailAddress;
+use RCDE\Translation\Advertising;
+use RCDE\Translation\Main;
+
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require_once ROOT . '/../vendor/autoload.php';
 include ROOT . '/../src/Utils/lang-init.php';
 ?>
 
@@ -10,16 +17,11 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php $link_pagina = 'publicitat-i-empresa' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
-    /**
-     * @var RCDE\Translation\Main $m
-     */
+    /** @var Main $m */
 
-    require_once ROOT . '/../src/Translation/Advertising.php';
-    $a = new RCDE\Translation\Advertising();
+    $a = new Advertising();
     ?>
     <meta name="description" property="og:description" content="<?= $a->t('description') ?>" />
-
-    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -34,7 +36,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                 <h1 class="display-4 mb-3"><?= $m->t('advertising-and-business') ?></h1>
                 <p class="lead mb-4"><?= $a->t('advertising-body') ?></p>
             </div>
-            <?php $address = new RCDE\Model\EmailAddress(user: 'direcciotecnica');
+            <?php $address = new EmailAddress(user: 'direcciotecnica');
             include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </section>

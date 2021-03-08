@@ -1,7 +1,11 @@
 <?php
+
+use RCDE\Translation\Main;
+use RCDE\Translation\Structure;
+
 /**
- * @var RCDE\Translation\Main $m
- * @var RCDE\Translation\Structure $s
+ * @var Main $m
+ * @var Structure $s
  * @var string $pathname
  */
 

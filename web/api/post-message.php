@@ -1,12 +1,14 @@
 <?php
 
+use RCDE\Controller\MissatgeController;
+use RCDE\Translation\Structure;
+
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
+require_once ROOT . '/../vendor/autoload.php';
 require_once ROOT . '/../src/Utils/send-mail.php';
-require_once ROOT . '/../src/Translation/Structure.php';
-$s = new RCDE\Translation\Structure();
 
-session_start();
+$s = new Structure();
 $location = $s->resolvedUrl('contact')['url'];
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -14,20 +16,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     return;
 }
 
-require_once ROOT . '/../src/Controller/MissatgeController.php';
 require_once ROOT . '/../src/Utils/check-if-email.php';
 require_once ROOT . '/../src/Utils/set-strict-error-handler.php';
 
-$_SESSION['nom'] = $_POST['nom'] ?? '';
-$_SESSION['email'] = $_POST['email'] ?? '';
-$_SESSION['missatge'] = $_POST['missatge'] ?? '';
+session_start();
 
-if (check_if_email($_POST['nom'], $_POST['missatge'])) {
+$nom = $_SESSION['nom'] = urldecode($_POST['nom']) ?? '';
+$email = $_SESSION['email'] = urldecode($_POST['email']) ?? '';
+$missatge = $_SESSION['missatge'] = urldecode($_POST['missatge']) ?? '';
+
+if (check_if_email($nom, $missatge)) {
     header("Location: $location?res=invalid&contains-link");
     return;
 }
 
-$rows_affected = RCDE\Controller\MissatgeController::postMissatge($_POST['nom'], $_POST['email'], $_POST['missatge']);
+$rows_affected = MissatgeController::postMissatge($nom, $email, $missatge);
 
 if ($rows_affected === 0) {
     error_header($location, new Exception('An error occurred while posting the message'));
@@ -39,10 +42,10 @@ try {
 
     send_mail(
         error_location: $location,
-        email: $_POST['email'],
-        name: $_POST['nom'],
+        email: $email,
+        name: $nom,
         subject: 'Nou missatge de contacte',
-        message: $_POST['missatge'],
+        message: $missatge,
     );
 } catch (Exception $e) {
     error_header($location, $e);

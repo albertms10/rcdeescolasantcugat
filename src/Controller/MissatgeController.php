@@ -4,7 +4,7 @@ namespace RCDE\Controller;
 
 use RCDE\Config\Connexion;
 
-require_once __DIR__ . '/../Config/Connexion.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
 class MissatgeController
 {

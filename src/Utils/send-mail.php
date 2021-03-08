@@ -1,21 +1,23 @@
 <?php
 
 use Arrilot\DotEnv\DotEnv;
-use PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 require ROOT . '/../vendor/autoload.php';
 
-function error_header(string $location, Exception $e = null)
+function error_header(string $location, \Exception $e = null)
 {
     $message = empty($e) ? 'No exception provided' : $e->getMessage();
     header("Location: $location?res=err&msg=$message");
 }
 
-function mailer_error(string $location, PHPMailer\PHPMailer $mail, Exception $e = null): string
+function mailer_error(string $location, PHPMailer $mail, \Exception $e = null): string
 {
-    error_header($location, $e ?? new Exception($mail->ErrorInfo));
+    error_header($location, $e ?? new \Exception($mail->ErrorInfo));
     return 'Mailer Error' . PHP_EOL . $mail->ErrorInfo;
 }
 
@@ -23,7 +25,6 @@ require_once ROOT . '/../vendor/PHPMailer/phpmailer/src/PHPMailer.php';
 require_once ROOT . '/../vendor/PHPMailer/phpmailer/src/SMTP.php';
 require_once ROOT . '/../vendor/PHPMailer/phpmailer/src/Exception.php';
 
-require_once ROOT . '/../src/Controller/MissatgeController.php';
 require_once ROOT . '/../src/Utils/replace-mustache-vars.php';
 
 function send_mail(
@@ -42,7 +43,7 @@ function send_mail(
     setlocale(LC_ALL, ...$_SESSION['DEFAULT_LOCALE_CODE']);
     date_default_timezone_set('Europe/Madrid');
 
-    $mail = new PHPMailer\PHPMailer(true);
+    $mail = new PHPMailer(true);
 
     try {
         $mail->CharSet = 'UTF-8';
@@ -59,7 +60,7 @@ function send_mail(
             ]
         ];
 
-        $mail->SMTPDebug = PHPMailer\SMTP::DEBUG_OFF;
+        $mail->SMTPDebug = SMTP::DEBUG_OFF;
 
         $mail->Host = DotEnv::get('MAILER_HOST');
         $mail->Port = DotEnv::get('MAILER_PORT');
@@ -90,9 +91,9 @@ function send_mail(
         $mail->AltBody = $message;
 
         if (!$mail->send()) {
-            echo mailer_error($error_location, $mail, new PHPMailer\Exception('Mail not sent'));
+            echo mailer_error($error_location, $mail, new Exception('Mail not sent'));
         }
-    } catch (PHPMailer\Exception $e) {
+    } catch (Exception $e) {
         echo mailer_error($error_location, $mail, $e);
         return;
     }

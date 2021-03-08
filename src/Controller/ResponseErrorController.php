@@ -2,11 +2,10 @@
 
 namespace RCDE\Controller;
 
-use RCDE\Model\ResponseError;
 use RCDE\Config\Connexion;
+use RCDE\Model\ResponseError;
 
-require_once __DIR__ . '/../Config/Connexion.php';
-require_once __DIR__ . '/../Model/ResponseError.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
 class ResponseErrorController
 {

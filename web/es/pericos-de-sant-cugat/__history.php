@@ -1,9 +1,4 @@
-<?php
-
-use RCDE\Model\Picture;
-
-require_once ROOT . '/../src/Model/Picture.php';
-?>
+<?php use RCDE\Model\Picture; ?>
 
 <h2 class="h1" id="historia" data-heading>Historia</h2>
 <div class="row mt-lg-5">

@@ -1,14 +1,12 @@
 <?php
 
 use RCDE\Model\ResponseError;
-use RCDE\Translation;
+use RCDE\Translation\Error;
 
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+require_once ROOT . '/../vendor/autoload.php';
 
-require_once ROOT . '/../src/Model/ResponseError.php';
-require_once ROOT . '/../src/Translation/Error.php';
-
-$e = new Translation\Error();
+$e = new Error();
 
 $response_error = new ResponseError(
     id: 'not-found',

@@ -1,5 +1,18 @@
 <?php
+
+use RCDE\Controller\ImatgeGaleriaController;
+use RCDE\Controller\NoticiaController;
+use RCDE\Model\EmailAddress;
+use RCDE\Model\Location;
+use RCDE\Model\Noticia;
+use RCDE\Model\TimetableDay;
+use RCDE\Translation\Home;
+use RCDE\Translation\Main;
+use RCDE\Translation\Structure;
+
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require_once ROOT . '/../vendor/autoload.php';
 include ROOT . '/../src/Utils/lang-init.php';
 ?>
 
@@ -11,12 +24,11 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php
     include ROOT . '/../src/View/incs-top.php';
     /**
-     * @var RCDE\Translation\Main $m
-     * @var RCDE\Translation\Structure $s
+     * @var Main $m
+     * @var Structure $s
      */
 
-    require_once ROOT . '/../src/Translation/Home.php';
-    $h = new RCDE\Translation\Home();
+    $h = new Home();
     ?>
     <meta name="description" property="og:description" content="<?= $m->t('description') ?>" />
 
@@ -42,13 +54,6 @@ include ROOT . '/../src/Utils/lang-init.php';
     <script defer src="/assets/js/home.js"></script>
     <script defer src="/assets/js/make-navbar-translucent.js"></script>
     <script defer src="/assets/js/nav-headers.js"></script>
-
-    <?php require_once ROOT . '/../src/Controller/NoticiaController.php' ?>
-    <?php require_once ROOT . '/../src/Controller/ImatgeGaleriaController.php' ?>
-    <?php require_once ROOT . '/../src/Model/Slogan.php' ?>
-    <?php require_once ROOT . '/../src/Model/Location.php' ?>
-    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
-    <?php require_once ROOT . '/../src/Model/TimetableDay.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -57,7 +62,7 @@ include ROOT . '/../src/Utils/lang-init.php';
 <main class="mt-0">
     <div id="carouselCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <?php if ($noticies = RCDE\Controller\NoticiaController::llistaNoticies()):
+            <?php if ($noticies = NoticiaController::llistaNoticies()):
                 foreach ($noticies as $key => $noticia): ?>
                     <li data-target="#carouselCaptions"
                         data-slide-to="<?= $key ?>" <?= ($key === 0) ? 'class="active"' : '' ?>></li>
@@ -66,7 +71,7 @@ include ROOT . '/../src/Utils/lang-init.php';
         </ol>
         <div class="carousel-inner">
             <?php foreach ($noticies as $key => $noticia):
-                /** @var \RCDE\Model\Noticia $noticia */
+                /** @var Noticia $noticia */
                 ?>
                 <div class="carousel-item carousel<?= ($key === 0) ? ' active' : '' ?>">
                     <?php
@@ -160,7 +165,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <div class="container-fluid p-0">
                 <div class="row no-gutters">
                     <?php
-                    $imatges = RCDE\Controller\ImatgeGaleriaController::llistaImatgesVisibles();
+                    $imatges = ImatgeGaleriaController::llistaImatgesVisibles();
                     foreach ($imatges as $imatge): ?>
                         <div class="col-lg-4 col-sm-6">
                             <a class="portfolio-box"
@@ -205,8 +210,8 @@ include ROOT . '/../src/Utils/lang-init.php';
                                     <tbody>
                                     <?php
                                     $timetable = [
-                                        new \RCDE\Model\TimetableDay(0, '18:00', '19:30'),
-                                        new \RCDE\Model\TimetableDay(2, '18:00', '19:30'),
+                                        new TimetableDay(0, '18:00', '19:30'),
+                                        new TimetableDay(2, '18:00', '19:30'),
                                     ];
                                     foreach ($timetable as $day): ?>
                                         <tr>
@@ -223,15 +228,15 @@ include ROOT . '/../src/Utils/lang-init.php';
                     </div>
 
                     <div class="text-center mt-4">
-                        <?php $address = new RCDE\Model\EmailAddress(user: 'administracio');
+                        <?php $address = new EmailAddress(user: 'administracio');
                         include ROOT . '/../src/View/email-address.php' ?>
-                        <?php $address = new RCDE\Model\EmailAddress(user: 'direcciotecnica');
+                        <?php $address = new EmailAddress(user: 'direcciotecnica');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <?php
-                    $location = new RCDE\Model\Location(
+                    $location = new Location(
                         address: 'Avinguda de la Guinardera',
                         zip: '08174',
                         city: 'Sant Cugat del Vallès',
@@ -252,13 +257,13 @@ include ROOT . '/../src/Utils/lang-init.php';
                     </div>
 
                     <div class="text-center mt-4">
-                        <?php $address = new RCDE\Model\EmailAddress(user: 'penyapericos');
+                        <?php $address = new EmailAddress(user: 'penyapericos');
                         include ROOT . '/../src/View/email-address.php' ?>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <?php
-                    $location = new RCDE\Model\Location(
+                    $location = new Location(
                         address: 'Carrer de Sant Domènec',
                         zip: '08172',
                         city: 'Sant Cugat del Vallès',

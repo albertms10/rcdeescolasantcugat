@@ -2,7 +2,7 @@
 
 namespace RCDE\Translation;
 
-require_once __DIR__ . '/Translator.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
 final class Pericos extends Translator
 {

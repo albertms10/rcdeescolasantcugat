@@ -4,9 +4,9 @@ namespace RCDE\Controller;
 
 use PDO;
 use RCDE\Config\Connexion;
+use RCDE\Model\TitularPremsa;
 
-require_once __DIR__ . '/../Config/Connexion.php';
-require_once __DIR__ . '/../Model/TitularPremsa.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
 class TitularPremsaController
 {
@@ -19,6 +19,6 @@ class TitularPremsaController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\Model\TitularPremsa');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, TitularPremsa::class);
     }
 }

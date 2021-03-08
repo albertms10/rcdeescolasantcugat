@@ -2,11 +2,11 @@
 
 namespace RCDE\Controller;
 
-use RCDE\Config\Connexion;
 use PDO;
+use RCDE\Config\Connexion;
+use RCDE\Model\Noticia;
 
-require_once __DIR__ . '/../Config/Connexion.php';
-require_once __DIR__ . '/../Model/Noticia.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
 class NoticiaController
 {
@@ -19,6 +19,6 @@ class NoticiaController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\Model\Noticia');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, Noticia::class);
     }
 }

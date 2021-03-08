@@ -1,4 +1,4 @@
-<?php require_once ROOT . '/../src/Model/Social.php' ?>
+<?php use RCDE\Model\Social; ?>
 
 <footer class="bg-light py-5 border-top">
     <div class="container d-flex justify-content-between flex-wrap mb-4">
@@ -12,19 +12,19 @@
         <ul class="list-group list-group-horizontal text-center social-media justify-content-center flex-wrap">
             <?php
             $socials = [
-                new RCDE\Model\Social(
+                new Social(
                     icon: 'fab fa-facebook',
                     title: 'Facebook',
                     link: 'facebook.com/RCDEscolaSTC',
                     color: '#3b5998',
                 ),
-                new RCDE\Model\Social(
+                new Social(
                     icon: 'fab fa-instagram',
                     title: 'Instagram',
                     link: 'instagram.com/rcdescola_santcugat',
                     color: '#3f729b',
                 ),
-                new RCDE\Model\Social(
+                new Social(
                     icon: 'fab fa-youtube',
                     title: 'YouTube',
                     link: 'youtube.com/channel/UCyBL6WE136kShyBpVldvyOg',

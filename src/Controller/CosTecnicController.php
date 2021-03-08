@@ -2,11 +2,11 @@
 
 namespace RCDE\Controller;
 
-use RCDE\Config\Connexion;
 use PDO;
+use RCDE\Config\Connexion;
+use RCDE\Model\CosTecnic;
 
-require_once __DIR__ . '/../Config/Connexion.php';
-require_once __DIR__ . '/../Model/CosTecnic.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
 class CosTecnicController
 {
@@ -19,7 +19,7 @@ class CosTecnicController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\Model\CosTecnic');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, CosTecnic::class);
     }
 
     public static function llistaCompletaEntrenadors(): array
@@ -31,6 +31,6 @@ class CosTecnicController
         $result->execute();
 
         $connexion = null;
-        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'RCDE\Model\CosTecnic');
+        return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, CosTecnic::class);
     }
 }

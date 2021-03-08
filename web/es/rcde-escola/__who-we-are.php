@@ -3,8 +3,6 @@
 use RCDE\Model\Iframe;
 use RCDE\Model\Picture;
 
-require_once ROOT . '/../src/Model/Iframe.php';
-require_once ROOT . '/../src/Model/Picture.php';
 ?>
 
 <h2 class="h1" id="quienes-somos" data-heading>Quiénes somos</h2>

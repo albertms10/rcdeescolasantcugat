@@ -1,5 +1,11 @@
 <?php
+
+use RCDE\Translation\RCDE;
+use RCDE\Translation\Structure;
+
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require_once ROOT . '/../vendor/autoload.php';
 include ROOT . '/../src/Utils/lang-init.php';
 ?>
 
@@ -10,13 +16,9 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php $link_pagina = 'rcde' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
-    /**
-     * @var RCDE\Translation\Main $m
-     * @var RCDE\Translation\Structure $s
-     */
+    /** @var Structure $s */
 
-    require_once ROOT . '/../src/Translation/RCDE.php';
-    $r = new RCDE\Translation\RCDE();
+    $r = new RCDE();
     ?>
     <meta name="description" property="og:description" content="<?= $r->t('description') ?>" />
 

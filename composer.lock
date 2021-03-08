@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "084972c7cd9056fd0dfcce87f8e3de7e",
+    "content-hash": "d943eb889d58d9481ff4b3913c53b20f",
     "packages": [
         {
             "name": "arrilot/dotenv-php",

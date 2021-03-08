@@ -1,5 +1,13 @@
 <?php
+
+use RCDE\Controller\CosTecnicController;
+use RCDE\Controller\TitularPremsaController;
+use RCDE\Translation\Escola;
+use RCDE\Translation\Structure;
+
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require_once ROOT . '/../vendor/autoload.php';
 include ROOT . '/../src/Utils/lang-init.php';
 ?>
 
@@ -10,22 +18,13 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php $link_pagina = 'rcde-escola' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
-    /**
-     * @var RCDE\Translation\Main $m
-     * @var RCDE\Translation\Structure $s
-     */
+    /** @var Structure $s */
 
-    require_once ROOT . '/../src/Translation/Escola.php';
-    $e = new RCDE\Translation\Escola();
+    $e = new Escola();
     ?>
     <meta name="description" property="og:description" content="<?= $e->t('description') ?>" />
 
     <script defer src="/assets/js/nav-headers.js"></script>
-
-    <?php
-    require_once ROOT . '/../src/Controller/CosTecnicController.php';
-    require_once ROOT . '/../src/Controller/TitularPremsaController.php';
-    ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -58,7 +57,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <h2 class="h1" id="cos-tecnic" data-heading><?= $e->t('staff') ?></h2>
             <div class="container mt-4">
                 <div class="row">
-                    <?php $entrenadors = RCDE\Controller\CosTecnicController::llistaEntrenadors();
+                    <?php $entrenadors = CosTecnicController::llistaEntrenadors();
                     foreach ($entrenadors as $key => $entrenador): ?>
                         <div class="col-lg-3 col-md-4 p-3 text-center user-card">
                             <div class="transform-center p-3" style="width:8rem; height:8rem">
@@ -93,7 +92,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <hr class="divider my-4 ml-0">
             <div class="row">
                 <?php
-                $titulars_premsa = RCDE\Controller\TitularPremsaController::llistaTitularsPremsa();
+                $titulars_premsa = TitularPremsaController::llistaTitularsPremsa();
                 foreach ($titulars_premsa as $titular_premsa): ?>
                     <div class="col-lg-6">
                         <div class="card mb-4">

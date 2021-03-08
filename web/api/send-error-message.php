@@ -1,12 +1,12 @@
 <?php
 
+use RCDE\Translation\Structure;
+
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 require_once ROOT . '/../src/Utils/send-mail.php';
-require_once ROOT . '/../src/Translation/Structure.php';
-$s = new RCDE\Translation\Structure();
 
-session_start();
+$s = new Structure();
 $location = $s->resolvedUrl('contact')['url'];
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -16,6 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 require_once ROOT . '/../src/Utils/check-if-email.php';
 require_once ROOT . '/../src/Utils/set-strict-error-handler.php';
+
+session_start();
 
 $nom = $_SESSION['nom'] = urldecode($_POST['nom']) ?? '';
 $email = $_SESSION['email'] = urldecode($_POST['email']) ?? '';

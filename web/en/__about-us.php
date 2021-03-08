@@ -1,9 +1,8 @@
 <?php
-use RCDE\Translation;
 
-/**
- * @var Translation\Home $h
- */
+use RCDE\Translation\Home;
+
+/** @var Home $h */
 ?>
 
 <h2 class="text-white mt-0">El millor complement per a la formació dels teus fills</h2>

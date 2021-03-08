@@ -1,5 +1,12 @@
 <?php
+
+use RCDE\Model\EmailAddress;
+use RCDE\Translation\Main;
+use RCDE\Translation\Work;
+
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require_once ROOT . '/../vendor/autoload.php';
 include ROOT . '/../src/Utils/lang-init.php';
 ?>
 
@@ -10,16 +17,11 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php $link_pagina = 'treballa-amb-nosaltres' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
-    /**
-     * @var RCDE\Translation\Main $m
-     */
+    /** @var Main $m */
 
-    require_once ROOT . '/../src/Translation/Work.php';
-    $w = new RCDE\Translation\Work();
+    $w = new Work();
     ?>
     <meta name="description" property="og:description" content="<?= $w->t('description') ?>" />
-
-    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -38,7 +40,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?= $w->t('send-resume') ?>
                 </p>
             </div>
-            <?php $address = new RCDE\Model\EmailAddress(user: 'direcciotecnica');
+            <?php $address = new EmailAddress(user: 'direcciotecnica');
             include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </section>

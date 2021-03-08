@@ -1,16 +1,18 @@
 <?php
+
+use RCDE\Controller\PaginaController;
+use RCDE\Translation\Main;
+use RCDE\Translation\Structure;
+
 /**
  * @var array $locale_codes
  * @var array $paths
  */
 
-require_once ROOT . '/../src/Controller/PaginaController.php';
 require_once ROOT . '/../src/Utils/ordinal.php';
 
-require_once ROOT . '/../src/Translation/Main.php';
-require_once ROOT . '/../src/Translation/Structure.php';
-$m = new RCDE\Translation\Main();
-$s = new RCDE\Translation\Structure();
+$m = new Main();
+$s = new Structure();
 ?>
 
 <meta charset="utf-8">
@@ -41,7 +43,7 @@ endforeach ?>
 <?php
 $link_pagina ??= '';
 
-$pagines = RCDE\Controller\PaginaController::llistaPagines();
+$pagines = PaginaController::llistaPagines();
 $filtre_pagines = array_filter($pagines, fn($pagina) => ($pagina->link_pagina === $link_pagina));
 
 $titol_pagina = '';

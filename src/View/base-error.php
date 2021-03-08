@@ -1,19 +1,21 @@
 <?php
 
-use RCDE\Model\ResponseError;
 use RCDE\Controller\ResponseErrorController;
-use RCDE\Translation;
+use RCDE\Model\ResponseError;
+use RCDE\Translation\Error;
+use RCDE\Translation\Main;
+use RCDE\Translation\Structure;
 
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require_once ROOT . '/../vendor/autoload.php';
 $preserve_prev_locale = true;
 include ROOT . '/../src/Utils/lang-init.php';
 /**
  * @var array $paths
  * @var ResponseError $response_error
- * @var Translation\Error $e
+ * @var Error $e
  */
-
-require_once ROOT . '/../src/Controller/ResponseErrorController.php';
 
 try {
     ResponseErrorController::postResponseError($response_error, locale: $_SESSION['LOCALE']);
@@ -30,13 +32,11 @@ try {
     <?php
     include ROOT . '/../src/View/incs-top.php'
     /**
-     * @var RCDE\Translation\Main $m
-     * @var RCDE\Translation\Structure $s
+     * @var Main $m
+     * @var Structure $s
      */
     ?>
     <meta name="description" property="og:description" content="<?= $response_error->description ?? 'Error' ?>" />
-
-    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">

@@ -1,5 +1,12 @@
 <?php
+
+use RCDE\Model\EmailAddress;
+use RCDE\Translation\Contact;
+use RCDE\Translation\Main;
+
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require_once ROOT . '/../vendor/autoload.php';
 include ROOT . '/../src/Utils/lang-init.php';
 ?>
 
@@ -10,18 +17,13 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php $link_pagina = 'contacte' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
-    /**
-     * @var RCDE\Translation\Main $m
-     */
+    /** @var Main $m */
 
-    require_once ROOT . '/../src/Translation/Contact.php';
-    $c = new RCDE\Translation\Contact();
+    $c = new Contact();
     ?>
     <meta name="description" property="og:description" content="<?= $c->t('description') ?>" />
 
     <script defer src="/assets/js/contact-form-validation.js"></script>
-
-    <?php require_once ROOT . '/../src/Model/EmailAddress.php' ?>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -77,7 +79,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?= $c->t('res-err-sent') ?>
                 </div>
             <?php endif ?>
-            <form class="needs-validation" action="/api/post-missatge.php" method="post" novalidate>
+            <form class="needs-validation" action="/api/post-message.php" method="post" novalidate>
                 <div class="form-group">
                     <label for="nom"><?= $c->t('name') ?></label>
                     <input type="text" class="form-control" name="nom" id="nom"
@@ -107,7 +109,7 @@ include ROOT . '/../src/Utils/lang-init.php';
         </div>
         <div class="text-center py-5">
             <p class="lead"><?= $c->t('or-send-email-to') ?></p>
-            <?php $address = new RCDE\Model\EmailAddress(user: 'direcciotecnica');
+            <?php $address = new EmailAddress(user: 'direcciotecnica');
             include ROOT . '/../src/View/email-address.php' ?>
         </div>
     </div>
