@@ -52,8 +52,10 @@ final class Structure extends Translator
         bool $full_path = false,
     ): string
     {
-        session_start();
-        $locale ??= $_SESSION['LOCALE'];
+        if (!isset($locale)) {
+            session_start();
+            $locale = $_SESSION['LOCALE'];
+        }
 
         return ($full_path ? self::baseUrl() : '/')
             . (($explicit_locale or ($locale !== $_SESSION['DEFAULT_LOCALE'])) ? "$locale/" : '')
