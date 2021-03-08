@@ -2,10 +2,10 @@
 
 namespace RCDE\Controller;
 
-use Connexion;
 use PDO;
+use RCDE\Config\Connexion;
 
-require_once __DIR__ . '/../../config/Connexion.php';
+require_once __DIR__ . '/../Config/Connexion.php';
 require_once __DIR__ . '/../Model/TitularPremsa.php';
 
 class TitularPremsaController

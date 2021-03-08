@@ -1,10 +1,14 @@
 <?php
 
+namespace RCDE\Config;
+
 use Arrilot\DotEnv\DotEnv;
+use PDO;
+use PDOException;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
-DotEnv::load(__DIR__ . '/../.env.php');
+DotEnv::load(__DIR__ . '/../../.env.php');
 DotEnv::setRequired(['DB_NAME', 'DB_USERNAME', 'DB_PASSWORD']);
 
 class Connexion extends PDO

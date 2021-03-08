@@ -2,10 +2,10 @@
 
 namespace RCDE\Controller;
 
-use Connexion;
+use RCDE\Config\Connexion;
 use PDO;
 
-require_once __DIR__ . '/../../config/Connexion.php';
+require_once __DIR__ . '/../Config/Connexion.php';
 require_once __DIR__ . '/../Model/CosTecnic.php';
 
 class CosTecnicController
