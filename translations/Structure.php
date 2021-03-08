@@ -15,7 +15,7 @@ final class Structure extends Translator
         string $pathname = '',
         string $filename = 'index.php',
         ?string $locale = null,
-        bool $explicit = false,
+        bool $explicit_locale = false,
         bool $full_path = false,
         bool $include_filename = false,
     ): array
@@ -26,12 +26,12 @@ final class Structure extends Translator
 
         $exists = ($pathname === '/' or $pathname === "/$filename" or !empty($localized_pathname));
         $resolved_locale = $locale;
-        $localized_path = $this->pathnameWithLocale($localized_pathname, locale: $locale, explicit: $explicit);
+        $localized_path = $this->pathnameWithLocale($localized_pathname, locale: $locale, explicit_locale: $explicit_locale);
 
         if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $localized_path . $filename)) {
             $exists = false;
             $resolved_locale = $_SESSION['DEFAULT_LOCALE'];
-            $localized_path = $this->pathnameWithLocale($localized_pathname, locale: $resolved_locale, explicit: $explicit);
+            $localized_path = $this->pathnameWithLocale($localized_pathname, locale: $resolved_locale, explicit_locale: $explicit_locale);
 
             if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $localized_path . $filename)) {
                 $localized_path = '/';
@@ -48,7 +48,7 @@ final class Structure extends Translator
     private function pathnameWithLocale(
         string $pathname = '',
         ?string $locale = null,
-        bool $explicit = false,
+        bool $explicit_locale = false,
         bool $full_path = false,
     ): string
     {
@@ -56,7 +56,7 @@ final class Structure extends Translator
         $locale ??= $_SESSION['LOCALE'];
 
         return ($full_path ? self::baseUrl() : '/')
-            . (($explicit or ($locale !== $_SESSION['DEFAULT_LOCALE'])) ? "$locale/" : '')
+            . (($explicit_locale or ($locale !== $_SESSION['DEFAULT_LOCALE'])) ? "$locale/" : '')
             . ($pathname ? "$pathname/" : '');
     }
 

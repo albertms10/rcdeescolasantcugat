@@ -136,7 +136,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?php include ROOT . $s->resolvedUrl(
                             pathname: $link_pagina,
                             filename: '__about-us.php',
-                            explicit: true,
+                            explicit_locale: true,
                             include_filename: true,
                         )['url'] ?>
                 </div>
@@ -149,7 +149,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <?php include ROOT . $s->resolvedUrl(
                     pathname: $link_pagina,
                     filename: '__how-we-are.php',
-                    explicit: true,
+                    explicit_locale: true,
                     include_filename: true,
                 )['url'] ?>
         </div>
