@@ -9,6 +9,12 @@
             "email": "albertmasa2@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/albertms10/rcdeescolasantcugat.git"
+        }
+    ],
     "minimum-stability": "stable",
     "require": {
         "arrilot/dotenv-php": "^2.0",
