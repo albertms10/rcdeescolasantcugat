@@ -15,7 +15,7 @@ include ROOT . '/../src/Utils/lang-init.php';
      * @var RCDE\Translation\Structure $s
      */
 
-    require_once ROOT . '/../translations/Home.php';
+    require_once ROOT . '/../src/Translation/Home.php';
     $h = new RCDE\Translation\Home();
     ?>
     <meta name="description" property="og:description" content="<?= $m->t('description') ?>" />

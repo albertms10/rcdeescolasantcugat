@@ -15,7 +15,7 @@ include ROOT . '/../src/Utils/lang-init.php';
      * @var RCDE\Translation\Structure $s
      */
 
-    require_once ROOT . '/../translations/Pericos.php';
+    require_once ROOT . '/../src/Translation/Pericos.php';
     $p = new RCDE\Translation\Pericos();
     ?>
     <meta name="description" property="og:description" content="<?= $p->t('description') ?>" />

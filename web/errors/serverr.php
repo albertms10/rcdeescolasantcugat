@@ -6,7 +6,7 @@ use RCDE\Translation;
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 require_once ROOT . '/../src/Model/ResponseError.php';
-require_once ROOT . '/../translations/Error.php';
+require_once ROOT . '/../src/Translation/Error.php';
 
 $e = new Translation\Error();
 

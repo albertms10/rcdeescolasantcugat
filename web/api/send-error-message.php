@@ -3,7 +3,7 @@
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 require_once ROOT . '/../src/Utils/send-mail.php';
-require_once ROOT . '/../translations/Structure.php';
+require_once ROOT . '/../src/Translation/Structure.php';
 $s = new RCDE\Translation\Structure();
 
 session_start();

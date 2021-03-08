@@ -62,7 +62,7 @@ abstract class Translator
         $lang ??= $this->lang;
         $package ??= $this->package;
 
-        return ROOT . "/../translations/$lang/$package.yaml";
+        return ROOT . "/../src/Translation/$lang/$package.yaml";
     }
 
     private function findString(?string $string, string $lang): string

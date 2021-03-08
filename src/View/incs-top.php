@@ -7,8 +7,8 @@
 require_once ROOT . '/../src/Controller/PaginaController.php';
 require_once ROOT . '/../src/Utils/ordinal.php';
 
-require_once ROOT . '/../translations/Main.php';
-require_once ROOT . '/../translations/Structure.php';
+require_once ROOT . '/../src/Translation/Main.php';
+require_once ROOT . '/../src/Translation/Structure.php';
 $m = new RCDE\Translation\Main();
 $s = new RCDE\Translation\Structure();
 ?>
