@@ -23,6 +23,9 @@
     },
     "require": {
         "arrilot/dotenv-php": "^2.0",
+        "ext-mbstring": "*",
+        "ext-pdo": "*",
+        "php": "8.0",
         "phpmailer/phpmailer": "^6.3"
     }
 }
