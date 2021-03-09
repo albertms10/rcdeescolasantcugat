@@ -40,7 +40,7 @@
            Zamora. Tras él, otros jugadores, como Alfredo Di Stefano, Kubala o N’Kono, cogieron su testigo.
         </p>
 
-        <h3 id="futbol-base-de-gran-nivell" class="mt-5">Futbol base de gran nivell</h3>
+        <h3 id="futbol-base-de-gran-nivell" class="mt-5">Fútbol base de gran nivel</h3>
         <hr class="divider my-4 ml-0">
         <p>El Club cuenta con un equipo filial, el Espanyol B, doce equipos de fútbol base, fútbol femenino y una
            escuela de fútbol. Todos ellos entrenan y juegan sus partidos como locales en la Ciudad Deportiva Dani Jarque
