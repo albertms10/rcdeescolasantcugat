@@ -24,21 +24,30 @@ $s = new Structure();
 $pathname = join('/', $paths);
 if (empty($pathname)) $pathname = '/';
 
+$resolved_canonical = null;
+$resolved_default = null;
+
+$meta_og_alts = [];
+
 foreach ($_SESSION['LOCALES'] as $locale):
     $resolved_alternate = $s->resolvedUrl($pathname, locale: $locale, full_path: true);
+
+    if ($locale === $_SESSION['LOCALE']) $resolved_canonical = $resolved_alternate;
+    if ($locale === $_SESSION['DEFAULT_LOCALE']) $resolved_default = $resolved_alternate;
+
     if ($resolved_alternate['locale'] === $locale): ?>
         <link rel="alternate" hreflang="<?= $locale ?>"
               href="<?= $resolved_alternate['url'] ?>" />
-        <?php if ($locale !== $_SESSION['LOCALE']): ?>
-            <meta property="og:locale:alternate" content="<?= $locale_codes[$locale][0] ?>" />
-        <?php endif;
+        <?php if ($locale !== $_SESSION['LOCALE']) $meta_og_alts[] = $locale_codes[$locale][0];
     endif;
 endforeach ?>
-<?php $canonical_url = $s->resolvedUrl($pathname, locale: $_SESSION['DEFAULT_LOCALE'], full_path: true)['url'];
-?>
-<link rel="alternate" hreflang="x-default" href="<?= $canonical_url ?>" />
-<link rel="canonical" href="<?= $canonical_url ?>" />
+<link rel="alternate" hreflang="x-default" href="<?= $resolved_default['url'] ?>" />
+<link rel="canonical" href="<?= $resolved_canonical['url'] ?>" />
+
 <meta property="og:locale" content="<?= $locale_codes[$_SESSION['LOCALE']][0] ?>" />
+<?php foreach ($meta_og_alts as $meta_og_alt): ?>
+    <meta property="og:locale:alternate" content="<?= $meta_og_alt ?>" />
+<?php endforeach ?>
 
 <?php
 $link_pagina ??= '';
@@ -55,7 +64,6 @@ if (count($filtre_pagines) === 1) {
 $title = ($titol_pagina !== '/') ? $titol_pagina : '';
 $full_title = ($title ? "$title · " : '') . 'RCDE Escola Sant Cugat';
 ?>
-
 <meta property="og:title" content="<?= $title ?? $full_title ?>" />
 <meta property="og:url"
       content="<?= $s->resolvedUrl($pathname, full_path: true)['url'] ?>" />
