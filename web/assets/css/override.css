@@ -312,6 +312,18 @@ hr.divider {
   border-color: var(--blau);
 }
 
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+  clip-path: inset(0px 0px 99.9% 99.9%);
+}
+
 .main-nav.translucent,
 #mainNav.main-nav.translucent {
   background-color: #00000055;
@@ -790,13 +802,13 @@ pre {
 }
 
 table.table-rounded tr td:first-child {
+  padding-left: .5rem;
   border-top-left-radius: .25rem !important;
   border-bottom-left-radius: .25rem !important;
-  padding-left: .5rem;
 }
 
 table.table-rounded tr td:last-child {
+  padding-right: .5rem;
   border-top-right-radius: .25rem !important;
   border-bottom-right-radius: .25rem !important;
-  padding-right: .5rem;
 }
