@@ -3,6 +3,7 @@
 use RCDE\Model\EmailAddress;
 use RCDE\Translation\Advertising;
 use RCDE\Translation\Main;
+use RCDE\Translation\Structure;
 
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
@@ -18,6 +19,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php
     include ROOT . '/../src/View/incs-top.php';
     /** @var Main $m */
+    /** @var Structure $s */
 
     $a = new Advertising();
     ?>
@@ -34,7 +36,11 @@ include ROOT . '/../src/Utils/lang-init.php';
         <div class="container text-center">
             <div style="text-shadow: 0 0 2rem black">
                 <h1 class="display-4 mb-3"><?= $m->t('advertising-and-business') ?></h1>
-                <p class="lead mb-4"><?= $a->t('advertising-body') ?></p>
+                <p class="lead mb-4"><?= preg_replace(
+                        '/(RCDE Escola Sant Cugat)/',
+                        "<a href=\"{$s->resolvedUrl('rcde-escola')['url']}\" class=\"badge badge-light\" style=\"font-size: inherit; text-shadow: none\">\${1}</a>",
+                        $a->t('advertising-body')
+                    ) ?></p>
             </div>
             <?php $address = new EmailAddress(user: 'direcciotecnica');
             include ROOT . '/../src/View/email-address.php' ?>

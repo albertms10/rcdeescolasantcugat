@@ -2,7 +2,9 @@
 
 use RCDE\Model\Iframe;
 use RCDE\Model\Picture;
+use RCDE\Translation\Structure;
 
+/** @var Structure $s */
 ?>
 
 <h2 class="h1" id="quienes-somos" data-heading>Quiénes somos</h2>
@@ -12,9 +14,10 @@ use RCDE\Model\Picture;
         <hr class="divider my-4 ml-0">
         <p>Desde el año
             <time datetime="2009">2009,</time>
-           gracias a la iniciativa de la peña <em>Pericos de Sant Cugat</em>, nuestra ciudad dispone de una escuela de
-           fútbol para niños y niñas, desde los cuatro años, donde el deporte constituye una herramienta básica para la
-           formación integral de cada jugador.
+           gracias a la iniciativa de la peña
+            <a href="<?= $s->resolvedUrl('pericos-de-sant-cugat')['url'] ?>">Pericos de Sant Cugat</a>, nuestra ciudad
+           dispone de una escuela de fútbol para niños y niñas, desde los cuatro años, donde el deporte constituye una
+           herramienta básica para la formación integral de cada jugador.
         </p>
 
         <?php
@@ -46,8 +49,9 @@ use RCDE\Model\Picture;
            Escola. Con este cambio se pretende dotar a la escuela de nuevas herramientas, manteniendo una relación
            directa con el Club que permita un desarrollo deportivo y organizativo más adecuado.
         </p>
-        <p>Actualmente la RCDE Escola Sant Cugat cuenta con casi un centenar de jugadores y participa con cinco equipos
-           en la Liga Escolar organizada por el Consejo Deportivo de Terrassa.</p>
+        <p>Actualmente la <a href="<?= $s->resolvedUrl('/')['url'] ?>">RCDE Escola Sant Cugat</a> cuenta con casi un
+           centenar de jugadores y participa con cinco equipos en la Liga Escolar organizada por el Consejo Deportivo de
+           Terrassa.</p>
 
         <?php
         $picture = new Picture(
