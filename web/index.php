@@ -60,6 +60,7 @@ include ROOT . '/../src/Utils/lang-init.php';
 <?php include ROOT . '/../src/View/header.php' ?>
 
 <main class="mt-0">
+    <h1 class="visuallyhidden">RCDE Escola Sant Cugat</h1>
     <div id="carouselCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <?php if ($noticies = NoticiaController::llistaNoticies()):
