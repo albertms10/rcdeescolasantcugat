@@ -48,7 +48,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                 <div class="row mt-lg-5">
                     <div class="col-lg-8 order-lg-1 order-2 pr-lg-5"></div>
                     <div class="col-lg-4 order-lg-2 order-1 my-lg-0 mt-3 mb-5">
-                        <div data-nav-items="el-club"></div>
+                        <nav data-nav-items="el-club"></nav>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                 <div class="row mt-lg-5">
                     <div class="col-lg-8 order-lg-1 order-2 pr-lg-5"></div>
                     <div class="col-lg-4 order-lg-2 order-1 my-lg-0 mt-3 mb-5">
-                        <div data-nav-items="categories-inferiors"></div>
+                        <nav data-nav-items="categories-inferiors"></nav>
                     </div>
                 </div>
             </div>

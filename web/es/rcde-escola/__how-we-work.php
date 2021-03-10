@@ -51,6 +51,6 @@
         include ROOT . '/../src/View/img-set.php' ?>
     </div>
     <div class="col-lg-4 order-lg-2 order-1 my-lg-0 mt-3 mb-5">
-        <div data-nav-items="como-trabajamos"></div>
+        <nav data-nav-items="como-trabajamos"></nav>
     </div>
 </div>

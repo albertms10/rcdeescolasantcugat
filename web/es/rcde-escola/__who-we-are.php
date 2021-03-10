@@ -61,6 +61,6 @@ use RCDE\Translation\Structure;
         include ROOT . '/../src/View/img-set.php' ?>
     </div>
     <div class="col-lg-4 order-lg-2 order-1 my-lg-0 mt-3 mb-5">
-        <div data-nav-items="quienes-somos"></div>
+        <nav data-nav-items="quienes-somos"></nav>
     </div>
 </div>

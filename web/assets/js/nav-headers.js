@@ -18,20 +18,22 @@ const insertSubNavHeading = (heading) => {
     );
 };
 
-const insertSideNavSubHeadings = (sideNav, subHeadings) => {
-    sideNav.classList.add("nav", "flex-column", "overflow-scroll");
+const insertSideNavSubHeadings = (sideUl, subHeadings) => {
+    sideUl.classList.add("nav", "flex-column", "overflow-scroll");
 
     subHeadings.forEach((subHeading) => {
-        sideNav.insertAdjacentHTML(
+        sideUl.insertAdjacentHTML(
             "beforeend",
-            `<a class="nav-link js-scroll-trigger" href="#${subHeading.id}" data-offset="170">
-                ${subHeading.innerHTML}
-            </a>`
+            `<li>
+                <a class="nav-link js-scroll-trigger" href="#${subHeading.id}" data-offset="170">
+                    ${subHeading.innerHTML}
+                </a>
+            </li>`
         );
     });
 };
 
-const prepareSideNavContainer = (heading, sideNavContainer, subHeadings) => {
+const prepareSideNavContent = (heading, sideNavContainer, subHeadings) => {
     sideNavContainer.classList.add(
         "bg-white",
         "rounded",
@@ -42,14 +44,15 @@ const prepareSideNavContainer = (heading, sideNavContainer, subHeadings) => {
 
     sideNavContainer.insertAdjacentHTML(
         "afterbegin",
-        `<div class="main-header text-secondary font-weight-bold small mx-3 mt-2 mb-1 pt-3 pb-2 d-none d-lg-block">
+        `<div class="main-header text-secondary font-weight-bold small mx-3 mt-2 mb-1 pt-3 pb-2 d-none d-lg-block"
+              role="heading">
             ${heading.innerText}
         </div>`
     );
 
-    const sideNav = document.createElement("nav");
-    insertSideNavSubHeadings(sideNav, subHeadings);
-    sideNavContainer.appendChild(sideNav);
+    const sideUl = document.createElement("ul");
+    insertSideNavSubHeadings(sideUl, subHeadings);
+    sideNavContainer.appendChild(sideUl);
 };
 
 const prepareSideNav = (heading) => {
@@ -60,7 +63,7 @@ const prepareSideNav = (heading) => {
     const subHeadings = heading.closest("section").querySelectorAll(`h3`);
     if (!subHeadings) return;
 
-    prepareSideNavContainer(heading, sideNavContainer, subHeadings);
+    prepareSideNavContent(heading, sideNavContainer, subHeadings);
 };
 
 document.querySelectorAll("[data-heading]").forEach((heading) => {
