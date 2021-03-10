@@ -2,6 +2,7 @@ SELECT text_titular,
        data_titular,
        GROUP_CONCAT(
                DISTINCT CONCAT(url_titular, ',', id_idioma)
+               ORDER BY url_titular
                SEPARATOR ';'
            ) AS urls_titular
 FROM titulars_premsa AS tp
