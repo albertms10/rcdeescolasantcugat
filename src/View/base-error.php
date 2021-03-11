@@ -19,8 +19,8 @@ include ROOT . '/../src/Utils/lang-init.php';
 
 try {
     ResponseErrorController::postResponseError($response_error, locale: $_SESSION['LOCALE']);
-} catch (Exception $e) {
-    echo $e;
+} catch (Exception $exception) {
+    echo $exception;
 }
 ?>
 
