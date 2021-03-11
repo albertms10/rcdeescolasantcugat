@@ -2,12 +2,11 @@
 
 namespace RCDE\Controller;
 
-use RCDE\Config\Connexion;
 use RCDE\Model\ResponseError;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
-class ResponseErrorController
+class ResponseErrorController extends QueryController
 {
     public static function postResponseError(
         ResponseError $response_error,
@@ -18,8 +17,6 @@ class ResponseErrorController
         ?string $http_x_forwarded_for = null,
     ): int
     {
-        $connexion = new Connexion();
-
         $url ??= $_SERVER['REQUEST_URI'];
         $remote_addr ??= $_SERVER['REMOTE_ADDR'];
         $http_client_ip ??= array_key_exists('HTTP_CLIENT_IP', $_SERVER)
@@ -36,19 +33,15 @@ class ResponseErrorController
             $description = $response_error->description;
         }
 
-        $query = file_get_contents(__DIR__ . '/../Queries/insert__response_error.sql');
-        $result = $connexion->prepare($query);
-        $result->bindParam(':c', $response_error->code);
-        $result->bindParam(':r', $reason);
-        $result->bindParam(':d', $description);
-        $result->bindParam(':u', $url);
-        $result->bindParam(':l', $locale);
-        $result->bindParam(':a', $remote_addr);
-        $result->bindParam(':h_cip', $http_client_ip);
-        $result->bindParam(':h_fwd', $http_x_forwarded_for);
-        $result->execute();
-
-        $connexion = null;
-        return $result->rowCount();
+        return self::post('insert__response_error', [
+            ':c' => $response_error->code,
+            ':r' => $reason,
+            ':d' => $description,
+            ':u' => $url,
+            ':l' => $locale,
+            ':a' => $remote_addr,
+            ':h_cip' => $http_client_ip,
+            ':h_fwd' => $http_x_forwarded_for,
+        ]);
     }
 }
