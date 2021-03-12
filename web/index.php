@@ -4,7 +4,6 @@ use RCDE\Controller\ImatgeGaleriaController;
 use RCDE\Controller\NoticiaController;
 use RCDE\Model\EmailAddress;
 use RCDE\Model\Location;
-use RCDE\Model\Noticia;
 use RCDE\Model\TimetableDay;
 use RCDE\Translation\Home;
 use RCDE\Translation\Main;
@@ -71,9 +70,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <?php endforeach ?>
         </ol>
         <div class="carousel-inner">
-            <?php foreach ($noticies as $key => $noticia):
-                /** @var Noticia $noticia */
-                ?>
+            <?php foreach ($noticies as $key => $noticia): ?>
                 <div class="carousel-item carousel<?= ($key === 0) ? ' active' : '' ?>">
                     <?php
                     $is_video = false;

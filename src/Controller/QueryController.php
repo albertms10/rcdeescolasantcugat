@@ -10,6 +10,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
 abstract class QueryController
 {
+    /**
+     * @template T
+     * @param string $queryName
+     * @param class-string<T> $instanceName
+     * @param array $params
+     * @return T[]
+     */
     protected static function queryAll(string $queryName, string $instanceName, array $params = []): array
     {
         $result = self::query($queryName, $params);

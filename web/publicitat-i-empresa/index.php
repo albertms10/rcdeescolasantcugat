@@ -18,8 +18,10 @@ include ROOT . '/../src/Utils/lang-init.php';
     <?php $link_pagina = 'publicitat-i-empresa' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
-    /** @var Main $m */
-    /** @var Structure $s */
+    /**
+     * @var Main $m
+     * @var Structure $s
+     */
 
     $a = new Advertising();
     ?>
