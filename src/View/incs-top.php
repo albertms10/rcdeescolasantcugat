@@ -5,8 +5,8 @@ use RCDE\Translation\Main;
 use RCDE\Translation\Structure;
 
 /**
- * @var array $locale_codes
- * @var array $paths
+ * @var string[][] $locale_codes
+ * @var string[] $paths
  */
 
 require_once ROOT . '/../src/Utils/ordinal.php';

@@ -12,7 +12,7 @@ require_once ROOT . '/../vendor/autoload.php';
 $preserve_prev_locale = true;
 include ROOT . '/../src/Utils/lang-init.php';
 /**
- * @var array $paths
+ * @var string[] $paths
  * @var ResponseError $response_error
  * @var Error $e
  */

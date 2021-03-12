@@ -1,5 +1,8 @@
 <?php
-/** @var array $slogans */
+
+use RCDE\Model\Slogan;
+
+/** @var Slogan[] $slogans */
 
 foreach ($slogans as $slogan): ?>
     <div class="col-lg-3 col-md-6 text-center">

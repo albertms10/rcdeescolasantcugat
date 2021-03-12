@@ -1,5 +1,6 @@
 <?php
 
+use RCDE\Model\Pagina;
 use RCDE\Translation\Main;
 use RCDE\Translation\Structure;
 
@@ -7,7 +8,7 @@ use RCDE\Translation\Structure;
  * @var Main $m
  * @var Structure $s
  * @var string $pathname
- * @var array $pagines
+ * @var Pagina[] $pagines
  */
 
 $link_pagina ??= '';
