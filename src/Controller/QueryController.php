@@ -8,10 +8,12 @@ use RCDE\Config\Connexion;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/../vendor/autoload.php';
 
+/**
+ * @template T
+ */
 abstract class QueryController
 {
     /**
-     * @template T
      * @param string $queryName
      * @param class-string<T> $instanceName
      * @param array $params
