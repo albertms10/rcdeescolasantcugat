@@ -8,7 +8,7 @@ class Pagina
         public ?int $id_pagina = null,
         public ?string $titol_pagina = null,
         public ?string $link_pagina = null,
-        public ?bool $has_subnav = null,
+        public bool $has_subnav = false,
     )
     {
     }

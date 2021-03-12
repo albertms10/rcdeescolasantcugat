@@ -11,7 +11,7 @@ class CosTecnic
         public ?int $id_rol_costecnic = null,
         public ?string $rol_costecnic = null,
         public ?int $count_temporades = null,
-        public ?bool $hidden = null,
+        public bool $hidden = false,
         public ?int $temporades_a_renovar = null,
     )
     {
