@@ -57,7 +57,8 @@ include ROOT . '/../src/Utils/lang-init.php';
             <h2 class="h1" id="cos-tecnic" data-heading><?= $e->t('staff') ?></h2>
             <div class="container mt-4">
                 <div class="row">
-                    <?php $entrenadors = CosTecnicController::llistaEntrenadors();
+                    <?php
+                    $entrenadors = CosTecnicController::llistaEntrenadors();
                     foreach ($entrenadors as $key => $entrenador): ?>
                         <div class="col-lg-3 col-md-4 p-3 text-center user-card">
                             <div class="transform-center p-3" style="width:8rem; height:8rem">

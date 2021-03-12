@@ -63,12 +63,12 @@ include ROOT . '/../src/Utils/lang-init.php';
     <h1 class="visuallyhidden">RCDE Escola Sant Cugat</h1>
     <div id="carouselCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <?php if ($noticies = NoticiaController::llistaNoticies()):
-                foreach ($noticies as $key => $noticia): ?>
-                    <li data-target="#carouselCaptions"
-                        data-slide-to="<?= $key ?>" <?= ($key === 0) ? 'class="active"' : '' ?>></li>
-                <?php endforeach;
-            endif ?>
+            <?php
+            $noticies = NoticiaController::llistaNoticies();
+            foreach ($noticies as $key => $noticia): ?>
+                <li data-target="#carouselCaptions"
+                    data-slide-to="<?= $key ?>" <?= ($key === 0) ? 'class="active"' : '' ?>></li>
+            <?php endforeach ?>
         </ol>
         <div class="carousel-inner">
             <?php foreach ($noticies as $key => $noticia):

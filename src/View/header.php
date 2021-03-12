@@ -7,6 +7,7 @@ use RCDE\Translation\Structure;
  * @var Main $m
  * @var Structure $s
  * @var string $pathname
+ * @var array $pagines
  */
 
 $link_pagina ??= '';
@@ -49,30 +50,28 @@ $link_pagina ??= '';
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <?php
                     $current_has_subnav = true;
-                    if (!empty($pagines)):
-                        foreach ($pagines as $pagina):
-                            $is_current = $pagina->link_pagina === $link_pagina;
-                            $pagina_url = '';
-                            $resolved_pagina_url = null;
+                    foreach ($pagines as $pagina):
+                        $is_current = $pagina->link_pagina === $link_pagina;
+                        $pagina_url = '';
+                        $resolved_pagina_url = null;
 
-                            if ($is_current) {
-                                $current_has_subnav = $pagina->has_subnav;
-                                $pagina_url = '#page-top';
-                                $titol_pagina = $m->t($pagina->titol_pagina);
-                            } else {
-                                $resolved_pagina_url = $s->resolvedUrl($pagina->link_pagina);
-                                $pagina_url = $resolved_pagina_url['url'];
-                            } ?>
-                            <li class="nav-item d-flex align-items-center" data-target="#page-top">
-                                <a class="nav-link js-scroll-trigger text-center<?= $is_current ? ' active' : '' ?>"
-                                   href="<?= $pagina_url ?>"
-                                    <?= isset($resolved_pagina_url) ? "hreflang=\"{$resolved_pagina_url['locale']}\"" : '' ?>
-                                >
-                                    <?= $m->t($pagina->titol_pagina) ?>
-                                </a>
-                            </li>
-                        <?php endforeach;
-                    endif ?>
+                        if ($is_current) {
+                            $current_has_subnav = $pagina->has_subnav;
+                            $pagina_url = '#page-top';
+                            $titol_pagina = $m->t($pagina->titol_pagina);
+                        } else {
+                            $resolved_pagina_url = $s->resolvedUrl($pagina->link_pagina);
+                            $pagina_url = $resolved_pagina_url['url'];
+                        } ?>
+                        <li class="nav-item d-flex align-items-center" data-target="#page-top">
+                            <a class="nav-link js-scroll-trigger text-center<?= $is_current ? ' active' : '' ?>"
+                               href="<?= $pagina_url ?>"
+                                <?= isset($resolved_pagina_url) ? "hreflang=\"{$resolved_pagina_url['locale']}\"" : '' ?>
+                            >
+                                <?= $m->t($pagina->titol_pagina) ?>
+                            </a>
+                        </li>
+                    <?php endforeach ?>
                 </ul>
             </div>
             <?php
