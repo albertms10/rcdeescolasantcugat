@@ -20,7 +20,10 @@ abstract class QueryController
     {
         $connexion = new Connexion();
 
-        $query = file_get_contents(__DIR__ . "/../Queries/$queryName.sql");
+        $filename = __DIR__ . "/../Queries/$queryName.sql";
+        if (!file_exists($filename)) return false;
+
+        $query = file_get_contents($filename);
         $result = $connexion->prepare($query);
 
         foreach ($params as $key => &$param) {
