@@ -75,7 +75,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?php
                     $is_video = false;
 
-                    if (isset($noticia->nom_imatge)):
+                    if (!empty($noticia->nom_imatge)):
                         $path_img = "/assets/img/noticies/$noticia->nom_imatge.webp";
 
                         if (!file_exists(ROOT . $path_img)) $path_img = '/assets/img/placeholder.webp' ?>
@@ -83,7 +83,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                              width="<?= $noticia->img_width ?? 500 ?>"
                              height="<?= $noticia->img_height ?? 500 ?>"
                              loading="lazy" alt="<?= $noticia->titol_noticia ?>">
-                    <?php elseif (isset($noticia->href)):
+                    <?php elseif (!empty($noticia->href)):
                         $matches = [];
                         if (preg_match('/(?<=https:\/\/www\.youtube\.com\/watch\?v=).+/', $noticia->href, $matches)):
                             $is_video = true;
@@ -114,7 +114,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                                     <i class="fas fa-2x fa-external-link-square-alt ml-3"></i>
                                 <?php endif ?>
                             </div>
-                            <?php if (isset($noticia->subtitol_noticia)): ?>
+                            <?php if (!empty($noticia->subtitol_noticia)): ?>
                                 <p class="subtitle"><?= $noticia->subtitol_noticia ?></p>
                             <?php endif ?>
                         </a>

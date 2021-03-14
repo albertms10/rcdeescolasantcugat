@@ -11,7 +11,7 @@ abstract class Translator
         protected ?string $package = null,
     )
     {
-        if (isset($this->package)) return;
+        if (!empty($this->package)) return;
 
         $split_class_name = preg_split('/\\\\/', static::class, flags: PREG_SPLIT_NO_EMPTY);
         $this->package = end($split_class_name);
@@ -67,7 +67,7 @@ abstract class Translator
 
     private function findString(?string $string, string $lang): string
     {
-        if (!isset($string)) return '';
+        if (empty($string)) return '';
 
         if ($this->checkStoreFor($lang, $string)) {
             return $this->store[$lang][$string];
@@ -79,7 +79,7 @@ abstract class Translator
     private function checkStoreFor(string $lang, ?string $string = null): bool
     {
         return array_key_exists($lang, $this->store)
-            and (isset($string) ? array_key_exists($string, $this->store[$lang]) : true);
+            and (empty($string) ? true : array_key_exists($string, $this->store[$lang]));
     }
 
     public function findAlternateOf(?string $value, string $lang): string
@@ -90,7 +90,7 @@ abstract class Translator
 
     public function findKeyOf(?string $value): ?string
     {
-        if (!isset($value)) return '';
+        if (empty($value)) return '';
 
         $this->loadAllTranslationsFiles();
 

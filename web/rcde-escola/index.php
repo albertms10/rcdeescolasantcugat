@@ -99,7 +99,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                         <div class="card mb-4">
                             <div class="card-body">
                                 <h4><?= $titular_premsa->text_titular ?></h4>
-                                <?php if (isset($titular_premsa->data_titular)): ?>
+                                <?php if (!empty($titular_premsa->data_titular)): ?>
                                     <time datetime="<?= $titular_premsa->data_titular ?>">
                                         <?= utf8_encode(strftime('%-e %B %Y', strtotime($titular_premsa->data_titular))) ?>
                                     </time>

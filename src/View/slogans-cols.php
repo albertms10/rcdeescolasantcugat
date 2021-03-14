@@ -7,9 +7,9 @@ use RCDE\Model\Slogan;
 foreach ($slogans as $slogan): ?>
     <div class="col-lg-3 col-md-6 text-center">
         <div class="mt-5">
-            <?php if (isset($slogan->fa_icon)): ?>
+            <?php if (!empty($slogan->fa_icon)): ?>
                 <i class="fas fa-4x <?= $slogan->fa_icon ?> text-primary mb-4"></i>
-            <?php elseif (isset($slogan->icon_filename)): ?>
+            <?php elseif (!empty($slogan->icon_filename)): ?>
                 <div class="svg-icon-container small blue">
                     <?= file_get_contents($slogan->icon_filename) ?>
                 </div>

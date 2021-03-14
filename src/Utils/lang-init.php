@@ -20,7 +20,7 @@ if ($is_locale) {
 $_SESSION['DEFAULT_LOCALE'] ??= $_SESSION['LOCALES'][0];
 
 $preserve_prev_locale ??= false;
-if (!isset($_SESSION['LOCALE']) or !$preserve_prev_locale) {
+if (empty($_SESSION['LOCALE']) or !$preserve_prev_locale) {
     $_SESSION['LOCALE'] = $lang_url ?? $_SESSION['DEFAULT_LOCALE'];
 }
 

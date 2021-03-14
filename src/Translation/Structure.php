@@ -52,7 +52,7 @@ final class Structure extends Translator
         bool $full_path = false,
     ): string
     {
-        if (!isset($locale)) {
+        if (empty($locale)) {
             session_start();
             $locale = $_SESSION['LOCALE'];
         }

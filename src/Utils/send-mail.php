@@ -73,7 +73,7 @@ function send_mail(
 
         $mail->setFrom('webmaster@rcdeescolasantcugat.com', 'RCDE Escola Sant Cugat');
 
-        if (isset($email)) {
+        if (!empty($email)) {
             $mail->addReplyTo($email, $name);
         }
 

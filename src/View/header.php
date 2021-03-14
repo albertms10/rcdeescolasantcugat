@@ -30,7 +30,7 @@ $link_pagina ??= '';
             ?>
             <a class="navbar-brand js-scroll-trigger py-0"
                href="<?= $index_url ?>"
-                <?= isset($resolved_index_url) ? "hreflang=\"{$resolved_index_url['locale']}\"" : '' ?>
+                <?= empty($resolved_index_url) ? '' : "hreflang=\"{$resolved_index_url['locale']}\"" ?>
                style="width: 147px; height: 60px;">
                 <div id="navbar-logo"
                      class="translucent position-relative blanc">
@@ -67,7 +67,7 @@ $link_pagina ??= '';
                         <li class="nav-item d-flex align-items-center" data-target="#page-top">
                             <a class="nav-link js-scroll-trigger text-center<?= $is_current ? ' active' : '' ?>"
                                href="<?= $pagina_url ?>"
-                                <?= isset($resolved_pagina_url) ? "hreflang=\"{$resolved_pagina_url['locale']}\"" : '' ?>
+                                <?= empty($resolved_pagina_url) ? '' : "hreflang=\"{$resolved_pagina_url['locale']}\"" ?>
                             >
                                 <?= $m->t($pagina->titol_pagina) ?>
                             </a>

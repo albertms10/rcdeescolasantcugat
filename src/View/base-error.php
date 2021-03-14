@@ -63,11 +63,9 @@ try {
                                     $resolved_url = $s->resolvedUrl(join('/', $current_paths));
 
                                     $structure_key = $s->findKeyOf($path);
-                                    if (isset($structure_key)) {
-                                        $url_label = $m->t($structure_key);
-                                    } else {
-                                        $url_label = ucfirst(preg_replace('/[-_]/', ' ', $path));
-                                    }
+                                    $url_label = empty($structure_key)
+                                        ? ucfirst(preg_replace('/[-_]/', ' ', $path))
+                                        : $m->t($structure_key);
 
                                     if ($resolved_url['exists']): ?>
                                         <a href="<?= $resolved_url['url'] ?>"><?= $url_label ?></a>

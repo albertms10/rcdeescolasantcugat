@@ -19,6 +19,6 @@ class TimetableDay
 
     public function getTimeRange(): string
     {
-        return $this->startTime . (isset($this->endTime) ? "–$this->endTime" : '');
+        return $this->startTime . (empty($this->endTime) ? '' : "–$this->endTime");
     }
 }
