@@ -60,7 +60,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?= $c->t('res-err') ?>
                     <?php if (isset($_GET['msg'])): ?>
                         <hr>
-                        <pre><?= $_GET['msg'] ?></pre>
+                        <pre><?= empty($_GET['msg']) ? $c->t('empty-err-msg') : $_GET['msg'] ?></pre>
                     <?php endif ?>
                     <div class="mb-1" style="height: 32px">
                         <form class="needs-validation" action="/api/send-error-message.php" method="post" novalidate>

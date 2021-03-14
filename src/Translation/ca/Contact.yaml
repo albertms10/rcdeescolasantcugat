@@ -14,5 +14,6 @@ report-error: Informa de l’error
 res-ok: El missatge s’ha enviat satisfactòriament.
 res-invalid: El cos del missatge no és vàlid.
 contains-link: No inclogueu enllaços ni adreces electròniques en el nom ni en el cos del missatge.
+empty-err-msg: El missatge d’error és buit.
 res-err: Hi ha hagut un error en enviar el missatge. Disculpeu les molèsties.
 res-err-sent: S’ha notificat el missatge d’error a l’administració. Gràcies per la col·laboració i disculpeu les molèsties.

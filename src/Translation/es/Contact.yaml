@@ -14,5 +14,6 @@ report-error: Informa del error
 res-ok: El mensaje se ha enviado satisfactoriamente.
 res-invalid: El cuerpo del mensaje no es válido.
 contains-link: No incluya enlaces ni direcciones electrónicas en el nombre ni en el cuerpo del mensaje.
+empty-err-msg: El mensaje de error está vacío.
 res-err: Ha ocurrido un error al enviar el mensaje. Disculpe las molestias.
 res-err-sent: Se ha notificado el mensaje de error a la administración. Gracias por su colaboración y disculpe las molestias.
