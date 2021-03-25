@@ -9,8 +9,6 @@ use RCDE\Translation\Structure;
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 require_once ROOT . '/../vendor/autoload.php';
-$preserve_prev_locale = true;
-include ROOT . '/../src/Utils/lang-init.php';
 /**
  * @var string[] $paths
  * @var ResponseError $response_error

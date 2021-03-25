@@ -5,6 +5,8 @@ use RCDE\Translation\Error;
 
 defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 require_once ROOT . '/../vendor/autoload.php';
+$preserve_prev_locale = true;
+include ROOT . '/../src/Utils/lang-init.php';
 
 $e = new Error();
 
