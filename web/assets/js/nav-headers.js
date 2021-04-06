@@ -19,7 +19,7 @@ const insertSubNavHeading = (heading) => {
 };
 
 const insertSideNavSubHeadings = (sideUl, subHeadings) => {
-    sideUl.classList.add("nav", "flex-column", "overflow-scroll");
+    sideUl.classList.add("nav", "flex-column");
 
     subHeadings.forEach((subHeading) => {
         sideUl.insertAdjacentHTML(
@@ -41,10 +41,11 @@ const prepareSideNavContent = (heading, sideNavContainer, subHeadings) => {
         "sticky-toc",
         "scrollspy"
     );
+    sideNavContainer.style.overflow = "auto";
 
     sideNavContainer.insertAdjacentHTML(
         "afterbegin",
-        `<div class="main-header text-secondary font-weight-bold small mx-3 mt-2 mb-1 pt-3 pb-2 d-none d-lg-block"
+        `<div class="main-header text-secondary font-weight-bold small mx-3 my-1 py-2 d-none d-lg-block"
               role="heading">
             ${heading.innerText}
         </div>`
