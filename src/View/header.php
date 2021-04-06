@@ -14,7 +14,7 @@ use RCDE\Translation\Structure;
 $link_pagina ??= '';
 ?>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light main-nav fixed-top py-3"
+    <nav class="navbar navbar-expand-lg navbar-light main-nav fixed-top py-2"
          id="mainNav">
         <div class="container" style="min-height:4rem">
             <?php
@@ -30,15 +30,14 @@ $link_pagina ??= '';
             ?>
             <a class="navbar-brand js-scroll-trigger py-0"
                href="<?= $index_url ?>"
-                <?= empty($resolved_index_url) ? '' : "hreflang=\"{$resolved_index_url['locale']}\"" ?>
-               style="width: 147px; height: 60px;">
+                <?= empty($resolved_index_url) ? '' : "hreflang=\"{$resolved_index_url['locale']}\"" ?>>
                 <div id="navbar-logo"
                      class="translucent position-relative blanc">
                     <img src="/assets/img/logo/Escoles_sant_cugat_rectangular_blanc.webp"
-                         id="navbar-logo-color" width="500" height="245"
+                         id="navbar-logo-color" width="500" height="222"
                          alt="RCDE Escola Sant Cugat">
                     <img src="/assets/img/logo/Escoles_sant_cugat_blanc.webp"
-                         id="navbar-logo-blanc" width="500" height="245"
+                         id="navbar-logo-blanc" width="500" height="222"
                          alt="RCDE Escola Sant Cugat">
                 </div>
             </a>

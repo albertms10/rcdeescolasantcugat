@@ -529,8 +529,8 @@ hr.divider {
 }
 
 #navbar-logo {
-  top: -9px;
-  height: 4.5rem;
+  top: -4px;
+  height: 4.3rem;
 }
 
 #navbar-logo.translucent {
@@ -571,6 +571,7 @@ hr.divider {
   position: absolute;
   top: 0;
   left: 0;
+  width: auto;
   height: 100%;
   transition-duration: .2s;
   transition-property: opacity;
