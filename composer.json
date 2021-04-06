@@ -22,10 +22,10 @@
         }
     },
     "require": {
-        "arrilot/dotenv-php": "^2.0",
+        "arrilot/dotenv-php": "^2",
         "ext-mbstring": "*",
         "ext-pdo": "*",
-        "php": "^8.0",
-        "phpmailer/phpmailer": "^6.3"
+        "php": "^8",
+        "phpmailer/phpmailer": "^6.4"
     }
 }
