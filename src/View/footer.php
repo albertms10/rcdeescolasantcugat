@@ -1,10 +1,20 @@
-<?php use RCDE\Model\Social; ?>
+<?php
+
+use RCDE\Model\Social;
+use RCDE\Translation\Main;
+use RCDE\Translation\Structure;
+
+/**
+ * @var Main $m
+ * @var Structure $s
+ */
+?>
 
 <footer class="bg-light py-5 border-top">
     <div class="container d-flex justify-content-between flex-wrap mb-4">
         <div class="d-flex flex-wrap justify-content-center mb-4">
             <img src="/assets/img/logo/Escoles_sant_cugat_rectangular.webp" class="w-auto mr-4" alt="Logo RCDE Escola"
-                 style="height:6rem" width="500" height="248">
+                 style="height:6rem" width="500" height="222">
             <img src="/assets/img/logo/Pericos_blau.webp" class="w-auto" alt="Logo Pericos de Sant Cugat"
                  style="height:6rem" width="500" height="240">
         </div>
@@ -45,7 +55,17 @@
         </ul>
     </div>
     <div class="container">
-        <div class="small text-center text-muted">&copy; RCDE Escola Sant Cugat</div>
+        <ul class="list-inline">
+            <li class="list-inline-item">
+                <span class="small text-center text-muted">&copy; RCDE Escola Sant Cugat</span>
+            </li>
+            <li class="list-inline-item">
+                <a href="<?= $s->resolvedUrl('privacy-policy', locale: 'es')['url'] ?>"
+                   class="small text-center text-muted">
+                    <?= $m->t('privacy-policy') ?>
+                </a>
+            </li>
+        </ul>
     </div>
 </footer>
 
