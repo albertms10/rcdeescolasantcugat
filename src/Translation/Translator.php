@@ -95,7 +95,7 @@ abstract class Translator
         $this->loadAllTranslationsFiles();
 
         $key = null;
-        foreach ($this->store as $lang_key => $translations) {
+        foreach ($this->store as $translations) {
             foreach ($translations as $translation_key => $translation) {
                 if ($translation === $value) {
                     $key = $translation_key;
