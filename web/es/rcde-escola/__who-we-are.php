@@ -29,7 +29,7 @@ use RCDE\Translation\Structure;
 
         <h3 id="xef" class="mt-5">La Xarxa d’Escoles de Futbol</h3>
         <hr class="divider my-4 ml-0">
-        <p>En el momento de su fundación, la escuela formaba parte del proyecto CHEF, dependiente de la Fundación
+        <p>En el momento de su fundación, la escuela formaba parte del proyecto XEF, dependiente de la Fundación
            Privada del RCDE. En toda Cataluña arrancaba la Red de Escuelas de Fútbol del RCDE y Sant Cugat era parte
            activa de este hito, organizando uno de los Encuentros y participando en todas las actividades que el Club
            ponía al alcance.</p>
