@@ -97,20 +97,22 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?php endif ?>
                     <?php if (!$is_video):
                         $is_hash = false;
-                        $is_link = false;
+                        $is_inner_link = false;
+                        $is_ext_link = false;
                         if (!empty($noticia->href)) {
                             $is_hash = ($noticia->href[0] === '#');
-                            $is_link = !$is_hash;
+                            $is_inner_link = ($noticia->href[0] === '/');
+                            $is_ext_link = !$is_hash && !$is_inner_link;
                         } ?>
                         <a class="carousel-caption js-scroll-trigger"
-                           href="<?= $is_hash
-                               ? '#' . $h->t(substr($noticia->href, 1))
-                               : ($noticia->href ?? '#') ?>"
-                            <?= $is_link ? 'rel="external noopener" target="_blank"' : '' ?>
+                           href="<?= $is_hash ? '#' . $h->t(substr($noticia->href, 1))
+                               : ($is_inner_link ? $s->resolvedUrl(substr($noticia->href, 1))['url']
+                                   : ($noticia->href ?? '#')) ?>"
+                            <?= $is_ext_link ? 'rel="external noopener" target="_blank"' : '' ?>
                         >
                             <div class="d-flex align-items-center justify-content-center">
                                 <h2><?= $noticia->titol_noticia ?></h2>
-                                <?php if ($is_link): ?>
+                                <?php if ($is_ext_link): ?>
                                     <i class="fas fa-2x fa-external-link-square-alt ml-3"></i>
                                 <?php endif ?>
                             </div>
