@@ -68,6 +68,10 @@
       "type": "string",
       "pattern": "^[A-Z].*[.]$"
     },
+    "empty-err-msg": {
+      "type": "string",
+      "pattern": "^[A-Z].*[.]$"
+    },
     "res-err": {
       "type": "string",
       "pattern": "^[A-Z].*[.]$"

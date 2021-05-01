@@ -27,6 +27,14 @@
     "contact": {
       "type": "string",
       "pattern": "^[\\w-]+$"
+    },
+    "privacy-policy": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "activities": {
+      "type": "string",
+      "pattern": "^[\\w-]+$"
     }
   }
 }
