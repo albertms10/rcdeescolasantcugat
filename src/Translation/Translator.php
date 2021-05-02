@@ -82,6 +82,14 @@ abstract class Translator
             and (empty($string) || array_key_exists($string, $this->store[$lang]));
     }
 
+    public function keyExists(string $key): bool
+    {
+        session_start();
+        $this->lang = $lang ?? $_SESSION['LOCALE'];
+
+        return $this->checkStoreFor($this->lang, $key);
+    }
+
     public function findAlternatesOf(array $values, string $lang): array
     {
         $alternates = [];
