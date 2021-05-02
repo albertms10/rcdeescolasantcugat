@@ -612,6 +612,12 @@ hr.divider {
   background-position: 0 -141px;
 }
 
+@media (max-width: 720px) {
+  .pericos-de-sant-cugat {
+    background-position: center;
+  }
+}
+
 .publicitat-i-empresa {
   background-image: url("/assets/img/fotos/publicitat-i-empresa.webp");
   background-position: center;
