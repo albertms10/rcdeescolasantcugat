@@ -82,10 +82,21 @@ abstract class Translator
             and (empty($string) || array_key_exists($string, $this->store[$lang]));
     }
 
+    public function findAlternatesOf(array $values, string $lang): array
+    {
+        $alternates = [];
+        foreach ($values as $fragment) {
+            $alternates[] = $this->findAlternateOf($fragment, $lang);
+        }
+        return $alternates;
+    }
+
     public function findAlternateOf(?string $value, string $lang): string
     {
+        if (empty($value)) return '';
+
         $key = $this->findKeyOf($value);
-        return $this->findString($key, $lang);
+        return empty($key) ? $value : $this->findString($key, $lang);
     }
 
     public function findKeyOf(?string $value): ?string
