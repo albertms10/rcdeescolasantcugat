@@ -22,7 +22,7 @@ final class Structure extends Translator
     {
         session_start();
         $locale ??= $_SESSION['LOCALE'];
-        $localized_pathname = $this->findAlternateOf($pathname, $locale);
+        $localized_pathname = join('/', $this->findAlternatesOf(preg_split('/\//', $pathname), $locale));
 
         $exists = ($pathname === '/' or $pathname === "/$filename" or !empty($localized_pathname));
         $resolved_locale = $locale;
@@ -59,7 +59,7 @@ final class Structure extends Translator
 
         return ($full_path ? self::baseUrl() : '/')
             . (($explicit_locale or ($locale !== $_SESSION['DEFAULT_LOCALE'])) ? "$locale/" : '')
-            . ($pathname ? "$pathname/" : '');
+            . ((empty($pathname) || $pathname == '/') ? '' : "$pathname/");
     }
 
     private static function baseUrl(bool $use_https = true): string
