@@ -1,5 +1,8 @@
 <?php
-/** @var array $imatges */
+
+use RCDE\Model\ImatgeGaleria;
+
+/** @var ImatgeGaleria[] $imatges */
 foreach ($imatges as $imatge): ?>
     <div class="col-lg-4 col-sm-6">
         <a class="portfolio-box"

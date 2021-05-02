@@ -16,7 +16,7 @@ abstract class QueryController
     /**
      * @param string $queryName
      * @param class-string<T> $instanceName
-     * @param array $params
+     * @param string[] $params
      * @return T[]
      */
     protected static function queryAll(string $queryName, string $instanceName, array $params = []): array
@@ -25,6 +25,11 @@ abstract class QueryController
         return $result->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $instanceName);
     }
 
+    /**
+     * @param string $queryName
+     * @param string[] $params
+     * @return T[]
+     */
     private static function query(string $queryName, array $params = []): PDOStatement|array
     {
         $connexion = new Connexion();
@@ -35,15 +40,22 @@ abstract class QueryController
         $query = file_get_contents($filename);
         $result = $connexion->prepare($query);
 
+        if (!$result) return [];
+
         foreach ($params as $key => &$param) {
             $result->bindParam($key, $param);
         }
 
         $result->execute();
         $connexion = null;
-        return $result ? $result : [];
+        return $result;
     }
 
+    /**
+     * @param string $queryName
+     * @param string[] $params
+     * @return int
+     */
     protected static function post(string $queryName, array $params): int
     {
         $result = self::query($queryName, $params);
