@@ -62,7 +62,7 @@ const prepareSideNav = (heading) => {
     );
     if (!sideNavContainer) return;
     const subHeadings = heading.closest("section").querySelectorAll(`h3`);
-    if (!subHeadings) return;
+    if (!subHeadings || subHeadings.length < 2) return;
 
     prepareSideNavContent(heading, sideNavContainer, subHeadings);
 };
