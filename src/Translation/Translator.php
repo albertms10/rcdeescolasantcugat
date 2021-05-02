@@ -101,21 +101,16 @@ abstract class Translator
 
     public function findKeyOf(?string $value): ?string
     {
-        if (empty($value)) return '';
+        if (empty($value)) return null;
 
         $this->loadAllTranslationsFiles();
-
-        $key = null;
         foreach ($this->store as $translations) {
             foreach ($translations as $translation_key => $translation) {
-                if ($translation === $value) {
-                    $key = $translation_key;
-                    break 2;
-                }
+                if ($translation === $value) return $translation_key;
             }
         }
 
-        return $key;
+        return null;
     }
 
     private function loadAllTranslationsFiles(): void
