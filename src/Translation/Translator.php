@@ -79,7 +79,7 @@ abstract class Translator
     private function checkStoreFor(string $lang, ?string $string = null): bool
     {
         return array_key_exists($lang, $this->store)
-            and (empty($string) ? true : array_key_exists($string, $this->store[$lang]));
+            and (empty($string) || array_key_exists($string, $this->store[$lang]));
     }
 
     public function findAlternateOf(?string $value, string $lang): string
