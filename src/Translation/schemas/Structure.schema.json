@@ -31,10 +31,6 @@
     "privacy-policy": {
       "type": "string",
       "pattern": "^[\\w-]+$"
-    },
-    "activities": {
-      "type": "string",
-      "pattern": "^[\\w-]+$"
     }
   }
 }
