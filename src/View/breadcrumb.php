@@ -18,19 +18,18 @@ $centered_breadcrumb ??= false;
         <?php foreach ($paths as $key => $path):
             $current_paths = array_slice($paths, 0, $key + 1);
             $is_file = str_contains($path, '.');
-            $is_current_page = ($_SERVER['SCRIPT_URL'] === '/' . join('/', $current_paths) . '/');
+            $is_current_page = ($paths === $current_paths);
             ?>
-            <li class="breadcrumb-item<?= $is_file || $is_current_page ? ' text-secondary' : '' ?>" aria-current="page"
-                <?= $is_current_page ? 'style="text-transform: uppercase; letter-spacing: 0.4px"' : '' ?>>
+            <li class="breadcrumb-item<?= $is_file || $is_current_page ? ' text-secondary' : '' ?>" aria-current="page">
                 <?php
                 if ($is_file):
                     echo $path;
                 else:
                     $resolved_url = $s->resolvedUrl(join('/', $current_paths));
-                    $structure_key = $s->findKeyOf($path);
-                    $url_label = empty($structure_key)
-                        ? ucfirst(preg_replace('/[-_]/', ' ', $path))
-                        : $m->t($structure_key);
+                    $structure_key = $s->findKeyOf($path) ?? $path;
+                    $url_label = $m->keyExists($structure_key)
+                        ? $m->t($structure_key)
+                        : ucfirst(preg_replace('/[-_]/', ' ', $path));
 
                     if ($resolved_url['exists'] && !$is_current_page): ?>
                         <a href="<?= $resolved_url['url'] ?>"><?= $url_label ?></a>
