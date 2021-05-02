@@ -27,6 +27,10 @@
     "contact": {
       "type": "string",
       "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "privacy-policy": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
     }
   }
 }
