@@ -31,6 +31,10 @@
     "privacy-policy": {
       "type": "string",
       "pattern": "^[A-Z].*(?<![.])$"
+    },
+    "la-cerdanya-2021": {
+      "type": "string",
+      "pattern": "^[A-Z].*(?<![.])$"
     }
   }
 }
