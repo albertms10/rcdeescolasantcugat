@@ -6,7 +6,7 @@ use RCDE\Translation\Structure;
 /** @var Structure $s */
 ?>
 
-<section class="page-section bg-light pt-5 pb-4">
+<section class="page-section bg-light pt-5">
     <div class="container">
         <div class="row mt-lg-5">
             <div class="col-lg-8 order-lg-1 order-2 pr-lg-5">
@@ -57,16 +57,19 @@ use RCDE\Translation\Structure;
                 </ul>
             </div>
         </div>
-    </div>
-</section>
-
-<section class="page-section bg-light pt-4 text-right" style="border-top: dashed 1px var(--blau)">
-    <div class="container">
-        <p class="h3 text-primary">475&nbsp;€</p>
-        <ul class="small list-group list-group-flush float-right">
-            <li class="list-group-item bg-light">Descuento del <b>10%</b> en el segundo hermano</li>
-            <li class="list-group-item bg-light">Descuento del <b>15%</b> en el tercer hermano</li>
-        </ul>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-transparent mt-5" style="border-radius: .5rem; border: dashed 1px var(--blau)">
+                    <div class="card-body">
+                        <p class="h3 text-primary">475&nbsp;€</p>
+                        <ul class="small list-group list-group-flush">
+                            <li class="list-group-item bg-light">Descuento del <b>10%</b> en el segundo hermano</li>
+                            <li class="list-group-item bg-light">Descuento del <b>15%</b> en el tercer hermano</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
