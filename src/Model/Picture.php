@@ -9,6 +9,7 @@ class Picture
         public string $alt,
         public int $width = 800,
         public int $height = 600,
+        public string $classlist = '',
     )
     {
     }

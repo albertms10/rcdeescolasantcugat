@@ -10,5 +10,5 @@ use RCDE\Model\Picture;
     <source srcset="<?= $picture->src ?>.jpg" type="image/jpeg">
     <img src="<?= $picture->src ?>.jpg" alt="<?= $picture->alt ?>"
          width="<?= $picture->width ?>" height="<?= $picture->height ?>"
-         class="rounded" loading="lazy" style="width:100%">
+         class="rounded <?= $picture->classlist ?>" loading="lazy" style="width:100%">
 </picture>
