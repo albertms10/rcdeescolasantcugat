@@ -1,9 +1,10 @@
 <?php
 
-use RCDE\Controller\ImatgeGaleriaController;
 use RCDE\Controller\NoticiaController;
 use RCDE\Model\EmailAddress;
+use RCDE\Model\ImatgeGaleria;
 use RCDE\Model\Location;
+use RCDE\Model\PictureGallery;
 use RCDE\Model\TimetableDay;
 use RCDE\Translation\Home;
 use RCDE\Translation\Main;
@@ -164,7 +165,22 @@ include ROOT . '/../src/Utils/lang-init.php';
         <div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row no-gutters">
-                    <?php $imatges = ImatgeGaleriaController::llistaImatgesVisibles();
+                    <?php
+                    $picture_gallery = new PictureGallery(
+                        src_dir: '/assets/img/galeria/fullsize',
+                        thumbnail_src_dir: '/assets/img/galeria/thumbnail',
+                        title: 'RCDE',
+                        subtitle: 'Escola',
+                        width: 650, height: 434,
+                        picture_names: [
+                            'DSC_0092',
+                            'DSC_0125',
+                            'DSC_0113',
+                            'P1260706',
+                            'P1260713',
+                            'P1260908',
+                        ]
+                    );
                     include ROOT . '/../src/View/images-gallery.php' ?>
                 </div>
             </div>
