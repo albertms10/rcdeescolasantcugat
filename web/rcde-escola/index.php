@@ -52,6 +52,16 @@ include ROOT . '/../src/Utils/lang-init.php';
                 )['url'] ?>
         </div>
     </section>
+    <section class="page-section bg-light">
+        <div class="container">
+            <?php include ROOT . $s->resolvedUrl(
+                    pathname: $link_pagina,
+                    filename: '__activities.php',
+                    explicit_locale: true,
+                    include_filename: true,
+                )['url'] ?>
+        </div>
+    </section>
     <section class="page-section bg-blau-fosc text-white">
         <div class="container">
             <h2 class="h1" id="cos-tecnic" data-heading><?= $e->t('staff') ?></h2>
