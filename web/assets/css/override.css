@@ -819,3 +819,7 @@ table.table-rounded tr td:last-child {
   border-top-right-radius: .25rem !important;
   border-bottom-right-radius: .25rem !important;
 }
+
+.filter-brightness-80 {
+  filter: brightness(0.8);
+}
