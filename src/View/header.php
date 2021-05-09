@@ -9,6 +9,7 @@ use RCDE\Translation\Structure;
  * @var Structure $s
  * @var string $pathname
  * @var Pagina[] $pagines
+ * @var string[] $paths
  */
 
 $link_pagina ??= '';
@@ -51,7 +52,7 @@ $link_pagina ??= '';
                     <?php
                     $current_has_subnav = true;
                     foreach ($pagines as $pagina):
-                        $is_current = $pagina->link_pagina === $link_pagina;
+                        $is_current = $pagina->link_pagina === $paths[0];
                         $pagina_url = '';
                         $resolved_pagina_url = null;
 
