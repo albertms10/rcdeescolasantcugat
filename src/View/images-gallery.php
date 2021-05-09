@@ -1,19 +1,19 @@
 <?php
 
-use RCDE\Model\ImatgeGaleria;
+use RCDE\Model\PictureGallery;
 
-/** @var ImatgeGaleria[] $imatges */
-foreach ($imatges as $imatge): ?>
+/** @var PictureGallery $picture_gallery */
+foreach ($picture_gallery->picture_names as $picture_name): ?>
     <div class="col-lg-4 col-sm-6">
         <a class="portfolio-box"
-           href="/assets/img/galeria/fullsize/<?= $imatge->nom_imatge ?>.webp">
+           href="<?= "$picture_gallery->src_dir/$picture_name.webp" ?>">
             <img class="img-fluid"
-                 src="/assets/img/galeria/thumbnails/<?= $imatge->nom_imatge ?>.webp"
-                 width="650" height="434"
-                 loading="lazy" alt="<?= $imatge->titol_imatge ?>">
+                 src="<?= "$picture_gallery->thumbnail_src_dir/$picture_name.webp" ?>"
+                 width="<?= $picture_gallery->width ?>" height="<?= $picture_gallery->height ?>"
+                 loading="lazy" alt="<?= $picture_gallery->title ?>">
             <div class="portfolio-box-caption">
-                <div class="project-category text-white-50"><?= $imatge->subtitol_imatge ?></div>
-                <div class="project-name"><?= $imatge->titol_imatge ?></div>
+                <div class="project-category text-white-50"><?= $picture_gallery->subtitle ?></div>
+                <div class="project-name"><?= $picture_gallery->title ?></div>
             </div>
         </a>
     </div>
