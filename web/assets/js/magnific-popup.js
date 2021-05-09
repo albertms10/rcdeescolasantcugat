@@ -12,7 +12,3 @@ $("#portfolio").magnificPopup({
         tError: `La <a href="%url%">imatge #%curr%</a> no s’ha pogut carregar.`,
     },
 });
-
-if (typeof BSN !== "undefined") {
-    new BSN.Tooltip("#zem-tooltip");
-}

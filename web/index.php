@@ -50,7 +50,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     <script>
         deferCSS("/assets/vendor/magnific-popup/magnific-popup.css");
     </script>
-    <script defer src="/assets/js/home.js"></script>
+    <script defer src="/assets/js/magnific-popup.js"></script>
     <script defer src="/assets/js/make-navbar-translucent.js"></script>
     <script defer src="/assets/js/nav-headers.js"></script>
 </head>
@@ -265,6 +265,12 @@ include ROOT . '/../src/Utils/lang-init.php';
 </main>
 
 <?php include ROOT . '/../src/View/footer.php' ?>
+
+<script>
+    if (typeof BSN !== "undefined") {
+        new BSN.Tooltip("#zem-tooltip");
+    }
+</script>
 </body>
 
 </html>
