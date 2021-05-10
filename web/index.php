@@ -168,7 +168,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     <?php
                     $picture_gallery = new PictureGallery(
                         src_dir: '/assets/img/galeria/fullsize',
-                        thumbnail_src_dir: '/assets/img/galeria/thumbnail',
+                        thumbnail_src_dir: '/assets/img/galeria/thumbnails',
                         title: 'RCDE',
                         subtitle: 'Escola',
                         width: 650, height: 434,
