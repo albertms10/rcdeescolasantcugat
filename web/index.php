@@ -48,12 +48,11 @@ include ROOT . '/../src/Utils/lang-init.php';
         ]
     </script>
 
-    <script>
-        deferCSS("/assets/vendor/magnific-popup/magnific-popup.css");
-    </script>
+    <script defer src="/assets/js/defer-magnific-popup-css.js"></script>
     <script defer src="/assets/js/magnific-popup.js"></script>
     <script defer src="/assets/js/make-navbar-translucent.js"></script>
     <script defer src="/assets/js/nav-headers.js"></script>
+    <script defer src="/assets/js/zem-tooltip.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll">
@@ -281,12 +280,6 @@ include ROOT . '/../src/Utils/lang-init.php';
 </main>
 
 <?php include ROOT . '/../src/View/footer.php' ?>
-
-<script>
-    if (typeof BSN !== "undefined") {
-        new BSN.Tooltip("#zem-tooltip");
-    }
-</script>
 </body>
 
 </html>

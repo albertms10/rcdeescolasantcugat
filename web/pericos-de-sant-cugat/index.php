@@ -22,7 +22,6 @@ include ROOT . '/../src/Utils/lang-init.php';
     ?>
     <meta name="description" property="og:description" content="<?= $p->t('description') ?>" />
 
-
     <script defer src="/assets/js/nav-headers.js"></script>
 </head>
 

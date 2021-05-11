@@ -22,9 +22,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     ?>
     <meta name="description" property="og:description" content="<?= $a->t('description') ?>" />
 
-    <script>
-        deferCSS("/assets/vendor/magnific-popup/magnific-popup.css");
-    </script>
+    <script defer src="/assets/js/defer-magnific-popup-css.js"></script>
     <script defer src="/assets/js/magnific-popup.js"></script>
     <script defer src="/assets/js/nav-headers.js"></script>
 </head>

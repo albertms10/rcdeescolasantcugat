@@ -97,9 +97,7 @@ $full_title = ($title ? "$title · " : '') . 'RCDE Escola Sant Cugat';
 <link href="/assets/css/override.min.css" rel="stylesheet">
 
 <script src="/assets/js/defer-css.js"></script>
-<script>
-    deferCSS("/assets/css/all.min.css");
-</script>
+<script src="/assets/js/defer-all-min-css.js"></script>
 
 <noscript>
     <link href="/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
