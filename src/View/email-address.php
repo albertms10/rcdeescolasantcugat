@@ -6,8 +6,8 @@ use RCDE\Model\EmailAddress;
 ?>
 
 <div>
-    <a class="btn btn-light btn-xl d-flex m-auto"
-       href="mailto:<?= $address->getAddress() ?>" style="width: min-content">
+    <a class="btn btn-light btn-xl d-flex m-auto w-min-content"
+       href="mailto:<?= $address->getAddress() ?>">
         <i class="fas fa-envelope fa-3x mr-3 text-muted"></i>
         <div class="text-left">
             <div><?= $address->user ?></div>

@@ -29,10 +29,9 @@ include ROOT . '/../src/Utils/lang-init.php';
 
 <main>
     <section
-            class="jumbotron jumbotron-fluid d-flex align-items-center bg-image treballa-amb-nosaltres blue filter text-white"
-            style="min-height: calc(100vh - 72px); margin-bottom:0">
+            class="jumbotron jumbotron-fluid d-flex align-items-center bg-image treballa-amb-nosaltres blue filter text-white full-height-jumbotron">
         <div class="container text-center">
-            <div style="text-shadow: 0 0 2rem black">
+            <div class="shadowed-text">
                 <h1 class="display-4 mb-3"><?= $m->t('work-with-us') ?></h1>
                 <p class="lead mb-4">
                     <?= $w->t('work-questions') ?>

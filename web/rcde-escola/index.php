@@ -71,7 +71,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                     $entrenadors = CosTecnicController::llistaEntrenadors();
                     foreach ($entrenadors as $key => $entrenador): ?>
                         <div class="col-lg-3 col-md-4 p-3 text-center user-card">
-                            <div class="transform-center p-3" style="width:8rem; height:8rem">
+                            <div class="transform-center p-3 avatar-cos-tecnic">
                                 <?php
                                 $nom_entrenador = str_replace(' ', '-', mb_strtolower($entrenador->nom_complet));
                                 if (file_exists(ROOT . "/assets/img/entrenadors/$nom_entrenador.webp")): ?>
@@ -79,7 +79,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                                          class="img-fit transform-center rounded-circle"
                                          width="96" height="96" alt="<?= $entrenador->nom_complet ?>">
                                 <?php else: ?>
-                                    <i class="fas fa-5x fa-user-circle mb-3 mt-2" style="opacity:.5"></i>
+                                    <i class="fas fa-5x fa-user-circle mb-3 mt-2 op-50"></i>
                                 <?php endif ?>
                             </div>
                             <h5><?= $entrenador->nom_complet ?></h5>
@@ -130,7 +130,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                                         } ?> mr-2"></i>
                                         <?= $host_name ?>
                                         <div class="d-flex align-items-center justify-content-end w-100">
-                                            <div class="badge badge-pill badge-secondary small mr-2" style="opacity:.8">
+                                            <div class="badge badge-pill badge-secondary small mr-2 op-80">
                                                 <?= strtoupper($url_titular['lang']) ?>
                                             </div>
                                             <i class="fas fa-external-link-square-alt text-secondary"></i>

@@ -31,15 +31,14 @@ include ROOT . '/../src/Utils/lang-init.php';
 
 <main>
     <section
-            class="jumbotron jumbotron-fluid d-flex align-items-center bg-image publicitat-i-empresa blue filter text-white"
-            style="margin-bottom: 0; text-shadow: 0 0 2rem black">
+            class="jumbotron jumbotron-fluid d-flex align-items-center bg-image publicitat-i-empresa blue filter text-white mb-0 shadowed-text">
         <div class="container text-center">
             <h1 class="display-4"><?= $m->t('contact') ?></h1>
             <p class="lead"><?= $c->t('contact-us') ?></p>
         </div>
     </section>
     <div class="bg-light pt-5">
-        <div class="container text-left" style="max-width: 500px">
+        <div class="container text-left contact-form-container">
             <?php
             $res = $_GET['res'] ?? '';
             if ($res === 'ok'): ?>
@@ -62,13 +61,12 @@ include ROOT . '/../src/Utils/lang-init.php';
                         <hr>
                         <pre><?= empty($_GET['msg']) ? $c->t('empty-err-msg') : $_GET['msg'] ?></pre>
                     <?php endif ?>
-                    <div class="mb-1" style="height: 32px">
+                    <div class="mb-1 contact-error-form-container">
                         <form class="needs-validation" action="/api/send-error-message.php" method="post" novalidate>
                             <input type="hidden" name="nom" value="<?= urlencode($_SESSION['nom'] ?? '') ?>">
                             <input type="hidden" name="email" value="<?= urlencode($_SESSION['email'] ?? '') ?>">
                             <input type="hidden" name="err" value="<?= urlencode($_GET['msg'] ?? '') ?>">
-                            <button type="submit" class="btn btn-danger btn-xl float-right"
-                                    style="padding: .4rem .8rem; font-size: .8rem">
+                            <button type="submit" class="btn btn-danger btn-xl float-right contact-error-form-submit-button">
                                 <?= $c->t('report-error') ?>
                             </button>
                         </form>

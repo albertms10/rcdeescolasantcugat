@@ -17,7 +17,7 @@ $link_pagina ??= '';
 <header>
     <nav class="navbar navbar-expand-lg navbar-light main-nav fixed-top py-2"
          id="mainNav">
-        <div class="container" style="min-height:4rem">
+        <div class="container main-nav-container">
             <?php
             $index_url = '';
             $resolved_index_url = null;
@@ -90,7 +90,7 @@ $link_pagina ??= '';
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $_SESSION['LOCALE'] ?>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right" style="font-size: small">
+                    <div class="dropdown-menu dropdown-menu-right font-size-small">
                         <?php foreach ($filtered_locales as $resolved_locale): ?>
                             <a class="dropdown-item<?= ($resolved_locale['locale'] === $_SESSION['LOCALE']) ? ' active' : '' ?>"
                                href="<?= $resolved_locale['url'] ?>"
@@ -109,8 +109,8 @@ $link_pagina ??= '';
 
     <?php if ($current_has_subnav): ?>
         <div class="nav-scroller position-absolute">
-            <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy"
-                 id="subNav" <?= ($link_pagina !== '/') ? '' : 'style="opacity: 1"' ?>>
+            <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy<?= ($link_pagina !== '/') ? '' : ' op-100' ?>"
+                 id="subNav">
                 <div class="container">
                     <div class="navbar-collapse" id="subNavbarResponsive">
                         <ul class="navbar-nav ml-auto"></ul>

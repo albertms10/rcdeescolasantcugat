@@ -91,8 +91,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                             <iframe data-src="https://www.youtube-nocookie.com/embed/<?= $matches[0] ?>?controls=0&hl=<?= $_SESSION['LOCALE'] ?>"
                                     frameborder="0" title="Reproductor YouTube"
                                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen class="lazyload" loading="lazy"
-                                    style="width:100%; height:100%"></iframe>
+                                    allowfullscreen class="w-100 h-100 lazyload" loading="lazy"></iframe>
                         <?php endif ?>
                     <?php endif ?>
                     <?php if (!$is_video):
@@ -204,9 +203,8 @@ include ROOT . '/../src/Utils/lang-init.php';
                                     ) ?>
                                 </p>
 
-                                <h5 class="mt-4 text-muted"><?= $h->t('contact-hours') ?></h5>
-                                <table class="table table-sm table-hover table-rounded table-borderless text-left m-auto"
-                                       style="width: fit-content">
+                                <h3 class="h5 mt-4 text-muted"><?= $h->t('contact-hours') ?></h3>
+                                <table class="table table-sm table-hover table-rounded table-borderless text-left m-auto w-fit-content">
                                     <tbody>
                                     <?php
                                     $timetable = [

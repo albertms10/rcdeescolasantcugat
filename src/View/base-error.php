@@ -41,10 +41,9 @@ try {
 <?php include ROOT . '/../src/View/header.php' ?>
 
 <main>
-    <section class="jumbotron jumbotron-fluid d-flex align-items-center position-relative"
-             style="min-height: calc(100vh - 72px); margin-bottom:0">
-        <div class="container text-center mb-4" style="z-index: 10">
-            <h2 class="display-1" style="color: var(--blau); opacity: 0.4"><?= $response_error->code ?></h2>
+    <section class="jumbotron jumbotron-fluid d-flex align-items-center position-relative full-height-jumbotron">
+        <div class="container text-center mb-4 z-index-10">
+            <h2 class="display-1 base-error-code"><?= $response_error->code ?></h2>
             <h1 class="display-4 mb-3"><?= $response_error->reason ?></h1>
             <p class="lead mb-4"><?= $response_error->description ?></p>
             <?php if ($response_error->code == 404):
@@ -58,8 +57,7 @@ try {
                 <?= $e->t('go-back-home') ?>
             </a>
         </div>
-        <div class="position-absolute overflow-hidden svg-icon-container blue w-100 h-100"
-             style="opacity: 0.14; padding: 4rem 20%">
+        <div class="position-absolute overflow-hidden svg-icon-container blue base-error-background w-100 h-100">
             <?= file_get_contents(ROOT . '/assets/img/logo/perico-rcde.svg') ?>
         </div>
     </section>

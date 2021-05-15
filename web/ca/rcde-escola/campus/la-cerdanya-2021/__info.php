@@ -10,7 +10,7 @@ use RCDE\Translation\Structure;
     <div class="container">
         <div class="row mt-lg-5">
             <div class="col-lg-8 order-lg-1 order-2 pr-lg-5">
-                <p class="lead" style="font-weight: inherit">
+                <p class="lead font-weight-inherit">
                     La <a href="<?= $s->resolvedUrl('rcde-escola')['url'] ?>">RCDE Escola Sant Cugat</a>
                     organitza el I RCDE Campus La Cerdanya, a la localitat de Bellver de Cerdanya, del
                     <time datetime="2021-06-28">dilluns <b>28 de juny</b></time>
@@ -59,7 +59,7 @@ use RCDE\Translation\Structure;
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="card bg-transparent mt-5" style="border-radius: .5rem; border: dashed 1px var(--blau)">
+                <div class="card bg-transparent mt-5 price-card">
                     <div class="card-body">
                         <p class="h3 text-primary">475&nbsp;€</p>
                         <ul class="small list-group list-group-flush">

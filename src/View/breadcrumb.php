@@ -13,8 +13,8 @@ $centered_breadcrumb ??= false;
 $not_found ??= false;
 ?>
 
-<nav class="m-auto"
-     aria-label="breadcrumb"<?= $centered_breadcrumb ? ' style="width: fit-content"' : '' ?>>
+<nav class="m-auto<?= $centered_breadcrumb ? ' w-fit-content' : '' ?>"
+     aria-label="breadcrumb">
     <ol class="breadcrumb<?= $centered_breadcrumb ? ' align-items-center' : '' ?>">
         <?php foreach ($paths as $key => $path):
             $current_paths = array_slice($paths, 0, $key + 1);

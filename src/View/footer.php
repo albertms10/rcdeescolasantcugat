@@ -13,32 +13,29 @@ use RCDE\Translation\Structure;
 <footer class="bg-light py-5 border-top">
     <div class="container d-flex justify-content-between flex-wrap mb-4">
         <div class="d-flex flex-wrap justify-content-center mb-4">
-            <img src="/assets/img/logo/Escoles_sant_cugat_rectangular.webp" class="w-auto mr-4" alt="Logo RCDE Escola"
-                 style="height:6rem" width="500" height="222">
-            <img src="/assets/img/logo/Pericos_blau.webp" class="w-auto" alt="Logo Pericos de Sant Cugat"
-                 style="height:6rem" width="500" height="240">
+            <img src="/assets/img/logo/Escoles_sant_cugat_rectangular.webp" class="w-auto mr-4 footer-logo"
+                 alt="Logo RCDE Escola" width="500" height="222">
+            <img src="/assets/img/logo/Pericos_blau.webp" class="w-auto footer-logo" alt="Logo Pericos de Sant Cugat"
+                 width="500" height="240">
         </div>
 
         <ul class="list-group list-group-horizontal text-center social-media justify-content-center flex-wrap">
             <?php
             $socials = [
                 new Social(
-                    icon: 'fab fa-facebook',
                     title: 'Facebook',
                     link: 'facebook.com/RCDEscolaSTC',
-                    color: '#3b5998',
+                    classname: 'fab fa-facebook social-fb-icon',
                 ),
                 new Social(
-                    icon: 'fab fa-instagram',
                     title: 'Instagram',
                     link: 'instagram.com/rcdescola_santcugat',
-                    color: '#3f729b',
+                    classname: 'fab fa-instagram social-ig-icon',
                 ),
                 new Social(
-                    icon: 'fab fa-youtube',
                     title: 'YouTube',
                     link: 'youtube.com/channel/UCyBL6WE136kShyBpVldvyOg',
-                    color: '#c4302b',
+                    classname: 'fab fa-youtube social-yt-icon',
                 ),
             ];
 
@@ -46,8 +43,7 @@ use RCDE\Translation\Structure;
                 <li class="list-group-item">
                     <a href="https://www.<?= $social->link ?>"
                        rel="external noopener nofollow noreferrer" target="_blank">
-                        <i class="<?= $social->icon ?> fa-2x mb-2"
-                           style="color: <?= $social->color ?>"></i>
+                        <i class="<?= $social->classname ?> fa-2x mb-2"></i>
                         <p class="mb-0"><?= $social->title ?></p>
                     </a>
                 </li>
