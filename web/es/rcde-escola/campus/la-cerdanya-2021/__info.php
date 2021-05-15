@@ -86,8 +86,8 @@ use RCDE\Translation\Structure;
                     width: 650, height: 434,
                     picture_names: [
                         'bellver_cerdanya',
-                        'camp_bellver',
                         'entrenament_rcde',
+                        'camp_bellver',
                         'recepcio_la_bruna',
                         'menjador_la_bruna',
                         'habitacio_la_bruna',
