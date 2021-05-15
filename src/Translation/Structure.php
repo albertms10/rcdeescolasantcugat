@@ -20,7 +20,8 @@ final class Structure extends Translator
         bool $include_filename = false,
     ): array
     {
-        session_start();
+        require ROOT . '/../src/Utils/start-secure-session.php';
+
         $locale ??= $_SESSION['LOCALE'];
         $localized_pathname = join('/', $this->findAlternatesOf(preg_split('/\//', $pathname), $locale));
 
@@ -53,7 +54,8 @@ final class Structure extends Translator
     ): string
     {
         if (empty($locale)) {
-            session_start();
+            require ROOT . '/../src/Utils/start-secure-session.php';
+
             $locale = $_SESSION['LOCALE'];
         }
 

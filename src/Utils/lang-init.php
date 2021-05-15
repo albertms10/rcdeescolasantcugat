@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+defined('ROOT') or define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
+require ROOT . '/../src/Utils/start-secure-session.php';
 
 $_SESSION['LOCALES'] ??= ['ca', 'es', 'en', 'zh'];
 $paths = preg_split('/\//', $_SERVER['SCRIPT_URL'], flags: PREG_SPLIT_NO_EMPTY);

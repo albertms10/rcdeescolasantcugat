@@ -19,7 +19,8 @@ abstract class Translator
 
     public function t(string $string, ?string $lang = null, string ...$params): string
     {
-        session_start();
+        require ROOT . '/../src/Utils/start-secure-session.php';
+
         $this->lang = $lang ?? $_SESSION['LOCALE'];
 
         if ($params) {
@@ -31,7 +32,8 @@ abstract class Translator
 
     private function translate(string $string): string
     {
-        session_start();
+        require ROOT . '/../src/Utils/start-secure-session.php';
+
         $lang = $this->lang;
 
         if (!array_key_exists($lang, $this->store)) {
@@ -84,7 +86,8 @@ abstract class Translator
 
     public function keyExists(string $key): bool
     {
-        session_start();
+        require ROOT . '/../src/Utils/start-secure-session.php';
+
         $this->lang = $lang ?? $_SESSION['LOCALE'];
 
         return $this->checkStoreFor($this->lang, $key);
@@ -123,7 +126,8 @@ abstract class Translator
 
     private function loadAllTranslationsFiles(): void
     {
-        session_start();
+        require ROOT . '/../src/Utils/start-secure-session.php';
+
         foreach ($_SESSION['LOCALES'] as $locale) {
             if ($this->checkStoreFor($locale)) continue;
             $this->loadTranslationsFile($locale);

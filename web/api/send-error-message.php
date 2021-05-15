@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 require_once ROOT . '/../src/Utils/check-if-email.php';
 require_once ROOT . '/../src/Utils/set-strict-error-handler.php';
 
-session_start();
+require ROOT . '/../src/Utils/start-secure-session.php';
 
 $nom = $_SESSION['nom'] = urldecode($_POST['nom']) ?? '';
 $email = $_SESSION['email'] = urldecode($_POST['email']) ?? '';
