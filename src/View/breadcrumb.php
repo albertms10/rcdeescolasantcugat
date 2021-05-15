@@ -10,6 +10,7 @@ use RCDE\Translation\Structure;
  */
 
 $centered_breadcrumb ??= false;
+$not_found ??= false;
 ?>
 
 <nav class="m-auto"
@@ -39,6 +40,11 @@ $centered_breadcrumb ??= false;
                 endif ?>
             </li>
         <?php endforeach ?>
+        <?php if ($not_found): ?>
+            <div class="badge badge-pill badge-secondary h-100 ml-3"
+               data-toggle="tooltip" title="<?= $response_error->reason ?? 'Not found' ?>">
+                <i class="fas fa-question question-badge-icon"></i>
+            </div>
+        <?php endif ?>
     </ol>
 </nav>
-

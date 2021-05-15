@@ -49,6 +49,7 @@ try {
             <p class="lead mb-4"><?= $response_error->description ?></p>
             <?php if ($response_error->code == 404):
                 $centered_breadcrumb = true;
+                $not_found = true;
                 include ROOT . '/../src/View/breadcrumb.php';
             endif ?>
             <a href="<?= $s->resolvedUrl('/')['url'] ?>"
