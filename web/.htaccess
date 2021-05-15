@@ -10,6 +10,37 @@ ErrorDocument 500 /errors/serverr.php
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
+<IfModule mod_headers.c>
+    Header set X-XSS-Protection       "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options        "SAMEORIGIN"
+
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    Header        set Referrer-Policy           "strict-origin-when-cross-origin"
+    Header        set Permissions-Policy        "fullscreen=(self)"
+
+    Header set Cross-Origin-Embedder-Policy: "require-corp; report-to='default'"
+    Header set Cross-Origin-Opener-Policy:   "same-origin;  report-to='default'"
+    Header set Cross-Origin-Resource-Policy: "same-site"
+
+    Header set Content-Security-Policy "\
+        default-src     'none';\
+        manifest-src    'self';\
+        frame-src       https://www.google.com https://www.youtube-nocookie.com;\
+        object-src      'none';\
+        script-src      'self' https://cdnjs.cloudflare.com;\
+        style-src       https: 'self';\
+        font-src        'self' https://fonts.gstatic.com;\
+        img-src         https: data: 'self';\
+        frame-ancestors 'self';\
+        form-action     'self';\
+        base-uri        'self';\
+        upgrade-insecure-requests;\
+    "
+      # require-trusted-types-for 'script';\
+      # trusted-types             default;\
+</IfModule>
+
 <filesMatch "\.(webp)$">
     Header set Content-Type: image/webp
 </filesMatch>
