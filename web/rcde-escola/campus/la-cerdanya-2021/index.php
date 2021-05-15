@@ -33,10 +33,7 @@ include ROOT . '/../src/Utils/lang-init.php';
 <main class="text-content">
     <?php
     $titol_pagina = 'I Campus RCDE · La Cerdanya';
-    $style = 'style="
-    background-image: url(\'/assets/img/noticies/campus-cerdanya-2021.webp\');
-    background-position: center;
-    "';
+    $classname = 'campus-la-cerdanya-2021-background';
     include ROOT . '/../src/View/jumbotron.php' ?>
 
     <section class="page-section bg-light pt-4 pb-2">
