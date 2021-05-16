@@ -3,6 +3,8 @@
 use RCDE\Model\CosTecnic;
 use RCDE\Translation\Escola;
 
+require_once ROOT . '/../src/Utils/ordinal.php';
+
 /**
  * @var CosTecnic $entrenador
  * @var Escola $e

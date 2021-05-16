@@ -10,8 +10,6 @@ use RCDE\Translation\Structure;
  * @var string $first_path
  */
 
-require_once ROOT . '/../src/Utils/ordinal.php';
-
 $m = new Main();
 $s = new Structure();
 ?>
