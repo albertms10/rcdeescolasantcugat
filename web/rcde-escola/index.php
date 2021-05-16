@@ -69,30 +69,9 @@ include ROOT . '/../src/Utils/lang-init.php';
                 <div class="row">
                     <?php
                     $entrenadors = CosTecnicController::llistaEntrenadors();
-                    foreach ($entrenadors as $key => $entrenador): ?>
-                        <div class="col-lg-3 col-md-4 p-3 text-center user-card">
-                            <div class="transform-center p-3 avatar-cos-tecnic">
-                                <?php
-                                $nom_entrenador = str_replace(' ', '-', mb_strtolower($entrenador->nom_complet));
-                                if (file_exists(ROOT . "/assets/img/entrenadors/$nom_entrenador.webp")): ?>
-                                    <img src="/assets/img/entrenadors/<?= $nom_entrenador ?>.webp"
-                                         class="img-fit transform-center rounded-circle"
-                                         width="96" height="96" alt="<?= $entrenador->nom_complet ?>">
-                                <?php else: ?>
-                                    <i class="fas fa-5x fa-user-circle mb-3 mt-2 op-50"></i>
-                                <?php endif ?>
-                            </div>
-                            <h5><?= $entrenador->nom_complet ?></h5>
-                            <h6 class="badge badge-pill badge-<?= match ($entrenador->id_rol_costecnic) {
-                                1 => 'warning',
-                                2 => 'primary',
-                                3 => 'success',
-                            } ?>"><?= $e->t($entrenador->rol_costecnic) ?></h6>
-                            <p class="text-translucent">
-                                <?= $e->t('season', null, ordinal($entrenador->count_temporades, locale: $_SESSION['LOCALE'])) ?>
-                            </p>
-                        </div>
-                    <?php endforeach ?>
+                    foreach ($entrenadors as $key => $entrenador) {
+                        require ROOT . '/../src/View/fitxa-cos-tecnic.php';
+                    } ?>
                 </div>
             </div>
         </div>
@@ -104,43 +83,9 @@ include ROOT . '/../src/Utils/lang-init.php';
             <div class="row">
                 <?php
                 $titulars_premsa = TitularPremsaController::llistaTitularsPremsa();
-                foreach ($titulars_premsa as $titular_premsa): ?>
-                    <div class="col-lg-6">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h4><?= $titular_premsa->text_titular ?></h4>
-                                <?php if (!empty($titular_premsa->data_titular)): ?>
-                                    <time datetime="<?= $titular_premsa->data_titular ?>">
-                                        <?= utf8_encode(strftime('%-e %B %Y', strtotime($titular_premsa->data_titular))) ?>
-                                    </time>
-                                <?php endif ?>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <?php foreach ($titular_premsa->getUrls() as $url_titular):
-                                    $host_name = str_replace('www.', '', parse_url($url_titular['url'], PHP_URL_HOST)) ?>
-                                    <a href="<?= $url_titular['url'] ?>"
-                                       class="list-group-item list-group-item-action d-flex align-items-center"
-                                       title="<?= $e->t('visit-new-window-or-tab', null, $host_name) ?>"
-                                       rel="external noopener"
-                                       target="_blank">
-                                        <i class="<?= match ($host_name) {
-                                            'youtube.com' => 'fab fa-youtube',
-                                            'issuu.com' => 'fas fa-book-open',
-                                            default => 'far fa-newspaper',
-                                        } ?> mr-2"></i>
-                                        <?= $host_name ?>
-                                        <div class="d-flex align-items-center justify-content-end w-100">
-                                            <div class="badge badge-pill badge-secondary small mr-2 op-80">
-                                                <?= strtoupper($url_titular['lang']) ?>
-                                            </div>
-                                            <i class="fas fa-external-link-square-alt text-secondary"></i>
-                                        </div>
-                                    </a>
-                                <?php endforeach ?>
-                            </ul>
-                        </div>
-                    </div>
-                <?php endforeach ?>
+                foreach ($titulars_premsa as $titular_premsa) {
+                    require ROOT . '/../src/View/retall-premsa.php';
+                } ?>
             </div>
         </div>
     </section>
