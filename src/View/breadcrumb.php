@@ -21,7 +21,7 @@ $not_found ??= false;
             $is_file = str_contains($path, '.');
             $is_current_page = ($paths === $current_paths);
             ?>
-            <li class="breadcrumb-item<?= $is_file || $is_current_page ? ' text-secondary' : '' ?>" aria-current="page">
+            <li class="breadcrumb-item<?= $is_file or $is_current_page ? ' text-secondary' : '' ?>" aria-current="page">
                 <?php
                 if ($is_file):
                     echo $path;
@@ -32,7 +32,7 @@ $not_found ??= false;
                         ? $m->t($structure_key)
                         : ucfirst(preg_replace('/[-_]/', ' ', $path));
 
-                    if ($resolved_url['exists'] && !$is_current_page): ?>
+                    if ($resolved_url['exists'] and !$is_current_page): ?>
                         <a href="<?= $resolved_url['url'] ?>"><?= $url_label ?></a>
                     <?php else:
                         echo $url_label;

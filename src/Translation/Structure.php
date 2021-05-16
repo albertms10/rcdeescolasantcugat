@@ -61,7 +61,7 @@ final class Structure extends Translator
 
         return ($full_path ? self::baseUrl() : '/')
             . (($explicit_locale or ($locale !== $_SESSION['DEFAULT_LOCALE'])) ? "$locale/" : '')
-            . ((empty($pathname) || $pathname == '/') ? '' : "$pathname/");
+            . ((empty($pathname) or $pathname === '/') ? '' : "$pathname/");
     }
 
     private static function baseUrl(bool $use_https = true): string

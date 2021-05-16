@@ -45,7 +45,7 @@ try {
             <h2 class="display-1 base-error-code"><?= $response_error->code ?></h2>
             <h1 class="display-4 mb-3"><?= $response_error->reason ?></h1>
             <p class="lead mb-4"><?= $response_error->description ?></p>
-            <?php if ($response_error->code == 404):
+            <?php if ($response_error->code === 404):
                 $centered_breadcrumb = true;
                 $not_found = true;
                 include ROOT . '/../src/View/breadcrumb.php';

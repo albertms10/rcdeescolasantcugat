@@ -101,7 +101,7 @@ include ROOT . '/../src/Utils/lang-init.php';
                         if (!empty($noticia->href)) {
                             $is_hash = ($noticia->href[0] === '#');
                             $is_inner_link = ($noticia->href[0] === '/');
-                            $is_ext_link = !$is_hash && !$is_inner_link;
+                            $is_ext_link = !$is_hash and !$is_inner_link;
                         } ?>
                         <a class="carousel-caption js-scroll-trigger"
                            href="<?= $is_hash ? '#' . $h->t(substr($noticia->href, 1))

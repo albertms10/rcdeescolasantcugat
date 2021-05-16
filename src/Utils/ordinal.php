@@ -4,7 +4,7 @@ function ordinal_ca(int $num, bool $is_fem = true): string
 {
     $sufix = match (true) {
         $is_fem => 'a',
-        ($num === 1) || ($num === 3) => 'r',
+        ($num === 1) or ($num === 3) => 'r',
         $num === 2 => 'n',
         $num === 4 => 't',
         default => 'è',
