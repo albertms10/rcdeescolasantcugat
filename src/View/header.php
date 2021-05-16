@@ -12,7 +12,7 @@ use RCDE\Translation\Structure;
  * @var string[] $paths
  */
 
-$link_pagina ??= '';
+$page_key ??= '';
 ?>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light main-nav fixed-top py-2"
@@ -22,7 +22,7 @@ $link_pagina ??= '';
             $index_url = '';
             $resolved_index_url = null;
 
-            if ($link_pagina === '/') {
+            if ($page_key === '/') {
                 $index_url = '#page-top';
             } else {
                 $resolved_index_url = $s->resolvedUrl('/');
@@ -52,7 +52,7 @@ $link_pagina ??= '';
                     <?php
                     $current_has_subnav = true;
                     foreach ($pagines as $pagina):
-                        $resolved_pagina_key = $s->findAlternateOf($pagina->titol_pagina, $_SESSION['LOCALE']);
+                        $resolved_pagina_key = $s->findAlternateOf($pagina->page_key, $_SESSION['LOCALE']);
                         $is_current = $resolved_pagina_key === $paths[0];
                         $pagina_url = '';
                         $resolved_pagina_url = null;
@@ -60,7 +60,7 @@ $link_pagina ??= '';
                         if ($is_current) {
                             $current_has_subnav = $pagina->has_subnav;
                             $pagina_url = '#page-top';
-                            $titol_pagina = $m->t($pagina->titol_pagina);
+                            $page_key = $m->t($pagina->page_key);
                         } else {
                             $resolved_pagina_url = $s->resolvedUrl($resolved_pagina_key);
                             $pagina_url = $resolved_pagina_url['url'];
@@ -70,7 +70,7 @@ $link_pagina ??= '';
                                href="<?= $pagina_url ?>"
                                 <?= empty($resolved_pagina_url) ? '' : "hreflang=\"{$resolved_pagina_url['locale']}\"" ?>
                             >
-                                <?= $m->t($pagina->titol_pagina) ?>
+                                <?= $m->t($pagina->page_key) ?>
                             </a>
                         </li>
                     <?php endforeach ?>
@@ -110,7 +110,7 @@ $link_pagina ??= '';
 
     <?php if ($current_has_subnav): ?>
         <div class="nav-scroller position-absolute">
-            <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy<?= ($link_pagina !== '/') ? '' : ' op-100' ?>"
+            <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy<?= ($page_key !== '/') ? '' : ' op-100' ?>"
                  id="subNav">
                 <div class="container">
                     <div class="navbar-collapse" id="subNavbarResponsive">

@@ -13,7 +13,7 @@ include ROOT . '/../src/Utils/lang-init.php';
 <html lang="<?= $_SESSION['LOCALE'] ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <?php $link_pagina = 'rcde-escola/campus/la-cerdanya-2021' ?>
+    <?php $page_key = 'rcde-escola/campus/la-cerdanya-2021' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
     /** @var Structure $s */
@@ -43,7 +43,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     </section>
 
     <?php include ROOT . $s->resolvedUrl(
-            pathname: $link_pagina,
+            pathname: $page_key,
             filename: '__info.php',
             explicit_locale: true,
             include_filename: true,

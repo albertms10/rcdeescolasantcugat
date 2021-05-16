@@ -50,15 +50,14 @@ endforeach ?>
 <?php endforeach ?>
 
 <?php
-$link_pagina ??= '';
-
+$page_key ??= '';
 $pagines = PaginaController::llistaPagines();
-$filtre_pagines = array_filter($pagines, fn($pagina) => ($pagina->link_pagina === $link_pagina));
+$filtre_pagines = array_filter($pagines, fn($pagina) => ($pagina->page_key === $page_key));
 
 $titol_pagina = '';
 if (count($filtre_pagines) === 1) {
     $pagina = array_shift($filtre_pagines);
-    $titol_pagina = $m->t($pagina->titol_pagina);
+    $titol_pagina = $m->t($pagina->page_key);
 }
 
 $title = ($titol_pagina !== '/') ? $titol_pagina : '';

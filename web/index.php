@@ -20,7 +20,7 @@ include ROOT . '/../src/Utils/lang-init.php';
 <html lang="<?= $_SESSION['LOCALE'] ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <?php $link_pagina = '/' ?>
+    <?php $page_key = '/' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
     /**
@@ -138,7 +138,7 @@ include ROOT . '/../src/Utils/lang-init.php';
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
                     <?php include ROOT . $s->resolvedUrl(
-                            pathname: $link_pagina,
+                            pathname: $page_key,
                             filename: '__about-us.php',
                             explicit_locale: true,
                             include_filename: true,
@@ -151,7 +151,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     <section class="page-section" id="<?= $h->t('how-we-are-id') ?>" data-heading="<?= $h->t('how-we-are') ?>">
         <div class="container">
             <?php include ROOT . $s->resolvedUrl(
-                    pathname: $link_pagina,
+                    pathname: $page_key,
                     filename: '__how-we-are.php',
                     explicit_locale: true,
                     include_filename: true,

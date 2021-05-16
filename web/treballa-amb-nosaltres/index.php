@@ -14,7 +14,7 @@ include ROOT . '/../src/Utils/lang-init.php';
 <html lang="<?= $_SESSION['LOCALE'] ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <?php $link_pagina = 'treballa-amb-nosaltres' ?>
+    <?php $page_key = 'work-with-us' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
     /** @var Main $m */
