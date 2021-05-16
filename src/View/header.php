@@ -52,7 +52,8 @@ $link_pagina ??= '';
                     <?php
                     $current_has_subnav = true;
                     foreach ($pagines as $pagina):
-                        $is_current = $pagina->link_pagina === $paths[0];
+                        $resolved_pagina_key = $s->findAlternateOf($pagina->titol_pagina, $_SESSION['LOCALE']);
+                        $is_current = $resolved_pagina_key === $paths[0];
                         $pagina_url = '';
                         $resolved_pagina_url = null;
 
@@ -61,7 +62,7 @@ $link_pagina ??= '';
                             $pagina_url = '#page-top';
                             $titol_pagina = $m->t($pagina->titol_pagina);
                         } else {
-                            $resolved_pagina_url = $s->resolvedUrl($pagina->link_pagina);
+                            $resolved_pagina_url = $s->resolvedUrl($resolved_pagina_key);
                             $pagina_url = $resolved_pagina_url['url'];
                         } ?>
                         <li class="nav-item d-flex align-items-center" <?= $is_current ? 'data-target="#page-top"' : '' ?>>
