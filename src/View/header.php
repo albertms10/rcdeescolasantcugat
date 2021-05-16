@@ -64,7 +64,7 @@ $link_pagina ??= '';
                             $resolved_pagina_url = $s->resolvedUrl($pagina->link_pagina);
                             $pagina_url = $resolved_pagina_url['url'];
                         } ?>
-                        <li class="nav-item d-flex align-items-center" data-target="#page-top">
+                        <li class="nav-item d-flex align-items-center" <?= $is_current ? 'data-target="#page-top"' : '' ?>>
                             <a class="nav-link js-scroll-trigger text-center<?= $is_current ? ' active' : '' ?>"
                                href="<?= $pagina_url ?>"
                                 <?= empty($resolved_pagina_url) ? '' : "hreflang=\"{$resolved_pagina_url['locale']}\"" ?>
