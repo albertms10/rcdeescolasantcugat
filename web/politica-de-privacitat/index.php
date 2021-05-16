@@ -13,10 +13,12 @@ include ROOT . '/../src/Utils/lang-init.php';
 <html lang="<?= $_SESSION['LOCALE'] ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <?php $page_key = 'privacy-policy' ?>
     <?php
     include ROOT . '/../src/View/incs-top.php';
-    /** @var Structure $s */
+    /**
+     * @var Structure $s
+     * @var string $pathname
+     */
 
     $p = new Privacy();
     ?>
@@ -32,7 +34,7 @@ include ROOT . '/../src/Utils/lang-init.php';
     <section class="page-section bg-light">
         <div class="container">
             <?php include ROOT . $s->resolvedUrl(
-                    pathname: $page_key,
+                    pathname: $pathname,
                     filename: '__privacy.php',
                     locale: 'es',
                     explicit_locale: true,

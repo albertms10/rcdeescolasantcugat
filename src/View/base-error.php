@@ -26,7 +26,6 @@ try {
 <html lang="<?= $_SESSION['LOCALE'] ?>" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <?php $page_key = $response_error->id ?>
     <?php
     include ROOT . '/../src/View/incs-top.php'
     /**

@@ -10,9 +10,8 @@ use RCDE\Translation\Structure;
  * @var string $pathname
  * @var Pagina[] $pagines
  * @var string[] $paths
+ * @var string $first_path
  */
-
-$page_key ??= '';
 ?>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light main-nav fixed-top py-2"
@@ -22,7 +21,7 @@ $page_key ??= '';
             $index_url = '';
             $resolved_index_url = null;
 
-            if ($page_key === '/') {
+            if ($pathname === '/') {
                 $index_url = '#page-top';
             } else {
                 $resolved_index_url = $s->resolvedUrl('/');
@@ -53,14 +52,14 @@ $page_key ??= '';
                     $current_has_subnav = true;
                     foreach ($pagines as $pagina):
                         $resolved_pagina_key = $s->findAlternateOf($pagina->page_key, $_SESSION['LOCALE']);
-                        $is_current = $resolved_pagina_key === $paths[0];
+                        $is_current = $resolved_pagina_key === $first_path;
                         $pagina_url = '';
                         $resolved_pagina_url = null;
 
                         if ($is_current) {
                             $current_has_subnav = $pagina->has_subnav;
                             $pagina_url = '#page-top';
-                            $page_key = $m->t($pagina->page_key);
+                            $titol_pagina = $m->t($pagina->page_key);
                         } else {
                             $resolved_pagina_url = $s->resolvedUrl($resolved_pagina_key);
                             $pagina_url = $resolved_pagina_url['url'];
@@ -110,7 +109,7 @@ $page_key ??= '';
 
     <?php if ($current_has_subnav): ?>
         <div class="nav-scroller position-absolute">
-            <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy<?= ($page_key !== '/') ? '' : ' op-100' ?>"
+            <nav class="navbar navbar-expand navbar-light main-nav fixed-top py-2 scrollspy<?= ($pathname !== '/') ? '' : ' op-100' ?>"
                  id="subNav">
                 <div class="container">
                     <div class="navbar-collapse" id="subNavbarResponsive">

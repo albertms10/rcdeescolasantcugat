@@ -18,6 +18,7 @@ $is_locale = in_array($first_path, $_SESSION['LOCALES']);
 if ($is_locale) {
     $lang_url = $first_path;
     $paths = array_slice($paths, 1);
+    $first_path = count($paths) > 0 ? $paths[0] : '';
 }
 
 $_SESSION['DEFAULT_LOCALE'] ??= $_SESSION['LOCALES'][0];

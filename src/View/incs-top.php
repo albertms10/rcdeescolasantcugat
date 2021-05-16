@@ -7,6 +7,7 @@ use RCDE\Translation\Structure;
 /**
  * @var string[][] $locale_codes
  * @var string[] $paths
+ * @var string $first_path
  */
 
 require_once ROOT . '/../src/Utils/ordinal.php';
@@ -50,9 +51,8 @@ endforeach ?>
 <?php endforeach ?>
 
 <?php
-$page_key ??= '';
 $pagines = PaginaController::llistaPagines();
-$filtre_pagines = array_filter($pagines, fn($pagina) => ($pagina->page_key === $page_key));
+$filtre_pagines = array_filter($pagines, fn($pagina) => ($pagina->page_key === $s->findKeyOf($first_path)));
 
 $titol_pagina = '';
 if (count($filtre_pagines) === 1) {
