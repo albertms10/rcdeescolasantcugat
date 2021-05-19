@@ -62,8 +62,8 @@ use RCDE\Translation\Structure;
         <p>
             Datos de contacto del responsable del tratamiento:
             <em>Pericos de Sant Cugat</em>, con CIF G63667646 y domicilio en C/ Sant Domènec, 34 bajos derecha, Sant
-            Cugat
-            del Vallès (Barcelona) España y correo electrónico de contacto pericossantcu@gmail.com
+            Cugat del Vallès (Barcelona) España y correo electrónico de contacto
+            <a href="mailto:pericossantcu@gmail.com">pericossantcu@gmail.com</a>.
         </p>
 
         <h3 id="derechos-proteccion-datos-usuarios" class="mt-5">¿Cuáles son los derechos de protección de datos de los
@@ -75,9 +75,8 @@ use RCDE\Translation\Structure;
 
         <ul>
             <li>
-                Derecho a solicitar el acceso a los datos personales: usted podrá preguntar a <em>Pericos de Sant
-                                                                                                  Cugat</em> si está
-                tratando sus datos, y en caso afirmativo acceder a los mismos
+                Derecho a solicitar el acceso a los datos personales: usted podrá preguntar a
+                <em>Pericos de Sant Cugat</em> si está tratando sus datos, y en caso afirmativo acceder a los mismos
             </li>
             <li>
                 Derecho a solicitar su rectificación si los datos son inexactos, o completar los datos que tengamos
@@ -98,8 +97,7 @@ use RCDE\Translation\Structure;
             <li>
                 Derecho a la portabilidad de los datos: en caso de que el usuario quiera que sus datos sean tratados por
                 otro responsable del tratamiento, <em>Pericos de Sant Cugat</em> le facilitará el trasvase de sus datos
-                al
-                nuevo responsable.
+                al nuevo responsable.
             </li>
             <li>
                 Derecho a no ser objeto de una decisión basada únicamente en el tratamiento automatizado de sus datos
@@ -129,11 +127,9 @@ use RCDE\Translation\Structure;
         </p>
         <p>
             Reclamación ante la Autoridad de Control: Si usted considera que <em>Pericos de Sant Cugat</em> está
-            tratando
-            sus datos personales de forma inapropiada, puede dirigir sus reclamaciones a <em>Pericos de Sant Cugat</em>
-            o
-            a la Autoridad de Control correspondiente. En España debe dirigirse ante la Agencia Española de Protección
-            de Datos.
+            tratando sus datos personales de forma inapropiada, puede dirigir sus reclamaciones a
+            <em>Pericos de Sant Cugat</em> o a la Autoridad de Control correspondiente. En España debe dirigirse ante la
+            Agencia Española de Protección de Datos.
         </p>
 
         <h3 id="en-que-casos-recabamos-datos-personales" class="mt-5">¿En qué casos recabamos datos personales sobre
@@ -148,8 +144,7 @@ use RCDE\Translation\Structure;
             Si usted decide proporcionarnos sus datos personales, <em>Pericos de Sant Cugat</em> podrá disponer de los
             datos que figuran en cada uno de los formularios que usted cumplimente o los que nos proporcione en las
             diferentes cuentas de correo electrónico que <em>Pericos de Sant Cugat</em> pone a su disposición para
-            ponerse
-            en contacto con nosotros.
+            ponerse en contacto con nosotros.
         </p>
         <p>
             Estos datos son tratados cuando usted interactúe con <em>Pericos de Sant Cugat</em>; cuando participe o
@@ -165,8 +160,7 @@ use RCDE\Translation\Structure;
             <em>Pericos de Sant Cugat</em> comunica a los usuarios a los que aplique, que los datos personales que nos
                                            faciliten y captemos serán identificados en el Registro de Actividades de
                                            Tratamiento titularidad de <em>Pericos de Sant Cugat</em>, siendo empleados
-                                           con
-                                           el propósito de:
+                                           con el propósito de:
         </p>
         <ul>
             <li>
@@ -251,7 +245,8 @@ use RCDE\Translation\Structure;
         </p>
         <p>
             Para más información sobre el uso de los modelos de contrato por parte de <em>Pericos de Sant Cugat</em>,
-            pónganse en contacto con nosotros en pericossantcu@gmail.com
+            pónganse en contacto con nosotros en
+            <a href="mailto:pericossantcu@gmail.com">pericossantcu@gmail.com</a>.
         </p>
 
         <h3 id="como-protegemos-datos-personales" class="mt-5">¿Cómo protegemos sus datos personales?</h3>
@@ -341,7 +336,8 @@ use RCDE\Translation\Structure;
             Este sitio web no está diseñado ni dirigido a menores de dieciocho (18) años, sin autorización de los padres
             o tutor legal. En este sentido, no recopilamos deliberadamente información de dichas personas. En cualquier
             caso, si los padres o representantes legales consideran que sus hijos nos han remitido datos personales, sin
-            su consentimiento, comuníquese con nosotros escribiendo a pericossantcu@gmail.com
+            su consentimiento, comuníquese con nosotros escribiendo a
+            <a href="mailto:pericossantcu@gmail.com">pericossantcu@gmail.com</a>.
         </p>
 
         <h3 id="toma-autorizada-decisiones" class="mt-5">Toma autorizada de decisiones</h3>
