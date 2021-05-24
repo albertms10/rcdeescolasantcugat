@@ -48,11 +48,11 @@ require_once ROOT . '/../src/Utils/minify.php';
         ]
     </script>
 
-    <script defer src="/assets/js/defer-magnific-popup-css.js"></script>
-    <script defer src="/assets/js/magnific-popup.js"></script>
-    <script defer src="/assets/js/make-navbar-translucent.js"></script>
-    <script defer src="/assets/js/nav-headers.js"></script>
-    <script defer src="/assets/js/zem-tooltip.js"></script>
+    <script defer src="/assets/js/defer-magnific-popup-css.min.js"></script>
+    <script defer src="/assets/js/magnific-popup.min.js"></script>
+    <script defer src="/assets/js/make-navbar-translucent.min.js"></script>
+    <script defer src="/assets/js/nav-headers.min.js"></script>
+    <script defer src="/assets/js/zem-tooltip.min.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll">

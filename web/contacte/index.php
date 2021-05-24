@@ -23,7 +23,7 @@ require_once ROOT . '/../src/Utils/minify.php';
     ?>
     <meta name="description" property="og:description" content="<?= $c->t('description') ?>" />
 
-    <script defer src="/assets/js/contact-form-validation.js"></script>
+    <script defer src="/assets/js/contact-form-validation.min.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll">

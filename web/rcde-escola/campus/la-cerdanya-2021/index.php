@@ -25,9 +25,9 @@ require_once ROOT . '/../src/Utils/minify.php';
     ?>
     <meta name="description" property="og:description" content="<?= $a->t('description') ?>" />
 
-    <script defer src="/assets/js/defer-magnific-popup-css.js"></script>
-    <script defer src="/assets/js/magnific-popup.js"></script>
-    <script defer src="/assets/js/nav-headers.js"></script>
+    <script defer src="/assets/js/defer-magnific-popup-css.min.js"></script>
+    <script defer src="/assets/js/magnific-popup.min.js"></script>
+    <script defer src="/assets/js/nav-headers.min.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll">

@@ -25,7 +25,7 @@ require_once ROOT . '/../src/Utils/minify.php';
     ?>
     <meta name="description" property="og:description" content="<?= $p->t('description') ?>" />
 
-    <script defer src="/assets/js/nav-headers.js"></script>
+    <script defer src="/assets/js/nav-headers.min.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll">

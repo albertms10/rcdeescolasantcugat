@@ -93,8 +93,8 @@ $full_title = ($title ? "$title · " : '') . 'RCDE Escola Sant Cugat';
 <link href="/assets/css/styles.min.css" rel="stylesheet">
 <link href="/assets/css/override.min.css" rel="stylesheet">
 
-<script src="/assets/js/defer-css.js"></script>
-<script src="/assets/js/defer-all-min-css.js"></script>
+<script src="/assets/js/defer-css.min.js"></script>
+<script src="/assets/js/defer-all-min-css.min.js"></script>
 
 <noscript>
     <link href="/assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -110,4 +110,4 @@ $full_title = ($title ? "$title · " : '') . 'RCDE Escola Sant Cugat';
 <script defer src="/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
 <!-- Custom scripts -->
-<script defer src="/assets/js/navbar-controller.js"></script>
+<script defer src="/assets/js/navbar-controller.min.js"></script>
