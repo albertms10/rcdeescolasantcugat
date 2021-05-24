@@ -16,7 +16,7 @@ ErrorDocument 500 /errors/serverr.php
     Header set X-Frame-Options        "SAMEORIGIN"
 
     Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
-    Header        set Referrer-Policy           "strict-origin-when-cross-origin"
+    Header        set Referrer-Policy           "strict-origin"
     Header        set Permissions-Policy        "fullscreen=(self)"
 
     Header set Cross-Origin-Embedder-Policy: "require-corp; report-to='default'"
