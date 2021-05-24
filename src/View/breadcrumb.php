@@ -21,7 +21,7 @@ $not_found ??= false;
             $is_file = str_contains($path, '.');
             $is_current_page = ($paths === $current_paths);
             ?>
-            <li class="breadcrumb-item<?= $is_file or $is_current_page ? ' text-secondary' : '' ?>" aria-current="page">
+            <li class="breadcrumb-item<?= ($is_file or $is_current_page) ? ' text-secondary' : '' ?>" aria-current="page">
                 <?php
                 if ($is_file):
                     echo $path;
