@@ -20,6 +20,8 @@ try {
 } catch (Exception $exception) {
     echo $exception;
 }
+
+require_once ROOT . '/../src/Utils/minify.php';
 ?>
 
 <!DOCTYPE html>
